@@ -1,0 +1,211 @@
+/* Solution content style */
+.solution-content {
+    padding: 10px;
+    word-wrap: break-word;
+    white-space: normal;
+    display: none;
+    transition: max-height 0.5s ease-out;
+}
+
+/* Container style */
+.container {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Exercise and solution content common styles */
+.exercise, .solution-content {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove box around exercise items */
+.exercise {
+    border: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Body style */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Headers for Exercises and Solutions */
+.exercise h3,
+.solution-content h3 {
+    font-size: 1.75em;
+    color: #007BFF; /* Bootstrap Blue */
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Enhanced List Styles */
+.exercises-page ol,
+.exercises-page ul {
+    padding-left: 20px;
+    list-style-position: inside;
+    margin: 0 0 20px 0; /* Add bottom margin for spacing */
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.exercises-page ol li,
+.exercises-page ul li {
+    margin-bottom: 15px; /* Increase spacing between list items */
+    padding-left: 5px; /* Indent mathematical content */
+    font-weight: bold; /* Bold the list items */
+}
+
+/* Enhanced Paragraph Styles */
+.exercises-page p {
+    margin: 10px 0 20px 0; /* Add bottom margin for spacing */
+    line-height: 1.6; /* Improve readability */
+}
+
+/* MathJax display style */
+.MathJax_Display {
+    display: inline-block;
+    max-width: 100%;
+    overflow: auto;
+}
+
+/* Button styles for show solution and back to exercise */
+.show-solution-button, .back-to-exercise-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white !important;
+    font-weight: bold;
+    border: 2px solid #007BFF;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+    text-align: center;
+    width: fit-content;
+}
+
+/* Hover and active states for buttons */
+.show-solution-button:hover, .back-to-exercise-button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 8px rgba(0, 86, 179, 0.3);
+    transform: scale(1.05);
+}
+
+.show-solution-button:active, .back-to-exercise-button:active {
+    background-color: #003f7f;
+    box-shadow: 0 2px 4px rgba(0, 63, 127, 0.3);
+    transform: scale(0.95);
+}
+
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.pagination button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.pagination button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+/* New styles to remove box around list items */
+ol {
+    padding-left: 20px;
+    list-style-position: inside;
+    margin: 0; /* Ensure no margins are added */
+    padding: 0; /* Ensure no padding is added */
+    border: none; /* Ensure no border is added */
+    background: none; /* Ensure no background color is added */
+}
+
+ol li {
+    margin-bottom: 10px;
+    border: none !important; /* Remove border */
+    background-color: transparent !important; /* Remove background */
+    padding: 0 !important; /* Remove padding */
+    box-shadow: none !important; /* Ensure no box-shadow is added */
+}
+
+/* Enhanced Show Solution Button */
+.show-solution-button {
+    margin-top: 20px;
+}
+
+/* Enhanced Back to Exercise Button */
+.back-to-exercise-button {
+    margin-top: 20px;
+}
+ /* General style reset for lists */
+      ol {
+    padding-left: 0;
+}
+
+/* Styles for ordered lists with boxed blue markers */
+ol[type="a"] {
+    list-style-type: none; /* Remove default list styles */
+    counter-reset: list-counter; /* Reset the counter */
+}
+
+ol[type="a"] > li {
+    counter-increment: list-counter; /* Increment counter */
+    margin-bottom: 8px;
+}
+
+ol[type="a"] > li::before {
+    content: counter(list-counter, lower-alpha); /* Lowercase alpha without period */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 1em; /* Reduced width */
+    height: 1em; /* Reduced height */
+    font-size: 1em; /* Reduced font size */
+    margin-right: 8px;
+    background-color: blue; /* Box color */
+    color: white; /* Text color */
+    border-radius: 3px; /* Box shape */
+}
+
+        /* Styles for ordered lists with circled green markers */
+        ol[type="1"] {
+            list-style-type: none; /* Remove default list styles */
+            counter-reset: list-counter; /* Reset the counter */
+        }
+
+        ol[type="1"] > li {
+            counter-increment: list-counter; /* Increment counter */
+            margin-bottom: 10px;
+        }
+
+        ol[type="1"] > li::before {
+            content: counter(list-counter); /* Numerical without period */
+            display: inline-block;
+            width: 2em;
+            height: 2em;
+            line-height: 2em;
+            text-align: center;
+            margin-right: 10px;
+            background-color: green; /* Circle color */
+            color: white; /* Text color */
+            border-radius: 50%; /* Circle shape */
+        }

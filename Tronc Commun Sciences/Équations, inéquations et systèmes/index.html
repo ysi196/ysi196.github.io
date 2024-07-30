@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logique Mathématique - 1 Bac Sciences Maths</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../exercise-style.css">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            "HTML-CSS": { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="exercises-page">
+    <header>
+        <h1>Arithmétique - Tronc Commun Science</h1>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../index.html">Back to Lessons</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="lesson-intro">
+            <h2>Welcome to: Arithmétique Dans N</h2>
+            <p>Let's get started!</p>
+        </section>
+        <section class="lesson-exercises">
+            <h2>Exercises</h2>
+            <ul id="exercise-list">
+                <!-- Exercises will be added here dynamically -->
+            </ul>
+        </section>
+        <section class="lesson-solutions">
+            <h2>Solutions</h2>
+            <ul id="solution-list">
+                <!-- Solutions will be added here dynamically -->
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>Contact us at info@mathexercises.com</p>
+    </footer>
+
+    <!-- Exercise Template -->
+    <script type="text/template" id="exercise-template">
+        <li id="exercise{{number}}">
+            <div class="exercise">
+                <h3>Exercise {{number}}</h3>
+                <div class="exercise-content">
+                    <p>{{exercise}}</p> <!-- LaTeX code for the exercise -->
+                    <a href="#solution{{number}}" class="solution-link show-solution-button">Show Solution</a>
+                </div>
+            </div>
+        </li>
+    </script>
+
+    <!-- Solution Template -->
+    <script type="text/template" id="solution-template">
+        <li id="solution{{number}}" class="solution-content" style="display:none;">
+            <h3>Solution for Exercise {{number}}</h3>
+            <p>{{solution}}</p> <!-- LaTeX code for the solution -->
+            <a href="#exercise{{number}}" class="back-to-exercise-link back-to-exercise-button">Back to Exercise</a>
+        </li>
+    </script>
+
+    <!-- JavaScript to Add Exercises and Solutions Dynamically -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function addExercise(number, exercise, solution) {
+                // Get the exercise and solution templates
+                const exerciseTemplate = document.getElementById('exercise-template').innerHTML;
+                const solutionTemplate = document.getElementById('solution-template').innerHTML;
+
+                // Replace placeholders with actual exercise data
+                const exerciseHTML = exerciseTemplate.replace(/{{number}}/g, number).replace('{{exercise}}', exercise);
+                const solutionHTML = solutionTemplate.replace(/{{number}}/g, number).replace('{{solution}}', solution);
+
+                // Append the exercise to the exercise list
+                document.getElementById('exercise-list').insertAdjacentHTML('beforeend', exerciseHTML);
+                // Append the solution to the solution list
+                document.getElementById('solution-list').insertAdjacentHTML('beforeend', solutionHTML);
+
+                // Re-initialize solution link event listeners
+                const solutionLinks = document.querySelectorAll('.solution-link');
+                solutionLinks.forEach(link => {
+                    link.removeEventListener('click', toggleSolution); // Remove any previous event listeners
+                    link.addEventListener('click', toggleSolution); // Add new event listener
+                });
+
+                // Re-initialize back-to-exercise link event listeners
+                const backLinks = document.querySelectorAll('.back-to-exercise-link');
+                backLinks.forEach(link => {
+                    link.removeEventListener('click', toggleSolution); // Remove any previous event listeners
+                    link.addEventListener('click', toggleSolution); // Add new event listener
+                });
+
+                // Render MathJax content
+                if (typeof MathJax !== 'undefined') {
+                    MathJax.typesetPromise();
+                }
+            }
+
+            function toggleSolution(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                const isSolutionVisible = targetElement.style.display === 'block';
+
+                if (this.classList.contains('solution-link')) {
+                    targetElement.style.display = isSolutionVisible ? 'none' : 'block';
+                    this.textContent = isSolutionVisible ? 'Show Solution' : 'Hide Solution';
+                } else {
+                    targetElement.style.display = 'block';
+                }
+
+                // Scroll to the target element
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (typeof MathJax !== 'undefined') {
+                    MathJax.typesetPromise();
+                }
+            }
+
+            // Example: Add exercises dynamically
+            addExercise(1, `\\( ax^2 + bx + c = 0 \\)`, 'The solution to the quadratic equation is given by the quadratic formula: \\( x = \\frac{{-b \\pm \\sqrt{{b^2 - 4ac}}}}{2a} \\).');
+            addExercise(2, `Solve the equation: \\( ax^2 + bx + c = 0 \\)`, 'The solution to the quadratic equation is given by the quadratic formula: \\( x = \\frac{{-b \\pm \\sqrt{{b^2 - 4ac}}}}{2a} \\).');
+            addExercise(3, `\\( ax^2 + bx + c = 0 \\)`, 'The solution to the quadratic equation is given by the quadratic formula: \\( x = \\frac{{-b \\pm \\sqrt{{b^2 - 4ac}}}}{2a} \\).');
+        });
+    </script>
+</body>
+</html>

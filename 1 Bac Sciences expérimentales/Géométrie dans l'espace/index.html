@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Géométrie dans l’espace - 1 Bac Sciences expérimentales</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <header>
+        <h1>Géométrie dans l’espace - 1 Bac Sciences expérimentales</h1>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../index.html">Back to Lessons</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="exercises-page">
+        <section class="lesson-intro">
+            <h2>Welcome to Géométrie dans l’espace</h2>
+        </section>
+        <section class="lesson-exercises">
+            <h2>Exercises</h2>
+            <ul>
+                <li>
+                    <div class="exercise">
+                        <h3>Exercise 1</h3>
+                        <p>Given the trigonometric identity, prove that...</p>
+                        <a href="#solution1" class="solution-link">Solution</a>
+                        <div id="solution1" class="solution-content">
+                            <p>Step-by-step solution for Exercise 1...</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="exercise">
+                        <h3>Exercise 2</h3>
+                        <p>Solve the equation...</p>
+                        <a href="#solution2" class="solution-link">Solution</a>
+                        <div id="solution2" class="solution-content">
+                            <p>Step-by-step solution for Exercise 2...</p>
+                        </div>
+                    </div>
+                </li>
+                <!-- Add more exercises as needed -->
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>Contact us at info@mathexercises.com</p>
+    </footer>
+    <script>
+        document.querySelectorAll('.solution-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const solution = this.nextElementSibling;
+                solution.style.display = solution.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>

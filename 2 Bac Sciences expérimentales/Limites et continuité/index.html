@@ -1,0 +1,2611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limites et Continuité - 2 Bac Sciences Ex</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../exercise-style.css">
+    <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <!-- MathJax configuration -->
+    <script type="text/javascript">
+        MathJax = {
+            tex: {
+                packages: ['base', 'ams'],
+                processEscapes: true
+            }
+        };
+    </script>
+</head>
+<body class="exercises-page">
+    <header>
+        <h1>Limites et Continuité - 2 Bac Sciences Ex </h1>
+        <nav class="top-exo-page">
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../index.html">Back to Lessons</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="lesson-intro">
+            <h2>Welcome to: Limites et Continuité </h2>
+            <p>Let's get started!</p>
+        </section>
+        <section class="lesson-exercises">
+            <h2>Exercises</h2>
+            <ul id="exercises-list">
+                <!-- Exercises will be added here dynamically -->
+            </ul>
+        </section>
+        <section class="lesson-solutions">
+            <h2>Solutions</h2>
+            <ul id="solutions-list">
+                <!-- Solutions will be added here dynamically -->
+            </ul>
+        </section>
+        <div class="pagination">
+            <button id="prev-button">Previous</button>
+            <button id="next-button">Next</button>
+        </div>
+    </main>
+    <footer>
+        <p>Contact us at info@mathexercises.com</p>
+    </footer>
+
+<script type="text/template" id="exercise-template">
+    <li id="exercise{{number}}">
+        <div class="exercise">
+            <h3>Exercise {{number}}</h3>
+            <div class="exercise-content">
+                <p>{{exercise}}</p>
+                <a href="#solution{{number}}" class="solution-link show-solution-button" data-target="solution{{number}}">Show Solution</a>
+            </div>
+        </div>
+    </li>
+</script>
+
+<script type="text/template" id="solution-template">
+    <li id="solution{{number}}" class="solution-content" style="display:none;">
+        <h3>Solution for Exercise {{number}}</h3>
+        <p>{{solution}}</p>
+        <a href="#exercise{{number}}" class="back-to-exercise-link show-solution-button" data-target="exercise{{number}}">Back to Exercise</a>
+    </li>
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const exercises = [
+        //EXERCICE 1 ------------------------------------------------------------------------------------------
+{
+    number: 1,
+    exercise: `
+      <ol type="1">
+        <li>\\( \\lim_{x \\to 1} \\frac{2x^3 + x^2 - 3}{x - 1} \\)</li>
+        <li>\\( \\lim_{x \\to 5} \\frac{\\sqrt{x - 1} - 2}{x - 5} \\)</li>
+        <li>\\( \\lim_{x \\to +\\infty} (x - 2 \\sqrt{x}) \\)</li>
+        <li>\\( \\lim_{x \\to 2} \\frac{x^3 - 8}{x^2 - 2x} \\)</li>
+        <li>\\( \\lim_{x \\to -1} \\frac{2x^3 + 3x^2 + 4x + 3}{x^2 + 3x + 2} \\)</li>
+        <li>\\( \\lim_{x \\to 5} \\frac{\\sqrt{x-1} - 2}{x - 5} \\)</li>
+        <li>\\( \\lim_{x \\to 4} \\frac{\\sqrt{x} - 2}{\\sqrt{x + 5} - 3} \\)</li>
+        <li>\\( \\lim_{x \\to -\\infty} \\sqrt{16x^2 + 1 }+ 4x \\)</li>
+        <li>\\( \\lim_{x \\to +\\infty} \\sqrt{x^2 + 1} - \\sqrt{x^2 - 1} \\)</li>
+        <li>\\( \\lim_{x \\to +\\infty} \\sqrt{x^2 + 4x} - x \\)</li>
+      </ol>
+    `,
+    solution: `
+      <ol  type="1">
+        <li>
+          On a : \\( \\lim_{x \\to 1} 2x^3 + x^2 - 3 = 0 \\) et \\( \\lim_{x \\to 1} (x - 1) = 0 \\)<br>
+          Donc il s'agit d'une forme indéterminée du type \\( \\frac{0}{0} \\).<br>
+          <b>1ère méthode : Factorisation par la division euclidienne</b><br>
+          <div style="display: inline-block;">
+            <table style="border-collapse: separate; border-spacing: 0;">
+              <tr>
+                <td>\\(2x^3 + x^2 - 3\\)</td>
+                <td style="border-left: 2px solid black; padding-left: 10px; border-bottom: 2px solid black;">\\(x - 1\\)</td>
+              </tr>
+              <tr>
+                <td>\\(-2x^3 + 2x^2\\)</td>
+              </tr>
+              <tr>
+                <td style="border-top: 2px solid black;">\\(0 + 3x^2 - 3\\)</td>
+              </tr>
+              <tr>
+                <td>\\(-3x^2 + 3x\\)</td>
+              </tr>
+              <tr>
+                <td style="border-top: 2px solid black;">\\(0 + 3x - 3\\)</td>
+              </tr>
+              <tr>
+                <td>\\(-3x + 3\\)</td>
+              </tr>
+              <tr>
+                <td style="border-top: 2px solid black;">\\(0 + 0\\)</td>
+              </tr>
+              <tr>
+                <td colspan="2" style="border-top: 2px solid black; text-align: left; border-left: 2px solid black;">\\(2x^2 + 3x + 3\\)</td>
+              </tr>
+            </table>
+          </div>
+          On obtient : \\( 2x^3 + x^2 - 3 = (x - 1)(2x^2 + 3x + 3) \\)<br>
+          Donc : \\[
+          \\lim_{x \\to 1} \\frac{2x^3 + x^2 - 3}{x - 1} = \\lim_{x \\to 1} \\frac{(x - 1)(2x^2 + 3x + 3)}{x - 1} = \\lim_{x \\to 1} (2x^2 + 3x + 3) = 8
+          \\]
+        </li>
+        <li>
+          On a : \\( \\lim_{x \\to 5} \\sqrt{x - 1} - 2 = \\sqrt{5 - 1} - 2 = 0 \\) et \\( \\lim_{x \\to 5} (x - 5) = 0 \\)<br>
+          Donc il s'agit d'une forme indéterminée du type \\( \\frac{0}{0} \\).<br>
+          <b>1ère méthode : Levens l'indétermination à l'aide de conjuguée</b><br>
+          \\[
+          \\lim_{x \\to 5} \\frac{\\sqrt{x - 1} - 2}{x - 5} = \\lim_{x \\to 5} \\frac{(\\sqrt{x - 1} - 2)(\\sqrt{x - 1} + 2)}{(x - 5)(\\sqrt{x - 1} + 2)}
+          \\]
+          \\[
+          = \\lim_{x \\to 5} \\frac{x - 1 - 4}{(x - 5)(\\sqrt{x - 1} + 2)} = \\lim_{x \\to 5} \\frac{x - 5}{(x - 5)(\\sqrt{x - 1} + 2)}
+          \\]
+          \\[
+          = \\lim_{x \\to 5} \\frac{1}{\\sqrt{x - 1} + 2} = \\frac{1}{4}
+          \\]
+        </li>
+        <li>
+          Il s'agit d'une forme indéterminée du type \\( \\infty - \\infty \\).<br>
+          <b>1ère méthode : Levens l'indétermination à l'aide d'une factorisation</b><br>
+          \\[
+          \\lim_{x \\to +\\infty} (x - 2 \\sqrt{x}) = \\lim_{x \\to +\\infty} x \\left(1 - \\frac{2}{\\sqrt{x}}\\right)
+          \\]
+          \\[
+          = \\lim_{x \\to +\\infty} \\left(1 - \\frac{2}{\\sqrt{x}}\\right) = +\\infty
+          \\]
+          Car \\( \\lim_{x \\to +\\infty} x = \\infty \\) et \\( \\lim_{x \\to +\\infty} \\frac{1}{\\sqrt{x}} = 0 \\).
+        </li>
+        <li>
+          On a : \\( x^3 - 8 = (x - 2)(x^2 + 2x + 4) \\) et \\( x^2 - 2x = x(x - 2) \\)<br>
+          Donc : \\[
+          \\lim_{x \\to 2} \\frac{x^3 - 8}{x^2 - 2x} = \\lim_{x \\to 2} \\frac{(x - 2)(x^2 + 2x + 4)}{x(x - 2)} = \\lim_{x \\to 2} \\frac{x^2 + 2x + 4}{x} = 6
+          \\]
+          D'où : \\[
+          \\lim_{x \\to 2} \\frac{x^3 - 8}{x^2 - 2x} = 6
+          \\]
+        </li>
+        <li>
+          On a : \\( x^2 + 3x + 2 = (x + 1)(x + 2) \\)<br>
+          Effectuons la division euclidienne de \\( 2x^3 + 3x^2 + 4x + 3 \\) par \\( x + 1 \\).<br>
+          <div style="display: inline-block;">
+            <table style="border-collapse: separate; border-spacing: 0;">
+              <tr>
+                <td>\\(2x^3 + 3x^2 + 4x + 3\\)</td>
+                <td style="border-left: 2px solid black; padding-left: 10px; border-bottom: 2px solid black;">\\(x + 1\\)</td>
+              </tr>
+              <tr>
+                <td>\\(-2x^3 - 2x^2\\)</td>
+                <td style="border-left: 2px solid black;"></td>
+              </tr>
+              <tr>
+                <td style="border-top: 2px solid black;">\\(0 + x^2 + 4x + 3\\)</td>
+                <td style="border-left: 2px solid black;"></td>
+              </tr>
+              <tr>
+                <td>\\(-x^2 - x\\)</td>
+                <td style="border-left: 2px solid black;"></td>
+              </tr>
+              <tr>
+                <td style="border-top: 2px solid black;">\\(0 + 3x + 3\\)</td>
+                <td style="border-left: 2px solid black;"></td>
+              </tr>
+              <tr>
+                <td>\\(-3x - 3\\)</td>
+                <td style="border-left: 2px solid black;"></td>
+              </tr>
+              <tr>
+                <td style="border-top: 2px solid black;">\\(0\\)</td>
+                <td style="border-left: 2px solid black;"></td>
+              </tr>
+            </table>
+          </div>
+          Donc : \\[
+          2x^3 + 3x^2 + 4x + 3 = (x + 1)(2x^2 + x + 3)
+          \\]
+          De (1) et (2) on déduit que : \\[
+          \\lim_{x \\to -1} \\frac{2x^3 + 3x^2 + 4x + 3}{x^2 + 3x + 2} = \\lim_{x \\to -1} \\frac{2x^2 + x + 3}{x + 2} = 4
+          \\]
+        </li>
+        <li>
+          On a : \\( \\lim_{x \\to 5} \\sqrt{x - 1} - 2 = \\sqrt{5 - 1} - 2 = 0 \\) et \\( \\lim_{x \\to 5} (x - 5) = 0 \\)<br>
+          Donc il s'agit d'une forme indéterminée du type \\( \\frac{0}{0} \\).<br>
+          <b>1ère méthode : Levens l'indétermination à l'aide de conjuguée</b><br>
+          \\[
+          \\lim_{x \\to 5} \\frac{\\sqrt{x - 1} - 2}{x - 5} = \\lim_{x \\to 5} \\frac{(\\sqrt{x - 1} - 2)(\\sqrt{x - 1} + 2)}{(x - 5)(\\sqrt{x - 1} + 2)}
+          \\]
+          \\[
+          = \\lim_{x \\to 5} \\frac{x - 1 - 4}{(x - 5)(\\sqrt{x - 1} + 2)} = \\lim_{x \\to 5} \\frac{x - 5}{(x - 5)(\\sqrt{x - 1} + 2)}
+          \\]
+          \\[
+          = \\lim_{x \\to 5} \\frac{1}{\\sqrt{x - 1} + 2} = \\frac{1}{4}
+          \\]
+        </li>
+        <li>
+          On a : \\( \\lim_{x \\to 4} \\frac{\\sqrt{x} - 2}{\\sqrt{x + 5} - 3} \\)<br>
+          <b>1ère méthode : Levens l'indétermination à l'aide de conjuguée</b><br>
+          \\[
+          \\lim_{x \\to 4} \\frac{\\sqrt{x} - 2}{\\sqrt{x + 5} - 3} = \\lim_{x \\to 4} \\frac{(\\sqrt{x} - 2)(\\sqrt{x} + 2)}{(\\sqrt{x + 5} - 3)(\\sqrt{x + 5} + 3)}
+          \\]
+          \\[
+          = \\lim_{x \\to 4} \\frac{x - 4}{(\\sqrt{x + 5} - 3)(\\sqrt{x + 5} + 3)} = \\lim_{x \\to 4} \\frac{x - 4}{(x + 5) - 9}
+          \\]
+          \\[
+          = \\lim_{x \\to 4} \\frac{1}{\\sqrt{x + 5} + 2} = \\frac{3}{2}
+          \\]
+        </li>
+        <li>
+          Calculons  : \\( \\lim_{x \\to -\\infty} \\sqrt{16x^2 + 1 }+ 4x \\)<br>
+          \\[
+          \\sqrt{16x^2 + 1 }+ 4x = \\frac{16x^2 + 1 - (4x)^2}{\\sqrt{16x^2 + 1} - 4x}
+          \\]
+          \\[
+          = \\frac{1}{\\sqrt{16x^2 + 1} - 4x}
+          \\]
+          Puisque : \\( \\lim_{x \\to -\\infty} \\sqrt{16x^2 + 1} = +\\infty \\) et \\( \\lim_{x \\to -\\infty} -4x = +\\infty \\)<br>
+          alors : \\[
+          \\lim_{x \\to -\\infty} \\sqrt{16x^2 + 1 }-4x = +\\infty
+          \\]
+          donc : \\[
+          \\lim_{x \\to -\\infty} \\frac{1}{\\sqrt{16x^2 + 1} - 4x} = 0
+          \\]
+          D'où : \\[
+          \\lim_{x \\to -\\infty} \\sqrt{16x^2 + 1 }+ 4x = 0
+          \\]
+        </li>
+
+     <li>
+                    Nous sommes en présence de la forme indéterminée «∞−∞». Pour lever cette indétermination, nous allons utiliser l'expression conjuguée.
+                    \\[
+                    f(x) = \\sqrt{x^2 + 1} - \\sqrt{x^2 - 1}
+                    \\]
+                    \\[
+                    = (\\sqrt{x^2 + 1} - \\sqrt{x^2 - 1}) \\times \\frac{\\sqrt{x^2 + 1} + \\sqrt{x^2 - 1}}{\\sqrt{x^2 + 1} + \\sqrt{x^2 - 1}}
+                    \\]
+                    \\[
+                    = \\frac{x^2 + 1 - (x^2 - 1)}{\\sqrt{x^2 + 1} + \\sqrt{x^2 - 1}}
+                    \\]
+                    \\[
+                    = \\frac{2}{\\sqrt{x^2 + 1} + \\sqrt{x^2 - 1}}
+                    \\]
+                    Or
+                    \\[
+                    \\lim_{x \\to +\\infty} \\sqrt{x^2 + 1} = \\lim_{x \\to +\\infty} \\sqrt{x^2} = +\\infty
+                    \\]
+                    Donc
+                    \\[
+                    \\lim_{x \\to +\\infty} \\sqrt{x^2 + 1} + \\sqrt{x^2 - 1} = +\\infty
+                    \\]
+                    Par conséquent
+                    \\[
+                    \\lim_{x \\to +\\infty} \\sqrt{x^2 + 1} - \\sqrt{x^2 - 1} = \\frac{2}{+\\infty} = 0
+                    \\]
+                </li>
+                <li>
+                    On procède de la même manière. Pour \\( x > 0 \\)
+                    \\[
+                    f(x) = \\sqrt{x^2 + 4x} - x
+                    \\]
+                    \\[
+                    = (\\sqrt{x^2 + 4x} - x) \\times \\frac{\\sqrt{x^2 + 4x} + x}{\\sqrt{x^2 + 4x} + x}
+                    \\]
+                    \\[
+                    = \\frac{x^2 + 4x - x^2}{\\sqrt{x^2 + 4x} + x}
+                    \\]
+                    \\[
+                    = \\frac{4x}{\\sqrt{x^2 + 4x} + x}
+                    \\]
+                    \\[
+                    = \\frac{4x}{x \\sqrt{1 + \\frac{4}{x}} + x}
+                    \\]
+                    \\[
+                    = \\frac{4}{\\sqrt{1 + \\frac{4}{x}} + 1}
+                    \\]
+                    Or
+                    \\[
+                    \\lim_{x \\to +\\infty} \\sqrt{1 + \\frac{4}{x}} = 1
+                    \\]
+                    Donc
+                    \\[
+                    \\lim_{x \\to +\\infty} \\sqrt{x^2 + 4x} - x = \\frac{4}{1 + 1} = 2
+                    \\]
+                </li>
+      </ol>
+    `
+},
+        // EXERCICE 2------------------------------------------------------------------------------------------
+{
+        number: 2,
+        exercise: ` Calculer les limites suivantes:
+            <ol  type="1">
+                <li>\\( \\lim_{x \\to 0} \\frac{2 \\sin(x)}{5x} \\)</li>
+                <li>\\( \\lim_{x \\to 0} \\frac{\\sin(3x)}{x} \\)</li>
+                <li>\\( \\lim_{x \\to +\\infty} x^2 + \\cos(x) \\)</li>
+                <li>\\( \\lim_{x \\to +\\infty} \\frac{2 \\cos(x) - 4}{x} \\)</li>
+                <li>\\( \\lim_{x \\to 0} \\frac{\\tan(2x)}{\\sin(6x)} \\)</li>
+            </ol>
+        `,
+        solution: `
+            <ol  type="1">
+                <li>
+                    \\[
+                    \\text{Rappel :} \\lim_{x \\to 0} \\frac{\\sin(x)}{x} = 1
+                    \\]
+                    Il vient alors que :
+                    \\[
+                    \\lim_{x \\to 0} \\frac{2 \\sin(x)}{5x} = \\lim_{x \\to 0} \\frac{2}{5} \\times \\frac{\\sin(x)}{x} = \\frac{2}{5}
+                    \\]
+                    Finalement,
+                    \\[
+                    \\lim_{x \\to 0} \\frac{2 \\sin(x)}{5x} = \\frac{2}{5}
+                    \\]
+                </li>
+                <li>
+                    \\[
+                    \\text{Rappel :} \\lim_{x \\to 0} \\frac{\\sin(x)}{x} = 1
+                    \\]
+                    Il vient alors que :
+                    \\[
+                    \\lim_{x \\to 0} \\frac{\\sin(3x)}{x} = \\lim_{x \\to 0} 3 \\times \\frac{\\sin(3x)}{3x}
+                    \\]
+                    Intéressons-nous maintenant au calcul de :
+                    \\[
+                    \\lim_{x \\to 0} \\frac{\\sin(3x)}{3x} = 1
+                    \\]
+                    Nous allons procéder par composition.
+                    On commence par calculer \\( \\lim_{x \\to 0} 3x \\). Ainsi : \\( \\lim_{x \\to 0} 3x = 0 \\).<br>
+                    On pose \\( X = 3x \\). Lorsque \\( x \\) tend vers 0, alors \\( X \\) tend vers 0.<br>
+                    Or : \\( \\lim_{x \\to 0} \\frac{\\sin(3x)}{3x} = \\lim_{X \\to 0} \\frac{\\sin(X)}{X} = 1 \\).<br>
+                    Par composition :
+                    \\[
+                    \\lim_{x \\to 0} \\frac{\\sin(3x)}{3x} = 1
+                    \\]
+                </li>
+                <li>
+                    \\[
+                    \\lim_{x \\to +\\infty} x^2 + \\cos(x)
+                    \\]
+                    Soit \\( x \\in \\mathbb{R} \\), on sait que :
+                    \\[
+                    -1 \\leq \\cos(x) \\leq 1 \\Rightarrow -1 + x^2 \\leq x^2 + \\cos(x) \\leq 1 + x^2
+                    \\]
+                    D'une part :
+                    \\[
+                    \\lim_{x \\to +\\infty} (-1 + x^2) = +\\infty
+                    \\]
+                    D'autre part :
+                    \\[
+                    \\lim_{x \\to +\\infty} (1 + x^2) = +\\infty
+                    \\]
+                    Attention, ici on ne peut pas conclure avec le théorème des gendarmes. En effet, les limites doivent être finies. Dans ce cas, on va utiliser le théorème de comparaison.
+                    Comme :
+                    \\[
+                    \\lim_{x \\to +\\infty} (-1 + x^2) = +\\infty \\text{ et que } -1 + x^2 \\leq x^2 + \\cos(x)
+                    \\]
+                    Alors, d'après le théorème de comparaison :
+                    \\[
+                    \\lim_{x \\to +\\infty} x^2 + \\cos(x) = +\\infty
+                    \\]
+                </li>
+                <li>
+                    \\[
+                    \\lim_{x \\to +\\infty} \\frac{2 \\cos(x) - 4}{x}
+                    \\]
+                    On va utiliser le théorème des gendarmes. Soit \\( x \\in \\mathbb{R} \\), on sait que :
+                    \\[
+                    -1 \\leq \\cos(x) \\leq 1
+                    \\]
+                    Alors :
+                    \\[
+                    -2 \\leq 2 \\cos(x) \\leq 2 \\Rightarrow -4 \\leq 2 \\cos(x) - 4 \\leq -2
+                    \\]
+                    Comme on est au voisinage de \\(+\\infty\\), alors \\( x \\) est strictement positif. (On ne changera pas le sens de l'inégalité quand on divisera par \\( x \\)).
+                    \\[
+                    \\frac{-6}{x} \\leq \\frac{2 \\cos(x) - 4}{x} \\leq \\frac{-2}{x}
+                    \\]
+                    D'une part :
+                    \\[
+                    \\lim_{x \\to +\\infty} \\frac{-6}{x} = 0
+                    \\]
+                    D'autre part :
+                    \\[
+                    \\lim_{x \\to +\\infty} \\frac{-2}{x} = 0
+                    \\]
+                    Finalement, d'après le théorème des gendarmes :
+                    \\[
+                    \\lim_{x \\to +\\infty} \\frac{2 \\cos(x) - 4}{x} = 0
+                    \\]
+                </li>
+                <li>
+                    \\[
+                    \\lim_{x \\to 0} \\frac{\\tan(2x)}{\\sin(6x)}
+                    \\]
+                    Soit \\( x \\) un réel tel que \\( \\tan(2x) \\) est définie et \\( \\sin(6x) \\neq 0 \\). On a :
+                    \\[
+                    \\frac{\\tan(2x)}{\\sin(6x)} = \\frac{\\tan(2x)}{\\sin(6x)} = \\frac{\\tan(2x)}{x} \\cdot \\frac{x}{\\sin(6x)}
+                    \\]
+                    Puisque :
+                    \\[
+                    \\lim_{x \\to 0} \\frac{\\sin(6x)}{x} = 6 \\text{ et } \\lim_{x \\to 0} \\frac{\\tan(2x)}{x} = 2
+                    \\]
+                    alors :
+                    \\[
+                    \\lim_{x \\to 0} \\frac{\\tan(2x)}{x} \\cdot \\frac{x}{\\sin(6x)} = \\frac{2}{6} = \\frac{1}{3} \\text{ d'où : } \\lim_{x \\to 0} \\frac{\\tan(2x)}{\\sin(6x)} = \\frac{1}{3}
+                    \\]
+                </li>
+            </ol>
+        `
+},
+        // EXERCICE 3-----------------------------------------------------------------------------------------
+{
+        number: 3,
+        exercise: `
+            <ol type="1">
+                <li>Soit \\( f \\) la fonction définie sur \\( \\mathbb{R} \\) par :
+                    \\[
+                    f(x) = 
+                    \\begin{cases}
+                    \\frac{x^2 - 5x + 4}{x - 1} & \\text{si } x \\neq 1 \\\\
+                    -3 & \\text{si } x = 1
+                    \\end{cases}
+                    \\]
+                     Montrer que \\( f \\) est continue en 1.
+                </li>
+                <li>  Montrer que la fonction \\( f \\) définie par :
+                    \\[
+                    f(x) = 
+                    \\begin{cases}
+                    \\frac{\\sqrt{x + 1} - 1}{\\tan(x)} & \\text{si } x \\neq 0 \\\\
+                    \\frac{1}{2} & \\text{si } x = 0
+                    \\end{cases}
+                    \\]
+                    est continue en 0.
+                </li>
+                <li>  Soit \\( g \\) la fonction définie par :
+                    \\[
+                    g(x) = 
+                    \\begin{cases}
+                    \\frac{\\sin(x - 2)}{x^2 - 2x} & \\text{si } x \\neq 0 \\text{ et } x \\neq 2 \\\\
+                    \\frac{1}{2} & \\text{si } x = 2
+                    \\end{cases}
+                    \\]
+                    Étudier la continuité de \\( g \\) en 2.
+                </li>
+            </ol>
+        `,
+        solution: `
+            <ol  type="1">
+                <li>
+                    Montrons que \\( f \\) est continue en 1.
+                    \\[
+                    \\lim_{x \\to 1} f(x) = \\lim_{x \\to 1} \\frac{x^2 - 5x + 4}{x - 1}
+                    \\]
+                    \\[
+                    = \\lim_{x \\to 1} \\frac{(x - 1)(x - 4)}{x - 1}
+                    \\]
+                    \\[
+                    = \\lim_{x \\to 1} (x - 4) = -3
+                    \\]
+                    \\[
+                    \\lim_{x \\to 1} f(x) = f(1) = -3 \\text{ donc } f \\text{ est continue en 1.}
+                    \\]
+                </li>
+                <li>
+                    Montrer que la fonction \\( f \\) définie par :
+                    \\[
+                    f(x) = 
+                    \\begin{cases}
+                    \\frac{\\sqrt{x + 1} - 1}{\\tan(x)} & \\text{si } x \\neq 0 \\\\
+                    \\frac{1}{2} & \\text{si } x = 0
+                    \\end{cases}
+                    \\]
+                    est continue en 0.
+                    \\[
+                    \\lim_{x \\to 0} \\frac{\\sqrt{x + 1} - 1}{\\tan(x)} = \\lim_{x \\to 0} \\frac{(\\sqrt{x + 1} - 1)(\\sqrt{x + 1} + 1)}{\\tan(x)(\\sqrt{x + 1} + 1)}
+                    \\]
+                    \\[
+                    = \\lim_{x \\to 0} \\frac{x}{\\tan(x)(\\sqrt{x + 1} + 1)}
+                    \\]
+                    \\[
+                    = \\lim_{x \\to 0} \\frac{1}{\\frac{tan(x)}{x}} \\cdot \\frac{1}{\\sqrt{x + 1} + 1}
+                    \\]
+                    \\[
+                    = \\frac{1}{1} \\times \\frac{1}{2}= \\frac{1}{2}.
+                    \\]
+                    \\[
+                    \\text{Donc } \\lim_{x \\to 0} f(x) = f(0)
+                    \\]
+                    Par suite, la fonction \\( f \\) est continue en 0.
+                </li>
+                <li>
+                    Soit \\( g \\) la fonction définie par :
+                    \\[
+                    g(x) = 
+                    \\begin{cases}
+                    \\frac{\\sin(x - 2)}{x^2 - 2x} & \\text{si } x \\neq 0 \\text{ et } x \\neq 2 \\\\
+                    \\frac{1}{2} & \\text{si } x = 2
+                    \\end{cases}
+                    \\]
+
+                    Étudions la continuité de \\( g \\) en 2.<br>
+                    On a:
+                    \\[
+                    \\lim_{x \\to 2} g(x) = \\lim_{x \\to 2} \\frac{\\sin(x - 2)}{x^2 - 2x}
+                    \\]
+                   
+                    \\[
+                    = \\lim_{x \\to 2} \\frac{\\sin(x - 2)}{x - 2} \\cdot \\frac{1}{x}
+                    \\]
+
+                    \\[
+                    = 1 \\times \\frac{1}{2} = \\frac{1}{2}= g(2)
+                    \\]
+
+                    Donc la fonction \\( g \\) est continue en 2.
+                </li>
+            </ol>
+        `
+},
+        // EXERCICE 4-----------------------------------------------------------------------------------------
+{
+        number: 4,
+        exercise: `
+            <ol  type="1">
+                <li>Soit \\( f \\) la fonction numérique définie par :
+                    \\[
+                    f(x) = 
+                    \\begin{cases}
+                    \\frac{2x^3 - x - 14}{x^2 - x - 2}, & x > 2 \\\\
+                    \\frac{x - 2}{2x^2 + x - 10}, & x < 2 \\\\
+                    \\frac{1}{9}, & x = 2
+                    \\end{cases}
+                    \\]
+                    Étudier la continuité de \\( f \\) en \\( x_0 = 2 \\).
+                </li>
+                <li>Soit \\( f \\) la fonction numérique définie par :
+                    \\[
+                    f(x) = 
+                    \\begin{cases}
+                    2 + x^2 \\sin\\left(\\frac{1}{x}\\right), & x \\neq 0 \\\\
+                    2, & x = 0
+                    \\end{cases}
+                    \\]
+                    Étudier la continuité de \\( f \\) en \\( x_0 = 0 \\).
+                </li>
+            </ol>
+        `,
+        solution: `
+            <ol  type="1">
+                <li>
+                    Calculons \\( \\lim_{x \\to 2^+} f(x) \\) et \\( \\lim_{x \\to 2^-} f(x) \\) :
+                    On a \\( (\\forall x \\in [2, +\\infty[) \\), 
+                    \\[
+                    f(x) = \\frac{2x^3 - x - 14}{x^2 - x - 2}
+                    \\]
+                    On a : \\( x^2 - x - 2 = (x + 1)(x - 2) \\).<br> Effectuons la division euclidienne de \\( 2x^3 - x - 14 \\) par \\( x - 2 \\) on obtient :
+                    \\[
+                    2x^3 - x - 14 = (x - 2)(2x^2 + 4x + 7)
+                    \\]
+                    Donc
+                    \\[
+                    \\lim_{x \\to 2^+} f(x) = \\lim_{x \\to 2^+} \\frac{2x^3 - x - 14}{x^2 - x - 2} = \\lim_{x \\to 2^+} \\frac{(x - 2)(2x^2 + 4x + 7)}{(x - 2)(x + 1)}
+                    \\]
+                    \\[
+                    = \\lim_{x \\to 2^+} \\frac{2x^2 + 4x + 7}{x + 1} = \\frac{23}{3}
+                    \\]
+                    C'est-à-dire \\( \\lim_{x \\to 2^+} f(x) \\neq f(2) \\).<br>
+                  \\( \\boxed{ \\text {D'où}  f \\text{ n'est pas continue à droite en 2.}} \\) <span style="color:Red ; font-weight: bold"> (1)</span>
+                    \\[
+                    \\text{On a } (\\forall x \\in ]-\\infty, 2]), \\ f(x) = \\frac{x - 2}{2x^2 + x - 10}
+                    \\]
+                    On a : \\( 2x^2 + x - 10 = (2x + 5)(x - 2) \\).
+                    Donc
+                    \\[
+                    \\lim_{x \\to 2^-} f(x) = \\lim_{x \\to 2^-} \\frac{x - 2}{2x^2 + x - 10} = \\lim_{x \\to 2^-} \\frac{x - 2}{(2x + 5)(x - 2)}
+                    \\]
+                    \\[
+                    = \\lim_{x \\to 2^-} \\frac{1}{2x + 5} = \\frac{1}{9} = f(2)
+                    \\]
+                    C'est-à-dire \\( \\lim_{x \\to 2^-} f(x) = f(2) \\).<br>
+\\( \\boxed{ \\text {D'où}  f \\text{ est  continue à gauche en 2.}} \\) <span style="color:Red ; font-weight: bold"> (2)</span>                   <span style="color:Red "> \\[
+                    \\text{De (1) et (2) on déduit que } f \\text{ n'est pas continue en 2.}
+                    \\] </span>
+                </li>
+                <li>
+                    Soit \\( f \\) la fonction numérique définie par :
+                    \\[
+                    f(x) = 
+                    \\begin{cases}
+                    2 + x^2 \\sin\\left(\\frac{1}{x}\\right), & x \\neq 0 \\\\
+                    2, & x = 0
+                    \\end{cases}
+                    \\]
+                    Calculons \\( \\lim_{x \\to 0} f(x) \\) :<br>
+                    Soit \\( x \\in \\mathbb{R}^* \\).<br>
+                    On a \\( -1 \\leq \\sin\\left(\\frac{1}{x}\\right) \\leq 1 \\) et \\( x^2 > 0 \\) donc \\( -x^2 \\leq x^2 \\sin\\left(\\frac{1}{x}\\right) \\leq x^2 \\) d'où
+                    \\[
+                    2 - x^2 \\leq f(x) \\leq 2 + x^2
+                    \\]
+                    puisque \\( \\lim_{x \\to 0} 2 - x^2 = 2 \\) et \\( \\lim_{x \\to 0} 2 + x^2 = 2 \\)<br> Alors \\( \\lim_{x \\to 0} f(x) = 2 \\) (d'après la propriété des limites et ordre).<br>
+                    C'est-à-dire \\( \\lim_{x \\to 0} f(x) = f(0) \\).<br>
+                    D'où \\( f \\) est continue en 0.
+                </li>
+            </ol>
+        `
+},
+        // EXERCICE 5-----------------------------------------------------------------------------------------
+{
+    number: 5,
+    exercise: ` 
+        Étudier la continuité de la fonction \\( f \\) sur \\( D_f \\) dans chaque cas :
+        <ol  type="1">
+            <li>\\( f(x) = x + \\sqrt{x + 1} \\)</li>
+            <li>\\( f(x) = 4x + 1 + \\frac{1}{x - 1} \\)</li>
+            <li>\\( f(x) = 2 \\sqrt{x} - x \\)</li>
+            <li>\\( f(x) = \\sqrt{\\frac{1 + x}{1 - x}} \\)</li>
+        </ol>
+    `,
+    solution: `
+    <ol type="1">
+
+        <li> <h4>Déterminons \\( D_f \\) :</h4>
+            On a \\( D_f = \\{ x \\in \\mathbb{R} \\ / \\ x + 1 \\geq 0 \\} = \\{ x \\in \\mathbb{R} \\ / \\ x \\geq -1 \\} = [-1, +\\infty[ \\).<br>
+            Étudions la continuité de \\( f \\) sur \\( [-1, +\\infty[ \\).<br>
+            <b>1. \\( f(x) = x + \\sqrt{x + 1} \\)</b><br>
+            La fonction \\( x \\mapsto x + 1 \\) est continue et positive sur \\( [-1, +\\infty[ \\). Donc la fonction \\( u : x \\mapsto \\sqrt{x + 1} \\) est continue sur \\( [-1, +\\infty[ \\).<br>
+            La fonction \\( v : x \\mapsto x \\) est une fonction polynôme donc elle est continue sur \\( \\mathbb{R} \\) et en particulier sur l'intervalle \\( [-1, +\\infty[ \\).<br>
+            Donc \\( f = u + v \\) est continue sur l'intervalle \\( [-1, +\\infty[ \\).<br>
+        </li>
+        <li> <h4>Déterminons \\( D_f \\) :</h4>
+            On a \\( D_f = \\{ x \\in \\mathbb{R} \\ / \\ x \\neq 1 \\} = \\{ x \\in \\mathbb{R} \\ / \\ x \\neq 1 \\} = ]-\\infty, 1[ \\cup ]1, +\\infty[ \\).<br>
+            Étudions la continuité de \\( f \\) sur \\( D_f = ]-\\infty, 1[ \\cup ]1, +\\infty[ \\).<br>
+            <b>2. \\( f(x) = 4x + 1 + \\frac{1}{x - 1} \\)</b><br>
+            \\( f_1 : x \\mapsto \\frac{1}{x - 1} \\) est une fonction rationnelle donc elle est continue en tout point de \\( D_f \\).<br>
+            \\( f_2 : x \\mapsto 4x + 1 \\) est une fonction polynôme donc elle est continue sur \\( \\mathbb{R} \\) et en particulier sur \\( D_f \\).<br>
+            Donc \\( f = f_1 + f_2 \\) est continue sur \\( ]-\\infty, 1[ \\cup ]1, +\\infty[ \\).<br>
+        </li>
+        <li>
+            <h4>Déterminons \\( D_f \\) :</h4>
+            On a \\( D_f = \\{ x \\in \\mathbb{R} \\ / \\ x \\geq 0 \\} = [0, +\\infty[ \\).<br>
+            Étudions la continuité de \\( f \\) sur \\( D_f = [0, +\\infty[ \\).<br>
+            <b>3. \\( f(x) = 2 \\sqrt{x} - x \\)</b><br>
+            \\( h : x \\mapsto \\sqrt{x} \\) est continue sur \\( [0, +\\infty[ \\) (fonction usuelle).<br>
+             \\( g : x \\mapsto x \\) est continue sur \\( \\mathbb{R} \\) et en particulier sur \\( [0, +\\infty[ \\).<br>
+            Donc \\( f = 2h - g \\) est continue sur \\( [0, +\\infty[ \\).<br>
+        </li>
+        <li>
+            <h4>On détermine \\( D_f \\) :</h4>
+            On a \\( D_f = \\{ x \\in \\mathbb{R} \\ / \\ 1 - x \\neq 0 \\ et \\ \\frac{1 + x}{1 - x} \\geq 0 \\} \\)<br>
+            \\( 1 - x \\neq 0 \\ \\Leftrightarrow \\ x \\neq 1 \\).<br>
+            Tableau de signe de \\( \\frac{1 + x}{1 - x} \\):<br>
+            
+       <style>
+    .sign-table {
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+    }
+    .sign-table td {
+        border: 1px solid black;
+        padding: 8px 15px;
+        text-align: center;
+        position: relative;
+        min-width: 30px;
+    }
+    .sign-table .no-border {
+        border: none;
+    }
+    .vertical-line {
+        position: relative;
+    }
+    .vertical-line::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: -1px;
+        width: 1px;
+        background-color: black;
+    }
+    .zero-top::before, .zero-bottom::after {
+        content: "0";
+        position: absolute;
+        font-size: 0.8em;
+    }
+    .zero-top::before {
+        top: -10px;
+        right: -5px;
+    }
+    .zero-bottom::after {
+        bottom: -10px;
+        right: -5px;
+    }
+</style>
+
+<table class="sign-table">
+    <tr>
+        <td>x</td>
+        <td>\\(-\\infty\\)</td>
+        <td>\\(-1\\)</td>
+        <td>\\(1\\)</td>
+        <td>\\(+\\infty\\)</td>
+    </tr>
+    <tr>
+        <td>\\(1+x\\)</td>
+        <td>\\(-\\)</td>
+        <td class="vertical-line"><div class="zero-top no-border">\\(0\\)</div></td>
+        <td>\\(+\\)</td>
+        <td>\\(+\\)</td>
+    </tr>
+    <tr>
+        <td>\\(1-x\\)</td>
+        <td>\\(+\\)</td>
+        <td>\\(+\\)</td>
+        <td class="vertical-line"><div class="zero-bottom no-border">\\(0\\)</div></td>
+        <td>\\(-\\)</td>
+    </tr>
+    <tr>
+        <td>\\(\\frac{1+x}{1-x}\\)</td>
+        <td>\\(-\\)</td>
+        <td class="vertical-line"><div class="zero-top no-border">\\(0\\)</div></td>
+        <td class="vertical-line"><div class="no-border">\\(-\\)</div></td>
+        <td>\\(-\\)</td>
+    </tr>
+</table>
+
+            Donc \\( \\frac{1 + x}{1 - x} \\geq 0 \\ \\Leftrightarrow \\ x \\in [-1,1[ \\).<br>
+            \\( D_f = [-1,1[ \\).<br>
+            Étudions la continuité de \\( f \\) sur \\( D_f = [-1,1[ \\).<br>
+            La fonction \\( u : x \\mapsto \\frac{1 + x}{1 - x} \\) est continue et positive sur \\( [-1,1[ \\), donc la fonction \\( f = \\sqrt{u} \\) est continue sur \\( [-1,1[ \\).<br>
+        </li>
+    </ol>
+
+    `
+},
+        // EXERCICE 6-----------------------------------------------------------------------------------------
+{
+    number: 6,
+    exercise: `
+        <ol  type="1">
+            <li>Soit \\( f \\) la fonction définie par
+                \\[
+                f(x) = \\frac{\\cos x}{x^2 + 1} \\quad ; \\quad I = \\mathbb{R}
+                \\]
+            Étudier la continuité de la fonction \\( f \\) sur \\( I \\).
+            </li>
+            <li>Soit \\( f \\) la fonction définie par
+                \\[
+                f(x) = \\sqrt{x \\sin x} \\quad ; \\quad I = [1; +\\infty[
+                \\]
+            Étudier la continuité de la fonction \\( f \\) sur \\( I \\).
+            </li>
+            <li>Soit \\( f \\) la fonction définie par
+                \\[
+                f(x) = \\frac{x^2 - 2x + 3}{2|x + 1| - 5}
+                \\]
+                Montrer que \\( f \\) est continue sur \\( D_f \\).
+            </li>
+            <li>Soit \\( f \\) la fonction définie par
+                \\[
+                f(x) = \\cos(2x^2 - 3x + 4)
+                \\]
+                Montrer que la fonction \\( f \\) est continue sur \\( \\mathbb{R} \\).
+            </li>
+            <li>Soit \\( F \\) la fonction définie sur \\( ]0;2[ \\) par :
+                \\[
+                F(x) = \\tan\\left(\\frac{(x-1)\\pi}{2}\\right)
+                \\]
+                Montrer que \\( F \\) est continue sur \\( ]0;2[ \\).
+
+            </li>
+              <li>Soit \\( f \\) la fonction définie par :
+                \\[
+                f(x) = 
+                \\begin{cases}
+                \\frac{3x^2 - 4x - 4}{x^2 - x - 2}, & x > 2 \\\\
+                \\frac{\\sqrt{x^2 + 5} - 3}{\\sqrt{x + 2} - 2}, & x < 2 \\\\
+                \\frac{8}{3}, & x = 2
+                \\end{cases}
+                \\]
+                <ol type="A">
+                    <li>Montrer que \\( f \\) est continue en 2.</li>
+                    <li>Montrer que \\( f \\) est continue sur l'intervalle \\( ]-2; +\\infty[ \\).</li>
+                </ol>
+            </li>
+        </ol>
+    `,
+    solution: `
+        <ol type="1">
+            <li>
+                La fonction \\( f \\) est continue sur \\( \\mathbb{R} \\) car c'est le quotient de deux fonctions continues \\( u \\) et \\( v \\) sur \\( \\mathbb{R} \\) (\\( f = \\frac{u}{v} \\)) qui sont :
+                \\[
+                u : x \\mapsto \\cos x \\text{ est continue sur } \\mathbb{R}.
+                \\]
+                \\[
+                v : x \\mapsto x^2 + 1 \\text{ est continue sur } \\mathbb{R} \\text{ et ne s'annule pas sur } \\mathbb{R}.
+                \\]
+            </li>
+            <li>
+                La fonction \\( f \\) est continue sur \\( [1; +\\infty[ \\) car c'est le produit de deux fonctions continues \\( u \\) et \\( v \\) (\\( f = uv \\)) qui sont :
+                \\[
+                u : x \\mapsto \\sqrt{x} \\text{ est continue sur } [0; +\\infty[ \\text{ et en particulier sur } [1; +\\infty[ \\text{ (fonction usuelle)}.
+                \\]
+                \\[
+                v : x \\mapsto \\sin x \\text{ est continue sur } \\mathbb{R} \\text{ et en particulier sur } [1; +\\infty[.
+                \\]
+            </li>
+            <li>
+                On a \\( D_f = \\mathbb{R} - \\left\\{ -\\frac{7}{2}, \\frac{3}{2} \\right\\} \\) soit \\( f_1(x) = x^2 - 2x + 3 \\) et \\( f_2(x) = 2|x + 1| - 5 \\).<br>
+            
+               \\( f_1 \\)  est continue sur \\(\\mathbb{R}\\)  car c'est une fonction polynôme en particulier est continue sur  \\( D_f \\).<br>
+                
+                
+                \\( f_2 \\)   est continue sur \\( \\mathbb{R}\\) ,car c'est la somme de deux fonctions continues sur \\(\\mathbb{R} \\) , en particulier est continue sur \\(D_f \\)  et tel que  \\( \\forall x \\in D_{f_2} \\quad  f_2(x) \\neq 0 \\) alors la fonction \\( f = \\frac{f_1}{f_2} \\) est continue sur \\( D_f \\).
+                            </li>
+            <li>
+                Comme les fonctions
+                \\[
+                f_1 : x \\mapsto 2x^2 - 3x + 4 \\quad \\text{et} \\quad f_2 : x \\mapsto \\cos x
+                \\]
+                sont continues sur \\( \\mathbb{R} \\),
+                \\[
+                Et (f_1(\\mathbb{R}) \\subseteq \\mathbb{R}) \\text{ alors la fonction } f = f_2 \\circ f_1 \\text{ est continue sur } \\mathbb{R}.
+                \\]
+            </li>
+            <li>
+                Posons \\( f(x) = \\frac{(x-1)\\pi}{2} \\) et \\( g(x) = \\tan x \\).
+                On a : pour tout \\( x \\in ]0;2[ \\),
+                \\[
+                F(x) = \\tan(f(x)) = g(f(x)) = (g \\circ f)(x) \\Rightarrow F = g \\circ f.
+                \\]
+                \\[
+                f \\text{ est continue sur } ]0;2[ \\text{ (restriction d'une fonction polynôme)}.
+                \\]
+                \\[
+                g \\text{ est continue sur } J = \\left] -\\frac{\\pi}{2}, \\frac{\\pi}{2} \\right[.
+                \\]
+                \\[
+                x \\in I = ]0;2[ \\Rightarrow 0 < x < 2 \\Rightarrow -1 < x - 1 < 1
+                \\]
+                \\[
+                \\Rightarrow -\\frac{\\pi}{2} < f(x) < \\frac{\\pi}{2} \\Rightarrow f(x) \\in J.
+                \\]
+                \\[
+                \\text{Donc } f(I) \\subset J.
+                \\]
+                \\[
+                \\text{Les trois conditions sont réalisées donc } F = g \\circ f \\text{ est continue sur } ]0;2[.
+                \\]
+            </li>
+
+             <li>
+            <ol type="A">
+                <li>
+                    Montrer que \\( f \\) est continue en 2.
+                    <p>
+                    \\[
+                    \\lim_{x \\to 2^+} f(x) = \\lim_{x \\to 2^+} \\frac{3x^2 - 4x - 4}{x^2 - x - 2} = \\lim_{x \\to 2^+} \\frac{(x - 2)(3x + 2)}{(x - 2)(x + 1)}
+                    \\]
+                    \\[
+                    = \\lim_{x \\to 2^+} \\frac{3x + 2}{x + 1} = \\frac{8}{3} = f(2)
+                    \\]
+                    Donc \\( f \\) est continue à droite de 2.
+                    </p>
+                    <p>
+                    \\[
+                    \\lim_{x \\to 2^-} f(x) = \\lim_{x \\to 2^-} \\frac{\\sqrt{x^2 + 5} - 3}{\\sqrt{x + 2} - 2} = \\lim_{x \\to 2^-} \\frac{(x^2 + 5 - 9)(\\sqrt{x + 2} + 2)}{(x - 2)(\\sqrt{x^2 + 5} + 3)}
+                    \\]
+                    \\[
+                    = \\lim_{x \\to 2^-} \\frac{(x - 2)(x + 2)(\\sqrt{x^2 + 5} + 3)}{(x - 2)(\\sqrt{x^2 + 5} + 3)} = \\frac{8}{3} = f(2)
+                    \\]
+                    Donc \\( f \\) est continue à gauche de 2.<br>
+                    Conclusion : \\( f \\) est continue en 2.
+                    </p>
+                </li>
+                <li>
+                    Montrer que \\( f \\) est continue sur l'intervalle \\( ]-2; +\\infty[ \\).
+                    <p>
+                    La fonction \\( u : x \\mapsto \\frac{3x^2 - 4x - 4}{x^2 - x - 2} \\) est continue sur toutes intervalles incluant \\( D_f = \\mathbb{R} \\setminus \\{-1,2\\} \\) car c’est une fonction rationnelle.<br>
+                    Donc elle est continue sur \\( ]2; +\\infty[ \\).
+                    </p>
+                    <p>
+                    La fonction \\( v : x \\mapsto \\sqrt{x^2 + 5} - 3 \\) est continue sur \\( ]-2;2[ \\).<br>
+                    La fonction \\( w : x \\mapsto \\frac{8}{3} \\) est continue sur \\( \\mathbb{R} \\).
+                    </p>
+                    <p>
+                    Donc \\( f \\) est continue sur \\( ]-2; +\\infty[ \\) en particulier sur \\( ]2; +\\infty[ \\) et \\( ]-2;2[ \\).<br>
+                    Conclusion : \\( f \\) est continue sur \\( ]-2; +\\infty[ \\).
+                    </p>
+                </li>
+            </ol>
+        </li>
+        </ol>
+    `
+},
+        // EXERCICE 7-----------------------------------------------------------------------------------------
+{
+    number: 7,
+    exercise: `
+        <p>
+            Calculer les images des intervalles suivants basées sur le graphique ci-dessus :
+        </p>
+        <div style="display: flex; align-items: center;">
+        <img src="graphe2.png" alt="Graphique de la fonction" width="400" 
+     height="350" />
+        <ol  type="1" >
+            <li>\\( ]0, 3[ \\)</li>
+            <li>\\( ]-2, 3[ \\)</li>
+            <li>\\( ]1, 3[ \\)</li>
+            <li>\\( [-1, 3[ \\)</li>
+            <li>\\( [-2, 0] \\)</li>
+        </ol>
+        </div>
+    `,
+    solution: `
+        <ol  type="1">
+            <li>\\(f( ]0, 3[) \\) = \\( ]-2, 6[ \\)</li>
+            <li>\\( f(]-2, 3[) \\) = \\( ]-3, 7[ \\)</li>
+            <li>\\( f(]1, 3[ )\\) = \\( ]-3, 6[ \\)</li>
+            <li>\\( f([-1, 3[) \\) = \\( [-3, 6[ \\)</li>
+            <li>\\( f([-2, 0]) \\) = \\( [-2, 7] \\)</li>
+        </ol>
+    `
+},
+    // EXERCICE 8-----------------------------------------------------------------------------------------
+{
+    number: 8,
+    exercise: `
+        <p>
+            Déterminer les images des intervalles suivants :
+        </p>
+        <div style="display: flex; align-items: center;">
+            <img src="table1.png" alt="Graphique de la fonction" width="400" height="250" style="margin-right: 20px;" />
+            <ol  type="1" style="margin-left: 20px;">
+                <li>\\( \\mathbb{R} \\)</li>
+                <li>\\( ]-\\infty, -3] \\)</li>
+                <li>\\( [-3, +\\infty[ \\)</li>
+                <li>\\( ]-3, 4[ \\)</li>
+                <li>\\( ]-\\infty, 4] \\)</li>
+            </ol>
+        </div>
+    `,
+    solution: `
+        <p>Les images des intervalles sont :</p>
+        <ol  type="1">
+            <li>\\( f(\\mathbb{R}) = ]-2, 3[ \\)</li>
+            <li>\\( f(]-\\infty, -3]) = [-2, 3[ \\)</li>
+            <li>\\( f([-3, +\\infty[) = [-2, 0] \\)</li>
+            <li>\\( f(]-3, 4[) = ]-2, 0[ \\)</li>
+            <li>\\( f(]-\\infty, 4]) = ]-2, 3[ \\)</li>
+        </ol>
+    
+    `
+},
+    // EXERCICE 9-----------------------------------------------------------------------------------------
+{
+    number: 9,
+    exercise: `
+        <p>
+            Déterminer l'image de l'intervalle \\( I\\) par la fonction \\( f \\) dans chacun des cas suivants:
+        </p>
+        <ol  type="1">
+            <li >\\( f(x) = x^2 - 2x + 3 \\) ; \\( I = [1; +\\infty[ \\)</li>
+            <li >\\( f(x) = \\frac{2x + 3}{x + 1} \\) ; \\( \\text{ Cas 1: } I = [0; 3] \\) ; \\( \\text{ Cas 2: } I = ]-1; +\\infty[ \\)</li>
+        </ol>
+    `,
+    solution: `
+        <p>Les images des intervalles sont :</p>
+        <ol   type="1">
+            <li>
+                <p>Pour \\( f(x) = x^2 - 2x + 3 \\) et \\( I= [1; +\\infty[ \\):</p>
+                <p>Continuité:</p>
+                <p>La fonction \\( f \\) est continue sur \\( \\mathbb{R} \\) car c'est une fonction polynôme.</p>
+                <p>Variations:</p>
+               <p>La fonction f est dérivable sur \\( \\mathbb{R} \\) et on: \\[  \\boxed{f'(x) = 2x-2=2(x-1)}\\] </p>
+                <img src="table2.png" alt="Graphique de la fonction" width="500" height="250" style="margin-right: 20px;" />
+                <p>Détermination de \\( f([1; +\\infty[) \\):</p>
+                <p>Sur l'intervalle \\( [1; +\\infty[ \\), la fonction \\( f \\) est continue et strictement croissante.</p>
+                <p>Donc :</p>
+                <p>
+                    \\[
+                    f([1; +\\infty[) = [f(1); \\lim_{x \\to +\\infty} f(x)] = [2; +\\infty[
+                    \\]
+                </p>
+            </li>
+
+            <li>
+                <p>Pour \\( f(x) = \\frac{2x + 3}{x + 1} \\) :</p>
+                <ul>
+                    <li> Cas 1: \\( I_1 = [0; 3] \\) : \\( f([0; 3]) = [1, 3] \\)</li>
+                    <li> Cas 2: \\( I_2 = ]-1; +\\infty[ \\) : \\( f(]-1; +\\infty[) = ]-\\infty, 3[ \\)</li>
+                </ul>
+            </li>
+        </ol>
+
+        <ol>
+
+        <p>La fonction \\( f \\) est continue sur tout intervalle de son ensemble de définition \\( ]-\\infty, -1[ \\cup ]-1, +\\infty[ \\).</p>
+        <h4>Variation :</h4>
+        <p>On a :</p>
+        <div style="text-align: center;">
+            \\[
+            f'(x) = \\frac{-1}{(x + 1)^2}
+            \\]
+        </div>
+        <p>\\( \\forall x \\in \\mathbb{R} \\setminus \\{-1\\} \\), \\( f'(x) < 0 \\) donc \\( f \\) est strictement décroissante sur \\( ]-\\infty, -1[ \\) et sur \\( ]-1, +\\infty[ \\).</p>
+        <h4>Détermination des images des intervalles :</h4>
+        <p>On a :</p>
+        <ul>
+            <li>\\( f([0; 3]) = [f(3); f(0)] = \\left[ \\frac{9}{4}, 3 \\right] \\)</li>
+            <li>\\( f(]-\\infty; -1[) = ]-\\infty, 2[ \\)</li>
+            <li>\\( f([-1; +\\infty[) = [1; 2[ \\)</li>
+        </ul>
+        </ol>
+    `
+},
+    // EXERCICE 10-----------------------------------------------------------------------------------------
+{
+    number: 10,
+    exercise: `
+        <p>Soit \\( f \\) une fonction dont le tableau de variations est donné ci-dessous :</p>
+        <div style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
+            <img src="table3.png" alt="Tableau de variations de f" width="600" height="220" />
+        </div>
+        <p>
+            En utilisant les informations fournies par ce tableau de variations, déterminez et justifiez le nombre de solutions de l'équation \\( f(x) = 0 \\) sur l'ensemble des réels \\( \\mathbb{R} \\).
+        </p>
+    `,
+    solution: `
+        <ul >
+            <li>
+                <p>Sur \\( ]-\\infty, -2] \\) :</p>
+                <p>Sur cet intervalle, \\( f(x) \\leq -5 \\). 
+                Donc \\( f(x) \\) est toujours strictement négatif et l'équation \\( f(x) = 0 \\) n'a pas de solution ici.</p>
+            </li>
+            <li>
+                <p>Sur \\( [-2, +\\infty[ \\) :</p>
+                <p>\\( f \\) est continue et strictement croissante sur cet intervalle.</p>
+                <p>On a : \\( f(-2) = -8 \\) et \\( \\lim_{x \\to +\\infty} f(x) = 5 \\)</p>
+                <p>Notons que 0 est compris entre ces deux valeurs : \\( 0 \\in ]-8, 5[ \\)</p>
+            </li>
+            <li>
+                <p>Application du TVI :</p>
+                <p>Comme \\( f \\) est continue et strictement croissante sur \\( [-2, +\\infty[ \\), et que 0 est compris entre les valeurs aux bornes de cet intervalle,  le théorème des valeurs intermédiaires garantit l'existence d'une unique solution à \\( f(x) = 0 \\) sur cet intervalle.</p>
+            </li>
+            <li>
+                <p >Conclusion :</p>
+                <p>L'équation \\( f(x) = 0 \\) possède exactement une solution sur \\( \\mathbb{R} \\), et cette solution se trouve dans l'intervalle \\( [-2, +\\infty[ \\).</p>
+            </li>
+        </ol>
+    `
+},
+    // EXERCICE 11-----------------------------------------------------------------------------------------
+{
+    number: 11,
+    exercise: `
+        <p>Soit \\( f \\) une fonction dont le tableau de variations est donné ci-dessous :</p>
+        <div style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
+            <img src="table4.png" alt="Tableau de variations de f" width="600" height="250" />
+        </div>
+        <p>
+            En utilisant les informations fournies par ce tableau de variations, déterminez et justifiez le nombre de solutions de l'équation \\( f(x) = 1 \\) sur l'ensemble des réels \\( \\mathbb{R} \\).
+        </p>
+    `,
+    solution: `
+        <ol>
+                <p> Sur \\( ]-\\infty, -3[ \\cup ]-3, 5] \\) :</p>
+                <p>Sur ces intervalles, \\( f(x) < 1 \\). Donc l'équation \\( f(x) = 1 \\) n'a pas de solution ici.</p>
+            
+                <p>Solution particulière :</p>
+                <p>\\( f(-3) = 1 \\). Donc \\( x = -3 \\) est une solution de l'équation \\( f(x) = 1 \\).</p>
+                <p> Sur \\( [5, +\\infty[ \\) :</p>
+                <p>\\( f \\) est continue sur cet intervalle.</p>
+                <p>\\( f(5) = -3 \\) et \\( \\lim_{x \\to +\\infty} f(x) = +\\infty \\)</p>
+                <p>Application du Théorème des Valeurs Intermédiaires (TVI) :</p>
+                <p>Comme \\( f \\) est continue sur \\( [5, +\\infty[ \\) et que \\( 1 \\in ]-3, +\\infty[ \\), le TVI garantit l'existence d'au moins une solution à \\( f(x) = 1 \\) sur cet intervalle.</p>
+                <p>De plus, comme \\( f \\) est strictement croissante sur cet intervalle, cette solution est unique.</p>
+                <p>Conclusion :</p>
+                <p>L'équation \\( f(x) = 1 \\) possède exactement deux solutions sur \\( \\mathbb{R} \\) :</p>
+                <ul>
+                    <li>\\( x = -3 \\)</li>
+                    <li>Une valeur unique dans l'intervalle \\( ]5, +\\infty[ \\)</li>
+                </ul>
+        </ol>
+    `
+},
+    // EXERCICE 12-----------------------------------------------------------------------------------------
+{
+    number: 12,
+    exercise: `
+        <p>Soit \\( f \\) la fonction définie sur \\( \\mathbb{R} \\) par : \\( f(x) = x^3 - 3x + 1 \\)</p>
+        <ol type="1">
+            <li>Démontrez que l'équation \\( f(x) = 0 \\) admet une unique solution \\( \\alpha \\) sur l'intervalle \\( ]-1,1[ \\).</li>
+            <li>Déterminez un encadrement de \\( \\alpha \\) d'amplitude \\( 25 \\times 10^{-2} \\) en utilisant la méthode de dichotomie.</li>
+        </ol>
+    `,
+    solution: `
+      <ol type="1">
+        <li> Démonstration de l'existence et de l'unicité de \\( \\alpha \\) sur \\( ]-1,1[ \\)</h4>
+        
+        <p style="color: Blue;"><strong>a) Existence :</strong></p>
+        <ul>
+            <li>\\( f \\) est continue sur \\( \\mathbb{R} \\) car c'est une fonction polynomiale.</li>
+            <li>Calculons : \\( f(-1) = (-1)^3 - 3(-1) + 1 = -1 + 3 + 1 = 3 \\)</li>
+            <li>Et : \\( f(1) = (1)^3 - 3(1) + 1 = 1 - 3 + 1 = -1 \\)</li>
+            <li>Donc : \\( f(-1) \\times f(1) = 3 \\times (-1) = -3 < 0 \\)</li>
+            <li>D'après le théorème des valeurs intermédiaires, il existe au moins un réel \\( \\alpha \\in ]-1,1[ \\) tel que \\( f(\\alpha) = 0 \\).</li>
+        </ul>
+
+        <p style="color: Blue;" ><strong>b) Unicité :</strong></p>
+        <ul>
+            <li>Calculons la dérivée de \\( f \\) : \\( f'(x) = 3x^2 - 3 = 3(x^2 - 1) \\)</li>
+            <li>Sur \\( ]-1,1[ \\), \\( x^2 - 1 < 0 \\), donc \\( f'(x) < 0 \\)</li>
+            <li>Ainsi, \\( f \\) est strictement décroissante sur \\( ]-1,1[ \\)</li>
+            <li>Donc \\( \\alpha \\) est unique sur \\( ]-1,1[ \\)</li>
+        </ul>
+        <p style="color: Red;"> Conclusion: l'équation \\( f(x) = 0 \\) admet une unique solution \\( \\alpha \\) sur l'intervalle \\( ]-1,1[ \\) </p>
+        <h4>2. Encadrement de \\( \\alpha \\) par dichotomie</h4> </li>
+        <li>
+
+        <p>Appliquons la méthode de dichotomie :</p>
+        <ul>
+            <li>
+                étape 1:Intervalle initial : \\( [-1, 1] \\)
+                <br>Centre : \\( \\frac{-1+1}{2} = 0 \\)
+                <br>\\( f(0) = 1 > 0 \\) et \\( f(1) = -1 < 0 \\)
+                <br>Donc \\( \\alpha \\in [0, 1] \\) (amplitude : 1)
+            </li>
+            <li>
+                étape 2:L'intervalle : \\( [0, 1] \\)
+                <br>Centre : \\( \\frac{0+1}{2} = \\frac{1}{2} \\)
+                <br>\\( f(\\frac{1}{2}) = (\\frac{1}{2})^3 - 3(\\frac{1}{2}) + 1 = \\frac{1}{8} - \\frac{3}{2} + 1 = -\\frac{3}{8} < 0 \\)
+                <br>Donc \\( \\alpha \\in [0, \\frac{1}{2}] \\) (amplitude : 0.5)
+            </li>
+            <li>
+                étape 3:L'intervalle : \\( [0, \\frac{1}{2}] \\)
+                <br>Centre : \\( \\frac{0+\\frac{1}{2}}{2} = \\frac{1}{4} \\)
+                <br>\\( f(\\frac{1}{4}) = (\\frac{1}{4})^3 - 3(\\frac{1}{4}) + 1 = \\frac{1}{64} - \\frac{3}{4} + 1 = \\frac{17}{64} > 0 \\)
+                <br>Donc \\( \\alpha \\in [\\frac{1}{4}, \\frac{1}{2}] \\) (amplitude : 0.25 = 25 × 10⁻²)
+            </li>
+        </ul>
+
+        <p><strong>Conclusion :</strong> \\( \\frac{1}{4} \\leq \\alpha \\leq \\frac{1}{2} \\) avec une amplitude de 0.25 = 25 × 10⁻².</p>            </li>
+
+
+        <ol/>
+    `
+}, 
+    // EXERCICE 13-----------------------------------------------------------------------------------------
+{
+    number: 13,
+    exercise: `
+        <p>
+            Dans chacun des cas suivants, montrer que l'équation proposée admet au moins une solution dans l'intervalle \\(I\\) :
+        </p>
+        <ol type="1">
+            <li>\\( (E_1) \\) : \\( x^3 - 3x + 1 = 0 \\), \\( I = [0, 1] \\).</li>
+            <li>\\( (E_2)\\) : \\( 2\\sin(x) = x \\), \\( I = \\left[ \\frac{\\pi}{3}, \\pi \\right[ \\).</li>
+            <li>\\( (E_3)\\) : \\( x + x^2 + ... + x^n = 1 \\), \\( I = \\left[ \\frac{1}{2}, 1 \\right] \\).</li>
+        </ol>
+    `,
+    solution: `
+            <ol type="1">
+
+
+            <li>
+            <p> On considère la fonction \\(f\\) définie sur \\([0, 1]\\) par : \\( f(x) = x^3 - 3x + 1 \\).</p>
+            <p>La fonction \\(f\\) est continue sur \\([0, 1]\\) et</p>
+            <p>\\( \\begin{cases}
+                f(0) = 1 \\\\
+                f(1) = -1
+            \\end{cases} \\)</p>
+            <p>donc \\( f(0) \\times f(1) \\leq 0 \\). D’après le T.V.I, l’équation \\( f(x) = 0 \\) admet au moins une solution dans \\([0, 1]\\).</p>
+             </li>
+
+
+            <li>
+            <p>2. On considère la fonction \\( f \\) définie sur \\( \\left[ \\frac{\\pi}{3}, \\pi \\right[ \\) par : \\( f(x) = 2\\sin(x) - x \\).</p>
+            <p>La fonction \\( f \\) est continue sur \\( \\left[ \\frac{\\pi}{3}, \\pi \\right[ \\) ()et</p>
+            <p>\\( \\begin{cases}
+                f\\left( \\frac{\\pi}{3} \\right) = \\sqrt{3} - \\frac{\\pi}{3} \\\\
+                f(\\pi) = -\\pi
+            \\end{cases} \\)</p>
+            <p>donc \\( f\\left( \\frac{\\pi}{3} \\right) \\times f(\\pi) < 0 \\). D’après le T.V.I, l’équation \\( f(x) = 0 \\) admet au moins une solution dans \\( \\left[ \\frac{\\pi}{3}, \\pi \\right[ \\).</p>
+            </li>
+
+
+            <li>
+            <p>On considère la fonction \\( f \\) définie sur \\( \\left[ \\frac{1}{2}, 1 \\right] \\) par : \\( f(x) = x + x^2 + ... + x^n - 1 \\)</p>
+            <p>La fonction \\( f \\) est continue sur \\( \\left[ \\frac{1}{2}, 1 \\right] \\) et</p>
+            <p>\\( \\begin{cases}
+                f(1) = (1 + 1 + ... + 1) - 1 = n - 1 \\geq 0 \\\\
+                f\\left( \\frac{1}{2} \\right) = \\left( \\frac{1}{2} + \\left( \\frac{1}{2} \\right)^2 + ... + \\left( \\frac{1}{2} \\right)^n \\right) - 1
+            \\end{cases} \\)</p>
+            <p>\\( f\\left( \\frac{1}{2} \\right) = \\sum_{k=1}^{n} \\left( \\frac{1}{2} \\right)^k - 1 = \\frac{1 - \\left( \\frac{1}{2} \\right)^n}{1 - \\frac{1}{2}} - 1 = -\\left( \\frac{1}{2} \\right)^n < 0 \\)</p>
+            <p>donc \\( f(1) \\times f\\left( \\frac{1}{2} \\right) \\leq 0 \\). D’après le T.V.I, l’équation \\( f(x) = 0 \\) admet au moins une solution dans \\( \\left[ \\frac{1}{2}, 1 \\right] \\).</p>
+            </li> 
+
+        </ol>
+
+    `
+},
+    // EXERCICE 14-----------------------------------------------------------------------------------------
+{
+    number: 14,
+    exercise: `
+       <p>Soit \\( f \\) la fonction numérique définie sur \\( I = [1; +\\infty[ \\) par :</p>
+<div style="text-align: center;">
+    \\[ f(x) = \\frac{1}{x} - \\sqrt{x^2 - x} \\]
+</div>
+<ol type="1">
+    <li >
+        <span style="display: inline-block;"></span>
+        Démontrez que \\( f \\) est continue sur \\( I \\).
+    </li>
+    <li >
+        <span style="display: inline-block;"></span>
+        Prouvez que \\( f \\) est strictement décroissante sur \\( I \\).
+    </li>
+    <li >
+        <span style="display: inline-block; width: 25px; vertical-align: top;"></span>
+        <div style="display: inline-block;">
+            <ol type="a" style=" padding-left: 40px; margin-top: -25px;">
+                <li>Montrez que l'équation \\( f(x) = 0 \\) admet une unique solution \\( \\alpha \\) telle que \\( 1 < \\alpha < 2 \\).</li>
+                <li>Déduisez-en le signe de \\( f(x) \\) sur \\( I \\).</li>
+                <li>Déterminez un encadrement de \\( \\alpha \\) d'amplitude 0,25.</li>
+                <li>Démontrez que \\( \\alpha^4 - \\alpha^3 - 1 = 0 \\).</li>
+            </ol>
+        </div>
+    </li>
+</ol>
+    `,
+    solution: `
+<ol type="1">
+
+
+        <li> Continuité de \\( f \\) sur \\( I \\)</li>
+        <ul>
+            <li>\\( x \\mapsto \\frac{1}{x} \\) est continue sur \\( \\mathbb{R}^* \\), donc en particulier sur \\( I \\).</li>
+            <li>\\( x \\mapsto x^2 - x \\) est continue sur \\( \\mathbb{R} \\) et positive sur \\( I \\) :</li>
+            <div style="text-align: center;">
+                <img src="table5.png" alt="Tableau de signe de x^2 - x" width="500" height="150" />
+            </div>
+            <li>Donc \\( x \\mapsto \\sqrt{x^2 - x} \\) est continue sur \\( I \\).</li>
+            <li>\\( f \\), étant la différence de deux fonctions continues, est continue sur \\( I \\).</li>
+        </ul>
+
+        <li>  Décroissance stricte de \\( f \\) sur \\( I \\) </li>
+        <ul type="none">
+            <li>\\( f \\) est dérivable sur \\( ]1; +\\infty[ \\).</li>
+            <li>Pour \\( x \\in ]1; +\\infty[ \\), on a :
+                \\[
+                f'(x) = \\left( \\frac{1}{x} - \\sqrt{x^2 - x} \\right)' = -\\frac{1}{x^2} - \\frac{2x - 1}{2\\sqrt{x^2 - x}}
+                \\]
+            </li>
+            <li>Comme \\( x > 1 \\), on a \\( 2x - 1 > 0 \\).</li>
+            <li>Donc \\( \\forall x \\in ]1; +\\infty[ \\), \\( f'(x) < 0 \\).</li>
+            <li>Par conséquent, \\( f \\) est strictement décroissante sur \\( I \\).</li>
+        </ul>
+
+        <li>  Étude de l'équation \\( f(x) = 0 \\)
+        <ol type="a">
+       <li >Existence et unicité de \\( \\alpha \\)
+        <ul type="none">
+            <li>\\( f \\) est continue sur \\( I \\), en particulier sur \\( [1; 2] \\).</li>
+            <li>\\( f(1) = 1 \\) et \\( f(2) = \\frac{1}{2} - \\sqrt{2} = -\\frac{1}{2} \\)</li>
+            <li>Donc \\( f(1) \\cdot f(2) < 0 \\)</li>
+            <li>\\( f \\) est strictement décroissante sur \\( [1; 2] \\)</li>
+            <li>D'après le théorème des valeurs intermédiaires, l'équation \\( f(x) = 0 \\) admet une unique solution \\( \\alpha \\in ]1; 2[ \\).</li>
+        </ul>
+        </li>
+        <li>
+         Signe de \\( f(x) \\) sur \\( I \\)
+        <p>Comme \\( f \\) est strictement décroissante sur \\( I \\) :</p>
+        <ul >
+            <li>Si \\( x < \\alpha \\), alors \\( f(x) > 0 \\)</li>
+            <li>Si \\( x > \\alpha \\), alors \\( f(x) < 0 \\)</li>
+        </ul>
+        <div style="text-align: center;">
+            <img src="table6.png" alt="Tableau de variation" width="300" height="100">
+        </div>
+        </li>
+
+        <li> Encadrement de \\( \\alpha \\)</h5>
+        <ul>
+            <li>
+                Centre de \\( [1; 2] \\) : \\( \\frac{1 + 2}{2} = \\frac{3}{2} \\)
+                <br>\\( f \\left( \\frac{3}{2} \\right) = \\frac{4 - 3\\sqrt{3}}{6} < 0 \\)
+                <br>Donc \\( 1 < \\alpha < \\frac{3}{2} \\) (amplitude : 0,5)
+            </li>
+            <li>
+                Centre de \\( \\left[ 1, \\frac{3}{2} \\right] \\) : \\( \\frac{1 + \\frac{3}{2}}{2} = \\frac{5}{4} \\)
+                <br>\\( f \\left( \\frac{5}{4} \\right) = \\frac{16 - 5\\sqrt{5}}{20} > 0 \\)
+                <br>Donc \\( \\frac{5}{4} < \\alpha < \\frac{3}{2} \\) (amplitude : 0,25)
+            </li>
+        </ul>
+        </li>
+
+        <li>
+        Démonstration de \\( \\alpha^4 - \\alpha^3 - 1 = 0 \\)
+        <p>
+            \\[
+            \\begin{align}
+            f(\\alpha) = 0 &\\Leftrightarrow \\frac{1}{\\alpha} = \\sqrt{\\alpha^2 - \\alpha} \\\\
+            &\\Leftrightarrow \\frac{1}{\\alpha^2} = \\alpha^2 - \\alpha \\\\
+            &\\Leftrightarrow 1 = \\alpha^4 - \\alpha^3 \\\\
+            &\\Leftrightarrow \\alpha^4 - \\alpha^3 - 1 = 0
+            \\end{align}
+            \\]
+        </p>
+            </li>
+
+            </ol>
+        </ol>
+    `
+},
+    // EXERCICE 15-----------------------------------------------------------------------------------------
+{
+    number: 15,
+    exercise: `
+        <p>On considère la fonction \\( f \\) définie sur \\( [0; +\\infty[ \\) par \\( f(x) = 9x + (15 - 2x)\\sqrt{x} \\) et la fonction \\( g \\) définie également sur \\( [0; +\\infty[ \\) par \\( g(x) = 18\\sqrt{x} - 6x + 15 \\).</p>
+        <ol type="1">
+            <li>Dresser le tableau de variations complet de la fonction \\( g \\).</li>
+            <li>Démontrer, sans la résoudre, que l'équation \\( g(x) = 0 \\) admet une unique solution sur \\( [0; +\\infty[ \\) que l'on notera \\( \\alpha \\).</li>
+            <li>En déduire le signe signe de \\( g(x) \\) pour tout \\( x \\in [0; +\\infty[ \\).</li>
+            <li>Démontrer que, pour tout \\( x \\in [0; +\\infty[ \\), on a \\( f'(x) = \\dfrac{g(x)}{2\\sqrt{x}} \\).</li>
+            <li>En déduire le tableau de variations complet de \\( f \\).</li>
+        </ol>
+    `,
+    solution: `
+<ol type="1">
+
+<li>
+<p>La fonction \\( g \\) est dérivable sur \\( ]0; +\\infty[ \\) car elle est une combinaison de fonctions dérivables. Calculons sa dérivée :</p>
+<p>\\( g'(x) = \\dfrac{18}{2\\sqrt{x}} - 6 = \\dfrac{9}{\\sqrt{x}} - 6 = \\dfrac{9 - 6\\sqrt{x}}{\\sqrt{x}} \\)</p>
+<p>Pour étudier le signe de \\( g'(x) \\), il suffit d'examiner le signe de \\( 9 - 6\\sqrt{x} \\) :</p>
+<p>\\( 9 - 6\\sqrt{x} > 0 \\Leftrightarrow 9 > 6\\sqrt{x} \\Leftrightarrow \\dfrac{9}{6} > \\sqrt{x} \\Leftrightarrow \\dfrac{3}{2} > \\sqrt{x} \\Leftrightarrow \\left(\\dfrac{3}{2}\\right)^2 > x \\Leftrightarrow \\dfrac{9}{4} > x \\)</p>
+<p>Donc, \\( g'(x) > 0 \\) pour \\( x \\in [0, \\dfrac{9}{4}[ \\) et \\( g'(x) < 0 \\) pour \\( x \\geq \\dfrac{9}{4} \\).</p>
+<p>Le tableau de variations de \\( g \\) est alors :</p>
+<div style="text-align: center;">
+    <img src="table8.png" alt="Tableau de variations" width="400" />
+</div>
+</li>
+
+
+
+<li>
+
+<p> Pour démontrer que l'équation \\( g(x) = 0 \\) admet une solution unique sur \\( [0; +\\infty[ \\), nous utilisons le théorème des valeurs intermédiaires. La fonction \\( g \\) est continue et strictement décroissante sur \\( [\\dfrac{9}{4}; +\\infty[ \\). On a :</p>
+<p>\\( g \\left( \\dfrac{9}{4} \\right) = \\dfrac{57}{2} \\) et \\( \\lim_{x \\to +\\infty} g(x) = -\\infty \\). Comme \\( 0 \\in \\left] -\\infty; \\dfrac{57}{2} \\right[ \\), il existe une unique valeur \\( \\alpha \\) telle que \\( g(\\alpha) = 0 \\).</p>
+
+</li>
+
+
+
+
+<li>
+
+<p>Le signe de \\( g(x) \\) se déduit du tableau de variations établi précédemment :</p>
+<p>\\( g(x) \\geq 0 \\) pour \\( x \\leq \\alpha \\) et \\( g(x) < 0 \\) pour \\( x > \\alpha \\).</p>
+<div style="text-align: center;">
+    <img src="table9.png" alt="Tableau de signes" width="400" />
+</div>
+
+</li>
+
+
+<li>
+
+<p> Calculons la dérivée de \\( f \\) :</p>
+<p>\\( f'(x) = 9 - 2\\sqrt{x} + \\dfrac{15 - 2x}{2\\sqrt{x}} \\)</p>
+<p>\\( = \\dfrac{18\\sqrt{x} - 4x + 15 - 2x}{2\\sqrt{x}} = \\dfrac{g(x)}{2\\sqrt{x}} \\)</p>
+<p>Donc, \\( f'(x) \\) dépend du signe de \\( g(x) \\). Comme \\( g(x) \\) change de signe en \\( \\alpha \\), \\( f'(x) \\) suit la même variation.</p>
+
+</li>
+
+
+<li>
+
+<p> En déduisant les variations de \\( f \\) :</p>
+<p>Pour \\( x \\in [0, \\alpha[ \\), \\( f'(x) > 0 \\) donc \\( f \\) est croissante.</p>
+<p>Pour \\( x \\geq \\alpha \\), \\( f'(x) < 0 \\) donc \\( f \\) est décroissante.</p>
+<div style="text-align: center;">
+    <img src="table7.png" alt="Tableau de variations" width="400" />
+</div>
+
+<p>En résumé :</p>
+<p>\\( f(0) = 0 \\)</p>
+<p>\\( f(x) = 9x + (15 - 2x)\\sqrt{x} \\)</p>
+<p>\\( \\lim_{x \\to +\\infty} f(x) = -\\infty \\)</p>
+</li>
+
+</ol>
+`
+},
+    // EXERCICE 16-----------------------------------------------------------------------------------------
+{
+    number: 16,
+    exercise: `
+        <p>
+            \\( f \\) une fonction définie sur \\( I = \\mathbb{R}^+ \\) par : \\( f(x) = x + \\sqrt{x - 4} \\)
+        </p>
+        <ol type="1">
+            <li>Montrer que \\( f \\) est une bijection de \\( \\mathbb{R}^+ \\) vers \\( J \\) (à déterminer)</li>
+            <li>Déterminer l'expression de \\( f^{-1}(x) \\) pour tout \\( x \\) de \\( J \\)</li>
+        </ol>
+    `,
+    solution: `
+                <ol type="1">
+
+        <p>
+            \\( f \\) une fonction définie sur \\( I = \\mathbb{R}^+ \\) par : \\( f(x) = x + \\sqrt{x - 4} \\)
+        </p>
+        <li>
+        <p>1) Montrons que \\( f \\) est une bijection de \\( \\mathbb{R}^+ \\) vers \\( J \\) (à déterminer)</p>
+        <ul>
+            <li>On a la fonction \\( u : x \\rightarrow x - 4 \\) est continue sur \\( \\mathbb{R} \\), en particulier sur \\( [0; +\\infty[ \\)</li>
+            <li>Et on a la fonction \\( v : x \\rightarrow \\sqrt{x} \\) est continue sur \\( [0; +\\infty[ \\)</li>
+            <li>Donc la fonction \\( f = u + v \\) est continue sur \\( [0; +\\infty[ \\)</li>
+        </ul>
+        <p>La fonction \\( f \\) est dérivable sur \\( ]0; +\\infty[ \\) et on a :</p>
+        <ul>
+            <li>\\( \\forall x \\in [0; +\\infty[ \\), \\( f'(x) = 1 + \\dfrac{1}{2 \\sqrt{x}} > 0 \\), donc \\( f \\) est strictement croissante sur \\( \\mathbb{R}^+ \\)</li>
+        </ul>
+        <p>Donc \\( f \\) est une bijection de \\( \\mathbb{R}^+ \\) vers \\( J = f(I) \\)</p>
+        <ul>
+            <li>\\( J = f(I) = f([0; +\\infty[) = [f(0); \\lim\\limits_{x \\to +\\infty} f(x)] = [-4; +\\infty[ \\)</li>
+        </ul>
+
+        </li>
+
+        <li>
+         Soit \\( x \\in [-4; +\\infty[ \\) cherchons \\( y \\in [0; +\\infty[ \\) tel que \\( y = f^{-1}(x) \\)
+        <div>
+            \\( y = f^{-1}(x) \\) \\( \\Leftrightarrow f(y) = x \\) <br>
+            \\( \\Leftrightarrow y + \\sqrt{y - 4} = x \\) <br>
+            \\( \\Leftrightarrow \\sqrt{y - 4} = x - y \\) <br>
+            \\( \\Leftrightarrow y + \\sqrt{y} - 4 = x \\) <br>
+            \\( \\Leftrightarrow \\sqrt{y} + \\frac{1}{2} = \\sqrt{x + \\frac{17}{4}} \\) ; (car \\( x + \\frac{17}{4} \\geq 0 \\)) <br>
+            \\( \\Leftrightarrow \\sqrt{y} = \\sqrt{x + \\frac{17}{4}} - \\frac{1}{2} \\) ; (car \\( \\sqrt{y} + \\frac{1}{2} \\geq 0 \\)) <br>
+            \\( \\Leftrightarrow y = (\\sqrt{x + \\frac{17}{4}} - \\frac{1}{2})^2 \\)
+        </div>
+        <p>\\( \\boxed{f^{-1}(x) = \\left( \\sqrt{x + \\frac{17}{4}} - \\frac{1}{2} \\right)^2} \\) pour tout \\( x \\in [-4; +\\infty[ \\)</p>
+        </li>
+        </ol>
+
+    `
+},
+    // EXERCICE 17-----------------------------------------------------------------------------------------
+{
+    number: 17,
+    exercise: `
+        <p>
+            Dans chacun des cas suivants, montrer que la fonction \\( f\\) admet une fonction réciproque \\( f^{-1}\\) , définie sur un intervalle J à déterminer, puis calculer \\( f^{-1}(x)\\) pour tout  \\( x \\in  J \\)       </p>
+        <ol type="1">
+            <li> \\(f(x) = 3 - \\dfrac{1}{x}\\)  et \\(I = ]0; +\\infty[\\) </li>
+            <li>\\(  f(x) = -3x^2 + 3x + 1 \\) et \\( I= ] -\\infty; 0[ \\)</li>
+            <li>\\(  f(x) = \\frac{x^2+2}{2x^2+1} \\) et \\( I= ] -\\infty; 0[ \\)</li>
+
+        </ol>
+    `,
+    solution: `
+
+<div>
+  <ol type="1">
+    <li>
+      <h3>Fonction 1 : \\(f(x) = 3 - \\dfrac{1}{x}\\) sur \\(I = ]0; +\\infty[\\)</h3>
+      <p><strong>a. Existence de la fonction réciproque</strong></p>
+      <p><u>Continuité :</u> La fonction \\(f\\) est continue sur \\(]0; +\\infty[\\), car elle est la restriction d'une fonction rationnelle \\(x \\mapsto 3 - \\dfrac{1}{x}\\) sur cet intervalle.</p>
+      <p><u>Monotonie :</u> Calculons la dérivée de \\(f\\) : \\( \\forall x \\in ]0; +\\infty[ \\), \\( f'(x) = \\dfrac{1}{x^2} \\). Nous constatons que : \\( \\forall x \\in ]0; +\\infty[ \\), \\( f'(x) > 0 \\). Par conséquent, \\( f \\) est strictement croissante sur \\( ]0; +\\infty[ \\).</p>
+      <p><u>Conclusion :</u> Étant donné que \\( f \\) est à la fois continue et strictement croissante sur l'intervalle \\( I \\), nous pouvons conclure qu'elle admet une fonction réciproque \\( f^{-1} \\) définie sur \\( J \\) où :</p>
+      <p>\\( J = f(I) = f(]0; +\\infty[) = ]-\\infty; 3] \\)</p>
+      
+      <p><strong>b. Détermination de \\( f^{-1}(x) \\) pour tout \\( x \\) de \\( J \\) :</strong></p>
+      <p>Soit \\( x \\in ]-\\infty; 3] \\) et \\( y \\in ]0; +\\infty[ \\) tel que : \\( y = f^{-1}(x) \\). Nous avons : \\( f^{-1}(x) = y \\Leftrightarrow f(y) = x \\).</p>
+      <p>\\( \\Leftrightarrow 3 - \\dfrac{1}{y} = x \\)</p>
+      <p>\\( \\Leftrightarrow \\dfrac{1}{y} = 3 - x \\)</p>
+      <p>\\( \\Leftrightarrow y = \\dfrac{1}{3 - x} \\)</p>
+      <p>Nous pouvons donc conclure : \\( \\forall x \\in ]-\\infty; 3] \\), \\( f^{-1}(x) = \\dfrac{1}{3 - x} \\)</p>
+    </li>
+
+    <li>
+      <h3>Fonction 2 : \\(f(x) = -3x^2 + 3x + 1\\) sur \\(I = ]-\\infty; 0[\\)</h3>
+      <p><strong>a. Existence de la fonction réciproque</strong></p>
+      <p><u>Continuité :</u> La fonction \\( f \\) est continue sur \\( ]-\\infty; 0[ \\), car c'est la restriction d'une fonction polynôme.</p>
+      <p><u>Monotonie :</u> Calculons la dérivée de \\(f\\) : \\( \\forall x \\in ]-\\infty; 0[ \\), \\( f'(x) = -6x + 3 \\). Étudions le signe de \\(f'(x)\\) :</p>
+      <p>\\( f'(x) = 0 \\Leftrightarrow -6x = -3 \\Leftrightarrow x = \\dfrac{1}{2} \\notin ]-\\infty; 0[ \\)</p>
+      <p>Donc \\( \\forall x \\in ]-\\infty; 0[ \\), \\( f'(x) > 0 \\). Par conséquent, \\( f \\) est strictement croissante sur \\( ]-\\infty; 0[ \\).</p>
+      <p><u>Conclusion :</u> Puisque \\( f \\) est continue et strictement croissante sur \\( I = ]-\\infty; 0[ \\), elle admet une fonction réciproque \\( f^{-1} \\) définie sur l'intervalle \\( J \\) avec :</p>
+      <p>\\( J = f(I) = f(]-\\infty; 0[) = ]-\\infty; 1[ \\)</p>
+      
+      <p><strong>b. Détermination de \\( f^{-1}(x) \\) pour tout \\( x \\) de \\( J \\) :</strong></p>
+      <p>Soit \\( x \\in ]-\\infty; 1[ \\) et \\( y \\in ]-\\infty; 0[ \\) tel que : \\( f^{-1}(x) = y \\). Nous avons : \\( f^{-1}(x) = y \\Leftrightarrow f(y) = x \\).</p>
+      <p>\\( \\Leftrightarrow -3y^2 + 3y + 1 = x \\)</p>
+      <p><u>Utilisons la forme canonique :</u></p>
+      <p>\\( \\Leftrightarrow -3y^2 + 3y = x - 1 \\)</p>
+      <p>\\( \\Leftrightarrow 3(y^2 - y) = 1 - x \\)</p>
+      <p>\\( \\Leftrightarrow \\left(y - \\dfrac{1}{2}\\right)^2 = \\dfrac{1}{4} - \\dfrac{1 - x}{3} \\)</p>
+      <p>\\( \\Leftrightarrow \\left(y - \\dfrac{1}{2}\\right)^2 = \\dfrac{7 - 4x}{12} \\)</p>
+      <p>Comme \\( y < 0 \\), on a \\( y - \\dfrac{1}{2} < 0 \\), donc :</p>
+      <p>\\( \\Leftrightarrow y - \\dfrac{1}{2} = -\\sqrt{\\dfrac{7 - 4x}{12}} \\)</p>
+      <p>\\( \\Leftrightarrow y = \\dfrac{1}{2} - \\sqrt{\\dfrac{7 - 4x}{12}} \\)</p>
+      <p>Nous pouvons donc conclure : \\( \\forall x \\in ]-\\infty; 1[ \\), \\( f^{-1}(x) = \\dfrac{1}{2} - \\sqrt{\\dfrac{7 - 4x}{12}} \\)</p>
+    </li>
+
+    <li>
+      <h3>Fonction 3 : \\(f(x) = \\frac{x^2+2}{2x^2+1}\\) sur \\(I = ]-\\infty; 0[\\)</h3>
+      <p>La fonction \\( f \\) présente une continuité sur \\( ]-\\infty; 0[ \\) en tant que restriction d'une fonction rationnelle.</p>
+      <p>On peut également affirmer que \\( f \\) est dérivable sur \\( ]-\\infty; 0[ \\). Pour tout \\( x \\) appartenant à cet intervalle, la dérivée s'exprime ainsi :</p>
+      <p>\\[
+        f'(x) = \\frac{2x (2x^2 + 1) - 4x (x^2 + 2)}{(2x^2 + 1)^2} \\\\
+        = \\frac{4x^3 + 2x - 4x^3 - 8x}{(2x^2 + 1)^2} \\\\
+        = \\frac{-6x}{(2x^2 + 1)^2}
+      \\]</p>
+      <p>Par conséquent, \\( \\forall x \\in ]-\\infty; 0[ \\), \\( f'(x) = \\frac{-6x}{(2x^2 + 1)^2} \\).</p>
+      <p>Le signe de \\( f'(x) \\) est déterminé par celui de \\( -6x \\) sur \\( ]-\\infty; 0[ \\), étant donné que \\( (2x^2 + 1)^2 \\) est toujours positif sur cet intervalle.</p>
+      <p>On en déduit que :</p>
+      <p>Ainsi, \\( \\forall x \\in ]-\\infty; 0[ \\), \\( f'(x) \\geq 0 \\) (\\( f' \\) s'annule uniquement en 0). On peut conclure que \\( f \\) est strictement croissante sur \\( ]-\\infty; 0[ \\).</p>
+      <p>La continuité et la croissance stricte de \\( f \\) sur \\( ]-\\infty; 0[ \\) impliquent l'existence d'une fonction réciproque \\( f^{-1} \\) définie sur l'intervalle \\( J = f(I) \\).</p>
+      <p>On obtient :</p>
+      <p>\\[
+        J = f(] -\\infty; 0]) = ] \\lim_{x \\to -\\infty} f(x) , f(0)] = ] -\\infty, 1] = \\left] \\dfrac{1}{2}, 2 \\right]
+      \\]</p>
+      
+      <p>Déterminons maintenant l'expression de \\( f^{-1}(x) \\) pour tout \\( x \\in J \\) :</p>
+      <p>Considérons \\( x \\in \\left] \\dfrac{1}{2}, 2 \\right] \\) et \\( y \\in ]-\\infty; 0[ \\) tel que \\( y = f^{-1}(x) \\).</p>
+      <p>On a alors :</p>
+      <p>\\[
+        \\begin{array}{rl}
+        y & = f^{-1}(x) \\Leftrightarrow f(y) = x \\\\
+        & \\Leftrightarrow \\frac{y^2 + 2}{2y^2 + 1} = x \\\\
+        & \\Leftrightarrow y^2 + 2 = x (2y^2 + 1) \\\\
+        & \\Leftrightarrow y^2 + 2 = 2xy^2 + x \\\\
+        & \\Leftrightarrow y^2 - 2xy^2 = x - 2 \\\\
+        & \\Leftrightarrow y^2 (1 - 2x) = x - 2 \\\\
+        & \\Leftrightarrow y^2 = \\dfrac{x - 2}{1 - 2x} \\\\
+        & \\Leftrightarrow |y| = \\sqrt{\\dfrac{x - 2}{1 - 2x}} \\\\
+        & \\Leftrightarrow y = -\\sqrt{\\dfrac{x - 2}{1 - 2x}} \\\\
+        & \\Leftrightarrow y = -\\sqrt{\\dfrac{2 - x}{2x - 1}} \\\\
+        \\end{array}
+      \\]</p>
+      <p>En conclusion, \\( \\forall x \\in \\left] \\dfrac{1}{2}, 2 \\right] \\), \\( f^{-1}(x) = -\\sqrt{\\dfrac{2 - x}{2x - 1}} \\).</p>
+    </li>
+  </ol>
+</div>
+
+
+
+    `
+},
+    // EXERCICE 18-----------------------------------------------------------------------------------------
+{
+    number: 18,
+    exercise: `
+        <p>
+            Soit \\( f \\) une fonction numérique définie sur \\( I = [2; +\\infty[ \\) par :
+        </p>
+        <p>
+            \\( f(x) = x^2 - 4x + 3 \\)
+        </p>
+        <ol type="1">
+            <li>Montrer que \\( f \\) admet une fonction réciproque \\( f^{-1} \\) définie sur un intervalle \\( J \\) à déterminer.</li>
+            <li>Dresser le tableau de variations de \\( f^{-1} \\)</li>
+            <li>Tracer les courbes \\( (C_f) \\) et \\( (C_{f^{-1}}) \\) dans un repère orthonormé \\( (O; \\vec{i}, \\vec{j}) \\).</li>
+            <li>
+                <ol type="a" style=" padding-left: 40px; margin-top: -25px;">
+                    <li>Déterminer \\( f^{-1}(0) \\).</li>
+                    <li>Calculer \\( f^{-1}(x) \\) pour tout \\( x \\in J \\).</li>
+                </ol>
+            </li>
+        </ol>
+    `,
+    solution: `
+       
+<ol type="1">
+    <li>
+        <p>La fonction \\( f \\) est continue sur \\( I \\), étant la restriction d'une fonction polynôme sur cet intervalle.</p>
+        <p>De plus, \\( f \\) est dérivable sur \\( I \\). Pour tout \\( x \\in I \\), nous avons : \\( f'(x) = (x^2 - 4x + 3)' = 2x - 4 \\).</p>
+        <p>Par conséquent, \\( (\\forall x \\in I) : f'(x) \\geq 0 \\).<br> Nous pouvons donc conclure que \\( f \\) est strictement croissante sur \\( I \\).</p>
+        <p>Ainsi, \\( f \\) admet une fonction réciproque \\( f^{-1} \\) définie sur l'intervalle \\( J = f(I) \\), où :</p>
+        <p>\\( J = f[2; +\\infty[ = [f(2); \\lim\\limits_{x \\to +\\infty} f(x)] = [-1; +\\infty[ \\)</p>
+    </li>
+    <li>
+        <p>Étant donné que \\( f \\) est strictement croissante sur \\( I \\) et que \\( f \\) et \\( f^{-1} \\) ont le même sens de variation (respectivement sur \\( I \\) et \\( f(I) \\)), nous pouvons déduire que \\( f^{-1} \\) est strictement croissante sur \\( J \\).</p>
+        <p>Le tableau de variations de \\( f^{-1} \\) se présente donc comme suit :</p>
+           <img src="table10.png" alt="Tableau de variations" width="400" />
+    </li>
+    <li>
+        <p>Les courbes \\( (C_f) \\) et \\( (C_{f^{-1}}) \\) sont symétriques par rapport à la droite d'équation \\( y = x \\) (première bissectrice).</p>
+<img src="graphe3.png"  width="400" />
+    </li>
+    <li>
+        <ol type="a">
+            <li>
+                <p>Posons \\( a = f^{-1}(0) \\). Cela implique que \\( f(a) = 0 \\) et \\( a \\in I \\)</p>
+                <p>Donc \\( a \\) est l'unique solution de l'équation \\( f(x) = 0 \\) dans \\( I \\).</p>
+                <p>Résolvons l'équation \\( x^2 - 4x + 3 = 0 \\) :</p>
+                <p>Le discriminant est : \\( \\Delta = (-4)^2 - 4 \\times 3 = 4 \\)</p>
+                <p>Les solutions sont : \\( x_1 = \\frac{4 - \\sqrt{4}}{2} = 1 \\) et \\( x_2 = \\frac{4 + \\sqrt{4}}{2} = 3 \\)</p>
+                <p>Or, \\( 1 \\notin I \\)</p>
+                <p>Nous concluons donc que \\( a = 3 \\)</p>
+                <p>Par conséquent : \\( f^{-1}(0) = 3 \\).</p>
+            </li>
+            <li>
+                <p>Soit \\( x \\in J \\) et \\( y \\in I \\). Nous avons :</p>
+                <p>\\( f^{-1}(x) = y \\Leftrightarrow f(y) = x \\)</p>
+                <p>\\( \\Leftrightarrow y^2 - 4y + 3 = x \\)</p>
+                <p>\\( \\Leftrightarrow y^2 - 4y + 4 - 1 = x \\)</p>
+                <p>\\( \\Leftrightarrow (y - 2)^2 = x + 1 \\)</p>
+                <p>\\( \\Leftrightarrow y - 2 = \\sqrt{x + 1} \\quad \\text{car } x \\geq -1 \\text{ et } y \\geq 2 \\)</p>
+                <p>\\( \\Leftrightarrow y = 2 + \\sqrt{x + 1} \\)</p>
+                <p>Nous pouvons donc conclure que : \\( (\\forall x \\in J), f^{-1}(x) = 2 + \\sqrt{x + 1} \\).</p>
+            </li>
+        </ol>
+    </li>
+</ol>
+    `
+},
+    // EXERCICE 19-----------------------------------------------------------------------------------------
+{
+    number: 19,
+    exercise: `
+        <p>On considère la fonction numérique f définie par :</p>
+        \\[
+        f(x) = \\sqrt{x + 1} - \\sqrt{x - 1}
+        \\]
+        <ol type="1">
+            <li>Déterminer \\(D_f\\) l'ensemble de définition de la fonction \\(f\\).</li>
+            <li>Calculer \\( \\lim_{x \\to +\\infty} f(x) \\).</li>
+            <li>Montrer que \\(f\\) est une bijection de \\(D_f\\) sur un intervalle \\(J\\) qu'on déterminera.</li>
+            <li>Déterminer \\(f^{-1}(x)\\) pour tout \\(x \\in J\\).</li>
+        </ol>
+    `,
+    solution: `
+
+            <ol type="1">
+        <li> L'ensemble de définition de la fonction \\(f\\) :
+        \\[
+        D_f = \\{ x \\in \\mathbb{R} \\mid x + 1 \\geq 0 \\text{ et } x - 1 \\geq 0 \\} \\\\
+        = \\{ x \\in \\mathbb{R} \\mid x \\geq -1 \\text{ et } x \\geq 1 \\} \\\\
+        = \\{ x \\in \\mathbb{R} \\mid x \\geq 1 \\} \\\\
+        = [1, +\\infty[
+        \\]
+        </li>
+
+        <li>
+
+        <p>Calculons \\( \\lim_{x \\to +\\infty} f(x) \\) :</p>
+        \\[
+        \\lim_{x \\to +\\infty} f(x) = \\lim_{x \\to +\\infty} (\\sqrt{x + 1} - \\sqrt{x - 1}) \\\\ \\]
+      \\[  = \\lim_{x \\to +\\infty} \\frac{2}{\\sqrt{x + 1} + \\sqrt{x - 1}} \\\\  \\]
+      \\[  = \\lim_{x \\to +\\infty} \\frac{2}{\\sqrt{x + 1} + \\sqrt{x - 1}} = 0
+        \\]
+        </li>
+
+
+
+        <li>
+         Montrons que \\( f \\) est une bijection de \\( D_f \\) sur un intervalle \\( J \\) :
+        <ul>
+            <li><strong>La continuité</strong></li>
+            <p>La fonction \\(u : x \\mapsto x + 1\\) est continue et positive sur \\([1, +\\infty[\\), donc la fonction \\(v = \\sqrt{u}\\) est continue sur \\([1, +\\infty[\\), et comme la fonction \\(x \\mapsto x - 1\\) est continue et positive sur \\([1, +\\infty[\\), alors la fonction \\(w : x \\mapsto \\sqrt{x - 1}\\) est continue sur \\([1, +\\infty[\\). D'où la fonction \\(f = v + t\\) est continue sur \\([1, +\\infty[\\).</p>
+            <li><strong>La dérivabilité</strong></li>
+            <p>La fonction \\(f\\) est dérivable sur \\([1, +\\infty[\\) et pour tout \\(x \\in [1, +\\infty[\\) :</p>
+            \\[ f'(x) = \\frac{1}{2\\sqrt{x + 1}} - \\frac{1}{2\\sqrt{x - 1}} \\\\ \\]
+            \\[ = \\frac{(\\sqrt{x - 1} - \\sqrt{x + 1})}{2\\sqrt{x + 1}\\sqrt{x - 1}} \\\\ \\]
+            \\[ = \\frac{-2}{2\\sqrt{x^2 - 1} (\\sqrt{x - 1} + \\sqrt{x + 1})} \\\\ \\]
+            \\[ = \\frac{-1}{\\sqrt{x^2 - 1} (\\sqrt{x - 1} + \\sqrt{x + 1})} < 0 \\\\
+            \\]
+
+            <p>D'où \\( f \\) est strictement décroissante sur \\([1, +\\infty[\\).</p>
+
+            <p>Puisque la fonction \\( f \\) est continue et strictement décroissante sur \\([1, +\\infty[\\), alors elle est bijective de \\( I \\) sur l'intervalle \\( J = f(I) \\).</p>
+
+            <p>On a</p>
+            \\[
+            J = f([1, +\\infty[) = \\left[ \\lim_{x \\to +\\infty} f(x), f(1) \\right] = \\left[ 0, \\sqrt{2} \\right]
+            \\]
+        </ul>
+
+        </li>
+
+        <li>
+      Déterminons \\( f^{-1}(x) \\) pour tout \\( x \\in J \\): <br>
+      Soit \\( x \\in ]0, \\sqrt{2}] \\) et \\( y \\in [1, +\\infty[ \\) (avec \\( y = f^{-1}(x) \\)). <br>
+      On a <br>
+      \\[ y = f^{-1}(x) \\iff f(y) = x \\\] <br>
+      \\[ \\iff \\sqrt{y + 1} - \\sqrt{y - 1} = x \\\] <br>
+      \\[ \\iff \\sqrt{y + 1} = x + \\sqrt{y - 1} \\\] <br>
+      \\[ \\iff y + 1 = x^2 + 2x \\sqrt{y - 1} + y - 1 \\\] <br>
+      \\[\\iff 2 - x^2 = 2x \\sqrt{y - 1} \\\] <br>
+      \\[ \\iff (2 - x^2)^2 = 4x^2 (y - 1) \\\] <br>
+      \\[ \\iff (2 - x^2)^2 = 4x^2 y - 4x^2 \\\] <br>
+      \\[ \\iff 4x^2 y = (2 - x^2)^2 + 4x^2 \\\] <br>
+      \\[ \\iff y = \\frac{(2 - x^2)^2 + 4x^2}{4x^2} \\\] <br>
+      Donc <br>
+      \\[ \\forall x \\in ]0, \\sqrt{2}], \\quad f^{-1}(x) =\\frac{(2 - x^2)^2 + 4x^2}{4x^2} \\\]
+           
+            </li>
+
+    </ol>
+
+    `
+},
+    // EXERCICE 20-----------------------------------------------------------------------------------------
+{ number: 20,
+    exercise: `  
+
+Soit   \\(f\\)  la fonction numérique définie par : 
+\\[  f(x) = x - 2\\sqrt{x + 4}\\]
+<ol type="1">
+<li>
+ Déterminer  \\( D_f\\) l'ensemble de définition de la fonction  \\(f.\\)
+</li>
+
+<li>
+
+  Vérifier que pour tout  \\( x \\in D_f : f(x) = \\left(\\sqrt{x + 4} - 1\\right)^2 - 5\\),  puis en déduire  \\( \\lim_{x \\to +\\infty} f(x).\\)
+</li>
+
+<li>
+Montrer que \\( f \\)est continue sur \\( D_f\\).
+</li> 
+
+<li>
+
+<ol type="a">   
+  <li>  Montrer que pour tout \\( x \\in ] - 4; +\\infty [; f'(x) = \\frac{x + 3}{(\\sqrt{x + 4} + 1)\\sqrt{x + 4}}\\)
+  <li>Dresser le tableau de variations de \\( f \\) sur  \\( D_f.\\) <br>
+</ol>
+<li>
+
+<li>
+
+ Soit  \\(g\\)  la restriction de  \\( f \\)  sur l'intervalle  \\( I = [-3; +\\infty[.\\)
+<ol type="a" >   
+    <li> Montrer que \\( g\\) admet une fonction réciproque  \\(g^{-1}\\) définie sur un intervalle \\(J \\)  à déterminer. 
+    <li> Calculer \\( g^{-1}(4).\\)
+    <li>  Calculer \\( g^{-1}(x) \\) pour tout \\( x \\in J \\).
+</ol>
+</li>
+</ol>
+
+`,
+    solution: `  <p>
+  <span style="color: green;">&#x25a0; 1</span> Le Domaine de Définition <br> On a : <br>
+  \\[ D_f = \\{ x \\in \\mathbb{R} \\mid x + 4 \\ge 0 \\} = \\{ x \\in \\mathbb{R} \\mid x \\ge -4 \\} = [-4; +\\infty[ \\]
+</p>
+<div align="left">
+  <p>
+    <span style="color: green;">&#x25a0;2</span> Soit \\( x \\in D_f \\). On a :<br>
+    \\[
+      \\begin{align*}
+        f(x) &= x - 2\\sqrt{x + 4} \\\\
+        &= x + 4 - 4 - 2\\sqrt{x + 4} \\\\
+        &= \\sqrt{x + 4}^2 - 2\\sqrt{x + 4} + 1^2 - 1^2 - 4 \\\\
+        &= (\\sqrt{x + 4} - 1)^2 - 5
+      \\end{align*}
+    \\]
+  </p>
+</div>
+<p>
+  Donc : \\( \\forall x \\in [-4; +\\infty[ \\); \\( f(x) = (\\sqrt{x + 4} - 1)^2 - 5 \\)
+</p>
+
+<p>
+  <span style="color: green;">&#x25a0; 3</span> On a : \\( x \\mapsto x + 4 \\) est continue et positive sur \\([-4; +\\infty[\\), donc \\( x \\mapsto 2\\sqrt{x + 4} \\) est continue sur \\([-4; +\\infty[\\).
+</p>
+<p>
+  D'autre part, \\( x \\mapsto x \\) est continue sur \\([-4; +\\infty[\\).
+</p>
+<p>
+  Par suite, \\( f \\) est continue sur \\( D_f = [-4; +\\infty[ \\), en tant que différence de deux fonctions continues.
+</p>
+  <p>
+  <span style="color: green;">&#x25a0;4.a</span> La fonction \\( f \\) est dérivable sur \\( ]-4; +\\infty[ \\). <br>
+  Soit \\( x \\in ]-4; +\\infty[ \\). On a :
+</p>
+<div align="left">
+  <p>
+    \\[
+      \\begin{align*}
+        f'(x) &= \\left( x - 2\\sqrt{x + 4} \\right)' \\\\
+        &= 1 - \\frac{2(x + 4)'}{2\\sqrt{x + 4}} \\\\
+        &= 1 - \\frac{1}{\\sqrt{x + 4}} \\\\
+        &= \\frac{\\sqrt{x + 4} - 1}{\\sqrt{x + 4}} \\\\
+        &= \\frac{\\sqrt{x + 4}}{(\\sqrt{x + 4} - 1)(\\sqrt{x + 4} + 1)} \\\\
+        &= \\frac{x + 4}{(\\sqrt{x + 4} - 1)(\\sqrt{x + 4} + 1)\\sqrt{x + 4}} \\\\
+        &= \\frac{x + 3}{(\\sqrt{x + 4} - 1)\\sqrt{x + 4}}
+      \\end{align*}
+    \\]
+  </p>
+</div>
+
+<p>
+  Donc : \\[ \\forall x \\in ]-4; +\\infty[ ;  f'(x) = \\frac{x + 3}{(\\sqrt{x + 4} - 1)\\sqrt{x + 4}} \\]
+</p>
+<span style="color: green;">&#x25a0;4.b</span> 
+<div align="left">
+  <p>
+    Soit \\( x \\in ]-4; +\\infty[ \\);
+    \\[
+      \\begin{align*}
+        f'(x) = 0 &\\iff \\frac{x + 3}{(\\sqrt{x + 4} - 1)\\sqrt{x + 4}} = 0 \\\\
+        &\\iff x + 3 = 0 \\\\
+        &\\iff x = -3
+      \\end{align*}
+    \\]
+    Ainsi le tableau de variations de \\( f \\) est comme suit :
+  </p>
+  <img src="tableau 11.png" alt="Variation Table" style="max-width: 100%; height: auto;">
+</div>
+
+<div align="left">
+  <p>
+    <span style="color: green;">&#x25a0;5.a</span>  On a \\( g \\) est continue et strictement croissante sur \\( I \\), alors elle admet une fonction réciproque \\( g^{-1} \\) définie sur :
+    \\[
+      J = g(I) = g([-3; +\\infty[) = [g(-3); \\lim_{x \\to +\infty} f(x)] = [-5; +\\infty[
+    \\]
+  </p>
+</div>
+<div align="left">
+  <p>
+    <span style="color: green";">&#x25a0;5.b</span> On pose \\( g^{-1}(4) = a \\). On a : \\( g(a) = 4 \\) et \\( a \\in I \\). Résolvant l'équation \\( g(a) = 4 \\) :
+    \\[
+      \\begin{align*}
+        g(a) &= 4 \\iff a - 2\\sqrt{a + 4} = 4 \\\\
+        &\\iff (\\sqrt{a + 4} - 1)^2 - 5 = 4 \\\\
+        &\\iff \\sqrt{a + 4} - 1 = 3 &\\text{car } a \\ge -4 \\\\
+        &\\iff a + 4 = 16 \\\\
+        &\\iff a = 12
+      \\end{align*}
+    \\]
+    Donc : \\( g^{-1}(4) = 12 \\).
+  </p>
+</div>
+
+<div align="left">
+  <p>
+    <span style=" color: green;">5.c</span> Soit \\( x \\in J \\) et \\( y \\in I \\). On a :
+    \\[
+      \\begin{align*}
+        f^{-1}(x) &= y \\iff f(y) = x \\\\
+        &\\iff y - 2\\sqrt{y + 4} = x \\\\
+        &\\iff (\\sqrt{y + 4} - 1)^2 - 5 = x \\\\
+        &\\iff (\\sqrt{y + 4} - 1)^2 = x + 5 \\\\
+        &\\iff \\sqrt{y + 4} = \\sqrt{x + 5} + 1 &\\text{car } x \\ge -5 \\text{ et } y \\ge -3 \\\\
+        &\\iff y + 4 = x + 5 + 1 \\\\
+        &\\iff y = (\\sqrt{x + 5} + 1)^2 - 4
+      \\end{align*}
+    \\]
+    Par suite : \\( \\forall x \\in J, \\; f^{-1}(x) = (\\sqrt{x + 5} + 1)^2 - 4 \\).
+  </p>
+</div>
+
+
+
+     `
+},
+    // EXERCICE 21-----------------------------------------------------------------------------------------
+{
+    number: 21,
+    exercise: `
+     Ranger dans l'ordre croissant les nombres suivants :<br>
+    \\( \\sqrt[3]{5} \\), \\( \\sqrt{2} \\) et \\( \\sqrt[6]{10} \\). <br>
+  \\( \\sqrt[4]{3} \\); \\( \\sqrt[3]{2} \\) et \\( \\sqrt{5} \\). <br>
+  \\( \\sqrt[4]{2} \\); \\( \\sqrt{2} \\) et \\( \\sqrt[5]{2} \\). <br>
+</p>
+
+    `,
+    solution: `<p>
+  1. On a : <br>
+  \\[ \\sqrt[3]{5} = \\sqrt[6]{5^2} = \\sqrt[6]{25} \\] 
+  \\[ \\sqrt{2} = \\sqrt[6]{2^3} = \\sqrt[6]{8} \\] 
+Comme : \\(\\sqrt[6]{8} < \\sqrt[6]{10} < \\sqrt[6]{25} \\), car la fonction \\( x \\mapsto \\sqrt[6]{x} \\) est strictement croissante sur \\( \\mathbb{R}^+ \\). <br>
+  Alors : <br>
+  \\[
+  \\sqrt{2} < \\sqrt[6]{10} < \\sqrt[3]{5}
+  \\]
+</p>
+
+
+
+
+<p>
+<b>2. Comparaison et rangement des nombres : \\\( \\\sqrt[4]{3} \\\), \\\( \\\sqrt[3]{2} \\\) et \\\( \\\sqrt{5} \\\)</b>
+
+<br><br>
+Commençons par poser :
+<ul>
+  <li>\\\( a = \\\sqrt[4]{3} \\\)</li>
+  <li>\\\( b = \\\sqrt[3]{2} \\\)</li>
+  <li>\\\( c = \\\sqrt{5} \\\)</li>
+</ul>
+
+Notons que le plus petit multiple commun des indices 4, 3 et 2 est 12. Nous allons utiliser cette information pour notre méthode de comparaison.
+
+<br><br>
+ Transformons chaque nombre en une racine 12ème :
+
+\\\[
+a = \\\sqrt[4]{3} = \\\sqrt[12]{3^3} = \\\sqrt[12]{27} \\\\
+b = \\\sqrt[3]{2} = \\\sqrt[12]{2^4} = \\\sqrt[12]{16} \\\\
+c = \\\sqrt{5} = \\\sqrt[12]{5^6} = \\\sqrt[12]{15625}
+\\\]
+
+<br>
+Maintenant, comparons les nombres sous la racine 12ème :
+<br>
+\\\( 15625 > 27 > 16 \\\)
+
+<br><br>
+Sachant que la fonction \\\( x \\\mapsto \\\sqrt[12]{x} \\\) est strictement croissante sur \\\( \\\mathbb{R}^+ \\\), nous pouvons conclure :
+
+\\\[
+\\\sqrt[12]{15625} > \\\sqrt[12]{27} > \\\sqrt[12]{16}
+\\\]
+
+Ce qui équivaut à :
+\\\[
+c > a > b
+\\\]
+
+<br>
+Par conséquent, l'ordre final est :
+<br>
+\\\( \\\sqrt{5} > \\\sqrt[4]{3} > \\\sqrt[3]{2} \\\)
+
+<br><br>
+
+</p>
+
+<p>
+<b>3. Comparaison et rangement des nombres : \\\( \\\sqrt[4]{2} \\\), \\\( \\\sqrt{2} \\\) et \\\( \\\sqrt[5]{2} \\\)</b>
+<br><br>
+Pour simplifier notre analyse, posons :
+<ul>
+  <li>\\\( a = \\\sqrt[4]{2} \\\)</li>
+  <li>\\\( b = \\\sqrt{2} \\\)</li>
+  <li>\\\( c = \\\sqrt[5]{2} \\\)</li>
+</ul>
+
+Ces nombres \\\( a \\\), \\\( b \\\) et \\\( c \\\) sont tous positifs. Pour les comparer efficacement, nous allons éliminer les racines en élevant chaque nombre à une puissance commune. <br>
+Étant donné que 4, 2 et 5 sont les indices des racines, choisissons le plus petit multiple commun de ces nombres : 20.
+<br><br>
+Calculons maintenant \\\( a^{20} \\\), \\\( b^{20} \\\) et \\\( c^{20} \\\) :
+<br>
+\\\[ a^{20} = (\\\sqrt[4]{2})^{20} = (\\\sqrt[2]{2})^5 = 2^5 \\\]
+\\\[ b^{20} = (\\\sqrt{2})^{20} = (\\\sqrt[2]{2})^{10} = 2^{10} \\\]
+\\\[ c^{20} = (\\\sqrt[5]{2})^{20} = (\\\sqrt[2]{2})^4 = 2^4 \\\]
+
+<br>
+Nous pouvons maintenant comparer ces puissances :
+<br>
+\\\( c^{20} < a^{20} < b^{20} \\\)
+
+<br><br>
+Par conséquent, nous pouvons conclure que :
+<br>
+\\\( c < a < b \\\)
+
+<br><br>
+Ce qui signifie :
+<br>
+\\\( \\\sqrt[5]{2} < \\\sqrt[4]{2} < \\\sqrt{2} \\\)
+
+<br><br>
+<i>Note : Cette conclusion est valide car la fonction \\\( x \\\mapsto \\\sqrt[n]{x} \\\) est strictement croissante sur l'intervalle \\\( [0; + \\\infty[ \\\) pour tout entier \\\( n \\\) strictement positif.</i>
+</p>
+
+    `
+},
+    // EXERCICE 22-----------------------------------------------------------------------------------------
+{
+    number: 22,
+    exercise: `Résoudre dans \\( \\mathbb{R} \\) les équations suivantes :
+<div style="text-align: left;">
+    \\( \\sqrt[4]{1 - x} = 1 - x \\)<br>
+<br>
+
+    \\( (\\sqrt[5]{x + 2})^2 - 4 \\sqrt[5]{x + 2} + 3 = 0 \\)<br><br>
+
+
+    \\( x + \\sqrt[3]{x} = 2 \\)<br><br>
+
+
+    \\( \\sqrt{x} + \\sqrt[3]{x} = 12 \\)<br><br>
+
+
+    \\( \\sqrt[3]{x - 5} < 2 \\)<br><br>
+
+
+    \\( \\sqrt[3]{1 - x} + \\sqrt[3]{x} = 1 \\)<br><br>
+
+
+    \\( \\sqrt[3]{x - 1} - \\sqrt[3]{x - 2} > 1 \\)<br><br>
+
+
+    \\( \\sqrt[4]{\\frac{2 - x}{3 + x}} + \\sqrt[4]{\\frac{3 + x}{2 - x}} = 2 \\)<br><br>
+
+
+    \\( x^{\\frac{2}{3}} - 7x^{\\frac{1}{3}} - 8 = 0 \\)
+</div>
+ `,
+    solution: `<p>
+<h3>Résolution de l'équation \\\( \\\sqrt[4]{1 - x} = 1 - x \\\) dans \\\( \\\mathbb{R} \\\)</h3>
+
+<h4>1. Détermination de l'ensemble de définition</h4>
+<ul>
+  <li>L'équation n'est définie que lorsque \\\( 1 - x \\\ge 0 \\\)</li>
+  <li>Cela équivaut à \\\( x \\\le 1 \\\)</li>
+  <li>L'ensemble de définition est donc : \\\( D = ] - \\\infty, 1 ] \\\)</li>
+</ul>
+
+<h4>2. Résolution de l'équation</h4>
+<p>Posons \\\( X = \\\sqrt[4]{1 - x} \\\). L'équation devient alors : \\\( X = X^4 \\\)</p>
+
+<p>Étapes de résolution :</p>
+<ol>
+  <li>\\\( X - X^4 = 0 \\\)</li>
+  <li>\\\( X(1 - X^3) = 0 \\\)</li>
+  <li>\\\( X(1 - X)(1 + X + X^2) = 0 \\\)</li>
+</ol>
+
+<p>Cette équation est équivalente à :</p>
+<ul>
+  <li>\\\( X = 0 \\\) ou</li>
+  <li>\\\( X = 1 \\\) ou</li>
+  <li>\\\( 1 + X + X^2 = 0 \\\)</li>
+</ul>
+
+<p>Note : Le discriminant du trinôme \\\( 1 + X + X^2 \\\) est \\\( -3 \\\), donc cette dernière équation n'a pas de solution réelle.</p>
+
+<h4>3. Interprétation des solutions</h4>
+<p>Revenons à notre variable initiale \\\( x \\\) :</p>
+<ul>
+  <li>Si \\\( X = 0 \\\), alors \\\( \\\sqrt[4]{1 - x} = 0 \\\), ce qui donne \\\( x = 1 \\\)</li>
+  <li>Si \\\( X = 1 \\\), alors \\\( \\\sqrt[4]{1 - x} = 1 \\\), ce qui donne \\\( x = 0 \\\)</li>
+</ul>
+
+<h4>Conclusion</h4>
+<p>L'ensemble des solutions de l'équation \\\( \\\sqrt[4]{1 - x} = 1 - x \\\) est : \\\( S = \\\{ 0, 1 \\\} \\\)</p>
+</p>
+
+<h3>Résolution de l'équation \\( (E_2) : (\\sqrt[5]{x + 2})^2 - 4 \\sqrt[5]{x + 2} + 3 = 0 \\)</h3>
+
+<h4>1. Domaine de définition</h4>
+<ul>
+  <li>L'équation \\\( (E_2) \\\) est définie si et seulement si \\\( x + 2 \\\ge 0 \\\)</li>
+  <li>Cette condition équivaut à \\\( x \\\ge -2 \\\)</li>
+  <li>Donc le domaine de définition est : \\\( D_{(E_2)} = [-2; +\\infty[ \\\)</li>
+</ul>
+
+<h4>2. Résolution</h4>
+<ol>
+  <li>Posons \\\( X = \\\sqrt[5]{x + 2} \\\). L'équation devient :
+    \\\[ (E_2) \\\iff X^2 - 4X + 3 = 0 \\\]
+  </li>
+  <li>Cette équation est un trinôme du second degré en X :
+    <ul>
+      <li>Son discriminant est : \\\( \\\Delta = b^2 - 4ac = 4 \\\)</li>
+      <li>\\\( \\\Delta > 0 \\\), donc l'équation a deux solutions réelles distinctes.</li>
+      <li>Les solutions sont : 1 et 3</li>
+    </ul>
+  </li>
+  <li>Donc, \\\( X = 1 \\\) ou \\\( X = 3 \\\)</li>
+  <li>Revenons à notre variable initiale x :
+    \\[ \\sqrt[5]{x + 2} = 1 \\text{ ou } \\sqrt[5]{x + 2} = 3 \\]
+  </li>
+  <li>Résolvons chaque équation :
+    <ul>
+      <li>Pour \\\( \\\sqrt[5]{x + 2} = 1 \\\) : \\\( x + 2 = 1^5 \\\implies x = -1 \\\)</li>
+      <li>Pour \\\( \\\sqrt[5]{x + 2} = 3 \\\) : \\\( x + 2 = 3^5 \\\implies x = 243 - 2 = 241 \\\)</li>
+    </ul>
+  </li>
+</ol>
+
+<h4>3. Vérification des solutions</h4>
+<p>Vérifions que les solutions appartiennent au domaine de définition \\\( D_{(E_2)} = [-2; +\\infty[ \\\) :</p>
+<ul>
+  <li>\\\( -1 > -2 \\\), donc -1 est dans \\\( D_{(E_2)} \\\)</li>
+  <li>\\\( 241 > -2 \\\), donc 241 est dans \\\( D_{(E_2)} \\\)</li>
+</ul>
+
+<h4>Conclusion</h4>
+<p>Les deux solutions sont dans le domaine de définition \\\( D_{(E_2)} = [-2; +\\infty[ \\\).</p>
+<p>L'ensemble des solutions de l'équation \\\( (E_2) \\\) est : \\\( S = \\\{ -1, 241 \\\} \\\)</p>
+
+
+
+
+<h3>Résolution dans \\\( \\mathbb{R} \\\) de l'équation \\\( (E_2) : x + \\\sqrt[3]{x} = 2 \\\)</h3>
+
+<h4>1. Domaine de définition</h4>
+<p>L'équation \\\( (E_2) \\\) est définie sur \\\( [0; +\\infty[ \\\).</p>
+
+<h4>2. Changement de variable</h4>
+<p>Soit \\\( x \\in [0; +\\infty[ \\\), on pose \\\( X = \\\sqrt[3]{x} \\\), c'est-à-dire \\\( x = X^3 \\\). Donc :</p>
+
+<h4>3. Résolution</h4>
+
+  \\[ (E_2) \\iff X^3 + X = 2 \\]
+  \\[ \\iff X^3 - 1 + X - 1 = 0 \\]
+  \\[ \\iff (X - 1)(X^2 + X + 1) + (X - 1) = 0 \\]
+  \\[ \\iff (X - 1)(X^2 + X + 2) = 0 \\]
+  \\[ \\iff X = 1 \\text{ ou } X^2 + X + 2 = 0 \\]
+<p>Le discriminant du trinôme \\( X^2 + X + 2 \\) est \\\( \\Delta = 1^2 - 4(1)(2) = -7 \\\)</p>
+<p>Comme \\\( \\\Delta < 0 \\\), alors \\\( X^2 + X + 2 \\neq 0 \\\) pour tout \\\( X \\\) réel.</p>
+
+<h4>4. Conclusion</h4>
+Donc, \\\[ (E_2) \\\iff \\\sqrt[3]{x} = 1 \\\]
+\\\[ \\\iff x = 1 \\\]
+
+<h4>Résultat final</h4>
+<p>L'ensemble des solutions de l'équation \\\( (E_2) \\\) est : \\\( S = \{1\} \\\)</p>
+
+
+<h3>Résolution de l'équation \\\( (E_3) : \\\sqrt{x} + \\\sqrt[3]{x} = 12 \\\)</h3>
+
+<h4>1. Domaine de définition</h4>
+<p>L'équation \\\( (E_3) \\\) est définie sur \\\( [0, + \\\infty[ \\\).</p>
+
+<h4>2. Changement de variable</h4>
+<p>Soit \\\( x \\in \\mathbb{R}^+ \\\), on a :
+  \\\[
+  \\\sqrt{x} + \\\sqrt[3]{x} = \\\sqrt[6]{x^3} + \\\sqrt[6]{x^2} = (\\\sqrt[6]{x})^3 + (\\\sqrt[6]{x})^2
+  \\\]
+  On pose : \\\( X = \\\sqrt[6]{x} \\\) donc l'équation devient :
+  \\\[
+  (E_3) \\\iff X^3 + X^2 = 12
+  \\\]
+</p>
+
+<h4>3. Résolution de l'équation</h4>
+<ul>
+  <li>
+    L'équation devient :
+    \\\[
+    X^3 + X^2 - 12 = 0
+    \\\]
+  
+    Factorisons le polynôme :
+    \\\[
+    X^3 + X^2 - 12 = 0 
+    \\\]
+    \\\[
+    \\\iff X^3 - 8 + X^2 - 4 = 0 
+    \\\]
+    \\\[
+    \\\iff (X - 2)(X^2 + 2X + 4) + (X - 2)(X + 2) = 0
+    \\\]
+    \\\[
+    \\\iff (X - 2)(X^2 + 3X + 6) = 0
+    \\\]
+  </li>
+  
+  <li>
+    Les solutions de l'équation sont :
+    \\\[
+    X = 2 \\text{ou} \\\ X^2 + 3X + 6 = 0
+    \\\]
+  </li>
+  <li>
+    Analysons le discriminant du trinôme \\\( X^2 + X + 2 \\\) :
+   est \\(
+    \\Delta = b^2 - 4ac = -15< 0
+    \\)
+    alors \\\( X^2 + 3X + 6 \\neq 0 \\\) pour tout \\\( X \\\) réel.
+  </li>
+</ul>
+
+<h4>4. Conclusion</h4>
+Donc, \\[ (E_3) \\\iff \\\sqrt[6]{x} - 2=0 \\]
+\\[ \\iff x = 2^6 = 64 \\]
+
+<h4>Résultat final</h4>
+<p>L'ensemble des solutions de l'équation \\\( (E_3) \\\) est : \\\( S = \\{ 64 \\} \\\)</p>
+
+
+
+<h3>Résolution de l'inéquation \\\( (I_1) : \\\sqrt[3]{x - 5} < 2 \\\)</h3>
+
+<h4>1. Domaine de définition</h4>
+<p>L'ensemble de définition de l'inéquation \\\( (I) \\\) est : \\\( D_I = \\{ x \\in \\mathbb{R} / x - 5 \\ge 0 \\} = [5; + \\\infty[ \\\)</p>
+
+<h4>2. Résolution de l'inéquation</h4>
+<p>Soit \\\( x \\in D_I \\\). On a :
+    \\[
+    \\\sqrt[3]{x - 5} < 2 \\\iff (x - 5)^3 < 2^3 
+    \\]
+    \\[
+    \\\iff x - 5 < 8 
+    \\]
+    \\[
+    \\\iff x < 13
+    \\]
+</p>
+
+<h4>3. Conclusion</h4>
+<p>Par suite, l'ensemble des solutions de l'inéquation \\\( (I) \\\) est :</p>
+<p>
+  \\\[
+  S = [5; + \\\infty[ \\\cap ] - \\\infty; 13[ = [5; 13[
+  \\\]
+</p>
+
+<h3>Résolution de l'équation \\\( (E) : \\\sqrt[3]{1 - x} + \\\sqrt[3]{x} = 1 \\\)</h3>
+
+<h4>1. Domaine de définition</h4>
+<p>L'ensemble de définition de l'équation \\( (E) \\\) est : \\\( D_E = \\{ x \\in \\mathbb{R} / 1 - x \\ge 0 \\text{ et } x \\ge 0 \\} = \\{ x \\in \\mathbb{R} / x \\le 1 \\text{ et } x \\ge 0 \\} = [0; 1] \\) </p>
+
+<h4>2. Résolution de l'équation</h4>
+<p>Soit \\\( x \\in D_E \\\). On a :
+  \\\[
+  \\\sqrt[3]{1 - x} + \\\sqrt[3]{x} = 1 \\\iff \\left( \\\sqrt[3]{1 - x} + \\\sqrt[3]{x} \\right)^3 = 1^3
+  \\\]
+  En utilisant l'identité remarquable \\((a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3 \\), on obtient :
+  \\\[
+  \\left( \\\sqrt[3]{1 - x} \\right)^3 + 3 \\left( \\\sqrt[3]{1 - x} \\right)^2 \\\sqrt[3]{x} + 3 \\\sqrt[3]{1 - x} \\left( \\\sqrt[3]{x} \\right)^2 + \\left( \\\sqrt[3]{x} \\right)^3 = 1
+  \\\]
+  Donc :
+  \\\[
+  1 - x + 3 \\\sqrt[3]{1 - x} \\cdot \\\sqrt[3]{x} + x = 1
+  \\\]
+  Ce qui simplifie à :
+  \\\[
+  1 - x + 3 \\\sqrt[3]{1 - x} \\cdot \\\sqrt[3]{x} + x = 1
+  \\\]
+  \\\[
+  3 \\\sqrt[3]{1 - x} \\cdot \\\sqrt[3]{x} = 0
+  \\\]
+  \\\[
+  \\\sqrt[3]{1 - x} = 0 \\text{ ou } \\\sqrt[3]{x} = 0
+  \\\]
+  \\\[
+  x = 1 \\text{ ou } x = 0
+  \\\]
+</p>
+
+<h4>3. Conclusion</h4>
+<p>Par suite, l'ensemble des solutions de l'équation \\\( (E) \\\) est :</p>
+<p>
+  \\\[
+  S = \\{ 0, 1 \\}
+  \\\]
+</p>
+
+<h3>Résolvons dans \\( \\mathbb{R} \\\) l'inéquation : \\( (E_3) : \\sqrt{x - 1} - \\sqrt[3]{x - 2} > 1 \\)</h3>
+
+<h4>1. Domaine de définition</h4>
+<p>L'ensemble de définition de l'inéquation \\\( (E_3) \\\) est : 
+  \\[
+  D = \\{ x \\in \\mathbb{R} / x - 1 \\ge 0 \\text{ et } x - 2 \\ge 0 \\} \\iff x \\ge 1 \\text{ et } x \\ge 2 \\\iff x \\ge 2
+  \\]
+  Donc, \\\( D = [2; + \\\infty[ \\\)
+</p>
+
+<h4>2. Résolution de l'inéquation</h4>
+<p>Soit \\\( x \\\) un élément de \\\( D \\\), posons \\\( X = \\\sqrt[3]{x - 2} \\\) avec \\\( X \\ge 0 \\\). On a :
+  \\\[
+  X = \\\sqrt[3]{x - 2} \\\iff X^3 = x - 2 \\\iff X^3 + 2 = x
+  \\\]
+  d'où :
+  \\\[
+  \\\sqrt{x - 1} - \\\sqrt[3]{x - 2} > 1 \\\iff \\\sqrt{X^3 + 1 - 1} - X > 1 \\\iff \\\sqrt{X^3} - X > 1 \\\iff X - X > 1
+  \\\]
+  Comme \\\( X = \\\sqrt[3]{x - 2} \\ge 0 \\\), l'équation devient :
+  \\\[
+  X - X > 1 \\\iff X > 2
+  \\\]
+  donc :
+  \\\[
+  X > 2 \\\iff \\\sqrt[3]{x - 2} > 2 \\\iff x - 2 > 8 \\\iff x > 10
+  \\\]
+  Ainsi, on a :
+  \\\[
+  x \\in ]0; + \\\infty[
+  \\\]
+</p>
+
+<h4>3. Conclusion</h4>
+<p>Par suite, l'ensemble des solutions de l'inéquation \\\( (E_3) \\\) est :</p>
+<p>
+  \\\[
+  S = ]0; + \\\infty[
+  \\\]
+</p>
+
+
+
+<h3>Résolvons dans \\( \\mathbb{R} \\) l'équation : \\( (E_5) : \\\sqrt[4]{\\frac{2 - x}{3 + x}} + \\\sqrt[4]{\\frac{3 + x}{2 - x}} = 2 \\)  </h3>
+
+<h4>1. Domaine de définition</h4>
+<p>L'équation \\\( (E_5) \\\) est définie sur l'intervalle \\\( ] - 3, 2[ \\\).</p>
+
+<h4>2. Transformation de l'équation</h4>
+<p>Soit \\\( x \\\) un élément de \\\( ] - 3, 2[ \\\), on pose \\\( X = \\\sqrt[4]{\\frac{2 - x}{3 + x}} \\\). On a :
+  \\\[
+  \\\sqrt[4]{\\frac{3 + x}{2 - x}} = \\frac{1}{X}
+  \\\]
+  donc l'équation \\\( (E_5) \\\) devient :
+  \\\[
+  X + \\frac{1}{X} = 2
+  \\\]
+</p>
+
+<h4>3. Résolution de l'équation</h4>
+<p>On résout l'équation :
+  \\\[
+  X^2 - 2X + 1 = 0 \\\iff (X - 1)^2 = 0 \\\iff X = 1
+  \\\]
+</p>
+
+<h4>4. Retour à la variable initiale</h4>
+<p>Ainsi, \\\( (E_5) \\\iff \\\sqrt[4]{\\frac{2 - x}{3 + x}} = 1 \\\)</p>
+<p>Donc :
+  \\\[
+  \\frac{2 - x}{3 + x} = 1 \\\iff 2 - x = 3 + x \\\iff 2 - x = 3 + x \\\iff 2 = 3 + 2x \\\iff -x = 1 \\\iff x = -1
+  \\\]
+</p>
+
+<h4>5. Conclusion</h4>
+<p>Par suite, l'ensemble des solutions de l'équation \\\( (E_5) \\\) est :</p>
+<p>
+  \\\[
+  S = \\left\\{ -1 \\right\\}
+  \\\]
+</p>
+
+
+<h3>Résolution de l'équation \\\( (E) : x^{\\frac{2}{3}} - 7x^{\\frac{1}{3}} - 8 = 0 \\\)</h3>
+
+<h4>1. Transformation de l'équation</h4>
+<p>On pose \\\( x^{\\frac{1}{3}} = X \\\) donc l'équation devient :
+  \\\[
+  X^2 - 7X - 8 = 0
+  \\\]
+</p>
+
+<h4>2. Résolution de l'équation</h4>
+<p>On résout l'équation quadratique :
+  \\\[
+  \\Delta = b^2 - 4ac = (-7)^2 - 4 \\cdot 1 \\cdot (-8) = 49 + 32 = 81 > 0
+  \\\]
+  Les solutions sont :
+  \\[
+  x_1 = \\frac{7 + 9}{2 \\cdot 1} = \\frac{16}{2} = 8 \\text{ et } x_2 = \\frac{7 - 9}{2 \\cdot 1} = \\frac{-2}{2} = -1
+  \\]
+</p>
+
+<h4>3. Retour à la variable initiale</h4>
+<p>Donc :
+  \\[
+  x^{\\frac{1}{3}} = 8 \\text{ ou } x^{\\frac{1}{3}} = -1
+  \\]
+  \\[
+  x^{\\frac{1}{3}} = -1 \\text{ n'a pas de solutions}
+  \\]
+  \\[
+  x^{\\frac{1}{3}} = 8 \\iff \\left(x^{\\frac{1}{3}}\\right)^3 = 8^3 \\iff x = 512
+  \\]
+</p>
+
+<h4>4. Conclusion</h4>
+<p>Donc, l'ensemble des solutions de l'équation \\\( (E) \\\) est :</p>
+<p>
+  \\\[
+  S = \\{ 512 \\}
+  \\\]
+</p>
+
+`
+},
+    // EXERCICE 23-----------------------------------------------------------------------------------------
+{number: 23
+,exercise: `<p>Calculer les limites suivantes :</p> <p>
+\\[ \\lim_{{x \\to -\\infty}} \\left( \\frac{{x + \\sqrt[3]{{x^2}}}}{x} \\right) \\]
+\\[ \\lim_{{x \\to +\\infty}} \\left( x - \\sqrt[3]{{x - 1}} \\right) \\]
+\\[ \\lim_{{x \\to -\\infty}} \\left( x^2 + x - \\sqrt[3]{{1 - x}} \\right) \\]
+\\[ \\lim_{{x \\to +\\infty}} \\left( x - \\sqrt{x} + \\sqrt[3]{x} \\right) \\]
+\\[ \\lim_{{x \\to +\\infty}} \\sqrt[3]{{x^3 + x^2 + 2}} - x \\] 
+\\[ \\lim_{x \\to 2} \\frac{\\sqrt[3]{2x + 4} - 2}{x - 2} \\]
+</p>`,
+solution:`
+<p>
+\\( \\blacklozenge \\lim_{{x \\to -\\infty}} \\left( \\frac{{x + \\sqrt[3]{{x^2}}}}{x} \\right) \\)
+On a :
+\\[
+\\lim_{{x \\to -\\infty}} \\left( \\frac{{x + \\sqrt[3]{{x^2}}}}{x} \\right) = \\lim_{{x \\to -\\infty}} \\left( 1 + \\frac{{\\sqrt[3]{{x^2}}}}{x} \\right) \\]
+\\[
+= \\lim_{{x \\to -\\infty}} \\left( 1 + \\frac{{\\sqrt[3]{{(-x)^2}}}}{x} \\right) \\]
+\\[
+= \\lim_{{x \\to -\\infty}} \\left( 1 - \\frac{{x^2}}{x^3} \\right)\\]
+\\[
+
+ = \\lim_{{x \\to -\\infty}} \\left( 1 - \\frac{1}{\\sqrt[3]{x}} \\right)
+\\]
+et comme \\( \\lim_{{x \\to -\\infty}} \\frac{1}{\\sqrt[3]{x}} = 0 \\) alors \\( 1 - \\frac{1}{\\sqrt[3]{x}} = 1 \\) donc
+\\[
+\\lim_{{x \\to -\\infty}} \\left( \\frac{{x + \\sqrt[3]{{x^2}}}}{x} \\right) = 1
+\\]
+</p>
+
+<p>
+\\( \\blacklozenge \\lim_{{x \\to +\\infty}} \\left( x - \\sqrt[3]{{x - 1}} \\right) \\)
+On a :
+\\[
+\\lim_{{x \\to +\\infty}} \\left( x - \\sqrt[3]{{x - 1}} \\right) = \\lim_{{x \\to +\\infty}} \\left( x - \\sqrt[3]{x^3 \\left( 1 - \\frac{1}{x} \\right)} \\right) = \\lim_{{x \\to +\\infty}} \\left( x \\left( 1 - \\frac{1}{\\sqrt[3]{x}} \\right) \\right)
+\\]
+et comme \\( \\lim_{{x \\to +\\infty}} \\frac{1}{\\sqrt[3]{x}} = 0 \\) alors \\( x \\left( 1 - \\frac{1}{\\sqrt[3]{x}} \\right) \\to +\\infty \\) donc
+\\(
+\\lim_{{x \\to +\\infty}} \\left( x - \\sqrt[3]{{x - 1}} \\right) = +\\infty
+\\)
+</p>
+
+<p>
+\\(  \\blacklozenge \\lim_{{x \\to -\\infty}} \\left( x^2 + x - \\sqrt[3]{{1 - x}} \\right) \\)
+On a :
+\\[
+\\lim_{{x \\to -\\infty}} \\left( x^2 + x - \\sqrt[3]{{1 - x}} \\right) = \\lim_{{x \\to -\\infty}} \\left( x^2 \\left( 1 + \\frac{x}{x^2} - \\frac{\\sqrt[3]{1 - x}}{x^2} \\right) \\right)
+\\]
+et comme \\( \\lim_{{x \\to -\\infty}} \\frac{x}{x^2} = 0 \\) et \\( \\lim_{{x \\to -\\infty}} \\frac{\\sqrt[3]{1 - x}}{x^2} = 0 \\), on obtient
+\\[
+\\lim_{{x \\to -\\infty}} \\left( x^2 + x - \\sqrt[3]{{1 - x}} \\right) = +\\infty
+\\]
+</p>
+
+\\(
+\\blacklozenge \\text{ Calculons } \\lim_{x \\to +\\infty} \\sqrt[3]{x^3 + x^2 + 2} - x:
+\\)
+\\(
+\\text{Soit } x \\text{ de } ]0; +\\infty[,
+\\)  <br>
+
+\\[
+\\text{on a: } \\sqrt[3]{x^3 + x^2 + 2} - x = \\frac{(\\sqrt[3]{x^3 + x^2 + 2})^3 - x^3}{(\\sqrt[3]{x^3 + x^2 + 2})^2 + x \\cdot \\sqrt[3]{x^3 + x^2 + 2} + x^2}
+\\]
+\\[
+= \\frac{x^2 + 2}{(x^2 \\sqrt[3]{1 + \\frac{1}{x} + \\frac{2}{x^3}}) + x^2 \\sqrt[3]{1 + \\frac{1}{x} + \\frac{2}{x^3}} + x^2}
+\\]
+\\[
+= \\frac{x^2(1 + \\frac{2}{x^2})}{(x^2 \\sqrt[3]{1 + \\frac{1}{x} + \\frac{2}{x^3}}) + x^2 \\sqrt[3]{1 + \\frac{1}{x} + \\frac{2}{x^3}} + x^2}
+\\]
+\\[
+
+= \\frac{x^2(1 + \\frac{2}{x^2})}{x^2 \\left[(\\sqrt[3]{1 + \\frac{1}{x} + \\frac{2}{x^3}})^2 + \\sqrt[3]{1 + \\frac{1}{x} + \\frac{2}{x^3}} + 1\\right]}
+\\]
+\\[
+\\text{puisque: } \\lim_{x \\to +\\infty} 1 + \\frac{2}{x^2} = 1 \\text{ et } \\lim_{x \\to +\\infty} (1 + \\frac{1}{x} + \\frac{2}{x^3}) = 1
+\\]
+\\[
+\\text{alors: } \\lim_{x \\to +\\infty} \\sqrt[3]{1 + \\frac{1}{x} + \\frac{2}{x^3}} = \\lim_{x \\to +\\infty} \\sqrt[3]{1 + \\frac{1}{x} + \\frac{2}{x^3}} = 1
+\\]
+\\[
+\\text{donc: } \\lim_{x \\to +\\infty} \\frac{1 + \\frac{2}{x^2}}{(\\sqrt[3]{1 + \\frac{1}{x} + \\frac{2}{x^3}})^2 + \\sqrt[3]{1 + \\frac{1}{x} + \\frac{2}{x^3}} + 1} = \\frac{1}{3}
+\\]
+
+\\(
+\\text{d'où: } \\lim_{x \\to +\\infty} (\\sqrt[3]{x^3 + x^2 + 2} - x) = \\frac{1}{3}
+\\)
+
+<br>
+
+\\( \\blacklozenge \\text{Calculons } \\lim_{x \\to 2} \\frac{\\sqrt[3]{2x + 4} - 2}{x - 2} :
+ \\)
+\\[   \\text{on a : } \\sqrt[3]{2x + 4} - 2 = \\frac{(\\sqrt[3]{2x + 4})^3 - 2^3}{(\\sqrt[3]{2x + 3})^2 + 2\\sqrt[3]{2x + 3} + 2^2}
+   \\]
+\\[    = \\frac{2x + 4 - 8}{\\sqrt[3]{(2x + 4)^2} + 2\\sqrt[3]{2x + 4} + 4}
+  \\]
+
+\\[   = \\frac{2(x - 2)}{\\sqrt[3]{(2x + 4)^2} + 2\\sqrt[3]{2x + 4} + 4}
+   \\]
+
+\\[   = \\frac{2(x - 2)}{\\sqrt[3]{(2x + 4)^2} + 2\\sqrt[3]{2x + 4} + 4}
+   \\]
+
+\\[    \\text{donc : } \\sqrt[3]{2x + 4} - 2 = \\frac{\\sqrt[3]{(2x + 4)^2} + 2\\sqrt[3]{2x + 4} + 4}{x - 2}
+  \\]
+
+\\[   = \\frac{2}{\\sqrt[3]{(2x + 4)^2} + 2\\sqrt[3]{2x + 4} + 4}
+   \\]
+
+\\[  \\text{ D'où :} \\lim_{x \\to 2} \\frac{\\sqrt[3]{2x + 4} - 2}{x - 2} = \\lim_{x \\to 2} \\frac{2}{\\sqrt[3]{(2x + 4)^2} + 2\\sqrt[3]{2x + 4} + 4} \\] <br > \\[ = \\frac{1}{6} \\]
+
+`
+}
+];
+
+        let currentPage = 1;
+        const itemsPerPage = 3;
+
+        function addExercise(number, exercise, solution) {
+            const exerciseTemplate = document.getElementById('exercise-template').innerHTML;
+            const solutionTemplate = document.getElementById('solution-template').innerHTML;
+
+            const exerciseHTML = exerciseTemplate
+                .replace(/{{number}}/g, number)
+                .replace('{{exercise}}', exercise);
+            const solutionHTML = solutionTemplate
+                .replace(/{{number}}/g, number)
+                .replace('{{solution}}', solution);
+
+            document.querySelector('#exercises-list').insertAdjacentHTML('beforeend', exerciseHTML);
+            document.querySelector('#solutions-list').insertAdjacentHTML('beforeend', solutionHTML);
+
+            const links = document.querySelectorAll('.solution-link');
+            links.forEach(link => {
+                link.removeEventListener('click', toggleSolution);
+                link.addEventListener('click', toggleSolution);
+            });
+
+            const backLinks = document.querySelectorAll('.back-to-exercise-link');
+            backLinks.forEach(link => {
+                link.removeEventListener('click', toggleSolution);
+                link.addEventListener('click', toggleSolution);
+            });
+
+            // Ensure MathJax processes the newly added content
+            MathJax.typesetPromise();
+        }
+
+        function toggleSolution(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const target = document.getElementById(targetId);
+            const isSolutionVisible = target.style.display === 'block';
+
+            if (this.classList.contains('solution-link')) {
+                target.style.display = isSolutionVisible ? 'none' : 'block';
+                this.textContent = isSolutionVisible ? 'Show Solution' : 'Hide Solution';
+            } else {
+                document.querySelectorAll('.solution-content').forEach(content => {
+                    content.style.display = 'none';
+                });
+                target.style.display = 'block';
+                document.querySelector(`a[href="#${targetId}"]`).textContent = 'Hide Solution';
+            }
+
+            MathJax.typesetPromise();
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function displayPage(page) {
+            const startIndex = (page - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+
+            document.querySelector('#exercises-list').innerHTML = '';
+            document.querySelector('#solutions-list').innerHTML = '';
+
+            for (let i = startIndex; i < endIndex && i < exercises.length; i++) {
+                const { number, exercise, solution } = exercises[i];
+                addExercise(number, exercise, solution);
+            }
+
+            document.getElementById('prev-button').disabled = page === 1;
+            document.getElementById('next-button').disabled = endIndex >= exercises.length;
+        }
+
+        document.getElementById('prev-button').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                displayPage(currentPage);
+            }
+        });
+
+        document.getElementById('next-button').addEventListener('click', () => {
+            if ((currentPage * itemsPerPage) < exercises.length) {
+                currentPage++;
+                displayPage(currentPage);
+            }
+        });
+
+        displayPage(currentPage);
+    });
+</script>
+
+</body>
+</html>

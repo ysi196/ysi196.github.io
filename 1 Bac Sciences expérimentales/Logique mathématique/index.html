@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logique Mathématique - 1 Bac Sciences Maths</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../exercise-style.css">
+    <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+ 
+
+</head>
+<body class="exercises-page">
+    <header>
+        <h1>Logique Mathématique- 1 bac Sciences Expérimentales </h1>
+        <nav class="top-exo-page">
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../index.html">Back to Lessons</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="lesson-intro">
+            <h2>Welcome to: Logique Mathématique </h2>
+            <p>Let's get started!</p>
+        </section>
+        <section class="lesson-exercises">
+            <h2>Exercises</h2>
+            <ul id="exercises-list">
+                <!-- Exercises will be added here dynamically -->
+            </ul>
+        </section>
+        <section class="lesson-solutions">
+            <h2>Solutions</h2>
+            <ul id="solutions-list">
+                <!-- Solutions will be added here dynamically -->
+            </ul>
+        </section>
+        <div class="pagination">
+            <button id="prev-button">Previous</button>
+            <button id="next-button">Next</button>
+        </div>
+    </main>
+    <footer>
+        <p>Contact us at info@mathexercises.com</p>
+    </footer>
+
+    <script type="text/template" id="exercise-template">
+    <li id="exercise{{number}}">
+        <div class="exercise">
+            <h3>Exercise {{number}}</h3>
+            <div class="exercise-content">
+                <p>{{exercise}}</p>
+                <a href="#solution{{number}}" class="solution-link show-solution-button" data-target="solution{{number}}">Show Solution</a>
+            </div>
+        </div>
+    </li>
+</script>
+
+<script type="text/template" id="solution-template">
+    <li id="solution{{number}}" class="solution-content" style="display:none;">
+        <h3>Solution for Exercise {{number}}</h3>
+        <p>{{solution}}</p>
+        <a href="#exercise{{number}}" class="back-to-exercise-link show-solution-button" data-target="exercise{{number}}">Back to Exercise</a>
+    </li>
+</script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+const exercises = [
+    //exercice 1: Negation des propositions
+    {
+        // Negation des propositions
+        number: 1,
+        exercise: `Donner la négation des propositions suivantes :
+        <ol>
+            <li>\\( \\frac{4}{9} \\neq \\frac{2}{3} \\)</li>
+            <li>\\( \\sqrt{4} + 1 < 3 \\)</li>
+            <li>\\( \\sqrt{2} \\in \\mathbb{Q} \\)</li>
+            <li>\\( \\mathbb{N} \\subset \\mathbb{Z} \\)</li>
+            <li>\\( x \\leq -5 \\)</li>
+            <li>\\( 1 \\leq x < 4 \\)</li>
+            <li>\\( x \\geq 1 \\) ou \\( x < -2 \\)</li>
+            <li>\\( \\forall n \\in \\mathbb{N} , \\frac{n}{2} \\in \\mathbb{N} \\)</li>
+            <li>\\( \\forall x \\in \\mathbb{R} , -1 \\leq \\cos x \\leq 1 \\)</li>
+            <li>\\( \\exists x \\in \\mathbb{Z} , \\frac{x}{4} + 1 \\in \\mathbb{Z} \\)</li>
+            <li>\\( \\forall a \\in \\mathbb{R} , \\exists b \\in \\mathbb{R} , b - a > 0 \\)</li>
+        </ol>`,
+        solution: `
+        <ol>
+            <li>\\( \\overline{P} : \\frac{4}{9} = \\frac{2}{3} \\)</li>
+            <li>\\( \\overline{Q} : \\sqrt{4} + 1 \\geq 3 \\)</li>
+            <li>\\( \\overline{R} : \\sqrt{2} \\notin \\mathbb{Q} \\)</li>
+            <li>\\( \\overline{S} : \\mathbb{N} \\not\\subset \\mathbb{Z} \\)</li>
+            <li>\\( x > -5 \\)</li>
+            <li>\\( x < 1 \\) ou \\( x \\geq 4 \\)</li>
+            <li>\\( x < 1 \\) et \\( x \\geq -2 \\)</li>
+            <li>\\( \\exists n \\in \\mathbb{N} , \\frac{n}{2} \\notin \\mathbb{N} \\)</li>
+            <li>\\( \\exists x \\in \\mathbb{R} , \\cos x < -1 \\) ou \\( \\cos x > 1 \\)</li>
+            <li>\\( \\forall x \\in \\mathbb{Z} , \\frac{x}{4} + 1 \\notin \\mathbb{Z} \\)</li>
+            <li>\\( \\exists a \\in \\mathbb{R} , \\forall b \\in \\mathbb{R} , b - a \\leq 0 \\)</li>
+        </ol>`
+    },
+    // Ecriture a l'aide des quantificateurs
+    {
+        number: 2,
+        exercise: `Écrire à l'aide des quantificateurs :
+        <ol>
+            <li>Le carré de tout réel est positif.</li>
+            <li>Certains réels sont strictement supérieurs à leur carré.</li>
+            <li>Il existe un entier multiple de tous les autres.</li>
+            <li>Étant donné trois réels, il y en a au moins deux de même signe.</li>
+            <li>La fonction \\( f \\) est la fonction nulle.</li>
+            <li>La fonction \\( f \\) ne s'annule que sur \\( \\mathbb{R}_+ \\).</li>
+            <li>Entre deux réels distincts, il existe un rationnel.</li>
+            <li>Aucun entier naturel n'est supérieur à tous les autres.</li>
+            <li>Pour tout réel strictement positif, il existe un entier naturel tel que le produit de ces deux nombres soit plus grand que 1 (axiome d'Archimède).</li>
+        </ol>`,
+        solution: `
+        <ol>
+            <li>\\( \\forall x \\in \\mathbb{R} , x^2 > 0 \\)</li>
+            <li>\\( \\exists x \\in \\mathbb{R} , x > x^2 \\)</li>
+            <li>\\( \\exists x \\in \\mathbb{N} , \\forall y \\in \\mathbb{N} , x = ky \\) pour un certain \\( k \\in \\mathbb{N} \\)</li>
+            <li>\\( \\forall x,y,z \\in \\mathbb{R} , (x \\cdot y > 0 \\) ou \\( x \\cdot z > 0 \\) ou \\( y \\cdot z > 0) \\)</li>
+            <li>\\( \\forall x \\in \\mathbb{R} , f(x) = 0 \\)</li>
+            <li>\\( \\forall x \\in \\mathbb{R} , f(x) = 0 \\iff x \\geq 0 \\)</li>
+            <li>\\( \\forall x,y \\in \\mathbb{R} , x \\neq y \\Rightarrow \\exists r \\in \\mathbb{Q} , x < r < y \\)</li>
+            <li>\\( \\forall n \\in \\mathbb{N} , \\exists k \\in \\mathbb{N} , n < k \\)</li>
+            <li>\\( \\forall x \\in \\mathbb{R}^+ , \\exists n \\in \\mathbb{N} , x \\cdot n > 1 \\)</li>
+        </ol>`
+    },
+    // exercice 3: table de vérité
+
+    {
+        number: 3,
+        exercise: `A l'aide des tables de vérité, dites si les formules suivantes sont des tautologies.
+        <ol>
+            <li>\\( p \\vee \\neg p \\) (principe du tiers exclu)</li>
+            <li>\\( \\neg (p \\wedge \\neg p) \\) (principe de non-contradiction)</li>
+            <li>\\( (p \\vee q) \\Rightarrow (q \\vee p) \\) (commutativité de \\( \\vee \\))</li>
+            <li>\\( p \\Rightarrow (q \\Rightarrow p) \\) (le vrai est impliqué par tout)</li>
+            <li>\\( \\neg p \\Rightarrow (p \\Rightarrow q) \\) (le faux implique tout)</li>
+            <li>\\( (\\neg p \\Rightarrow p) \\Rightarrow p \\) (preuve par l'absurde)</li>
+            <li>\\( ((p \\Rightarrow q) \\wedge (\\neg p \\Rightarrow q)) \\Rightarrow p \\) (preuve par l'absurde)</li>
+            <li>\\( ((p \\Rightarrow q) \\wedge (q \\Rightarrow r)) \\Rightarrow (p \\Rightarrow r) \\) (transitivité de \\( \\Rightarrow \\))</li>
+        </ol>`,
+        solution: `
+        <ol>
+            <li>\\( p \\vee \\overline{p} \\)
+                <table border="1">
+                    <tr>
+                        <th>p</th>
+                        <th>\\( \\overline{p} \\)</th>
+                        <th>\\( p \\vee \\overline{p} \\)</th>
+                    </tr>
+                    <tr>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>V</td>
+                    </tr>
+                </table>
+            </li>
+            <li>\\( \\overline{(p \\wedge \\overline{p})} \\)
+                <table border="1">
+                    <tr>
+                        <th>p</th>
+                        <th>\\( \\overline{p} \\)</th>
+                        <th>\\( p \\wedge \\overline{p} \\)</th>
+                        <th>\\( \\overline{(p \\wedge \\overline{p})} \\)</th>
+                    </tr>
+                    <tr>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>V</td>
+                    </tr>
+                </table>
+            </li>
+            <li>\\( (p \\vee q) \\Rightarrow (q \\vee p) \\)
+                <table border="1">
+                    <tr>
+                        <th>p</th>
+                        <th>q</th>
+                        <th>\\( p \\vee q \\)</th>
+                        <th>\\( q \\vee p \\)</th>
+                        <th>\\( (p \\vee q) \\Rightarrow (q \\vee p) \\)</th>
+                    </tr>
+                    <tr>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>V</td>
+                    </tr>
+                </table>
+            </li>
+            <li>\\( p \\Rightarrow (q \\Rightarrow p) \\)
+                <table border="1">
+                    <tr>
+                        <th>p</th>
+                        <th>q</th>
+                        <th>\\( q \\Rightarrow p \\)</th>
+                        <th>\\( p \\Rightarrow (q \\Rightarrow p) \\)</th>
+                    </tr>
+                    <tr>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>V</td>
+                    </tr>
+                </table>
+            </li>
+            <li>\\( \\overline{p} \\Rightarrow (p \\Rightarrow q) \\)
+                <table border="1">
+                    <tr>
+                        <th>p</th>
+                        <th>q</th>
+                        <th>\\( \\overline{p} \\)</th>
+                        <th>\\( p \\Rightarrow q \\)</th>
+                        <th>\\( \\overline{p} \\Rightarrow (p \\Rightarrow q) \\)</th>
+                    </tr>
+                    <tr>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                    </tr>
+                </table>
+            </li>
+            <li>\\( (\\overline{p} \\Rightarrow p) \\Rightarrow p \\)
+                <table border="1">
+                    <tr>
+                        <th>p</th>
+                        <th>\\( \\overline{p} \\)</th>
+                        <th>\\( \\overline{p} \\Rightarrow p \\)</th>
+                        <th>\\( (\\overline{p} \\Rightarrow p) \\Rightarrow p \\)</th>
+                    </tr>
+                    <tr>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>V</td>
+                    </tr>
+                </table>
+            </li>
+            <li>\\( ((p \\Rightarrow q) \\wedge (\\overline{p} \\Rightarrow q)) \\Rightarrow p \\)
+                <table border="1">
+                    <tr>
+                        <th>p</th>
+                        <th>q</th>
+                        <th>\\( p \\Rightarrow q \\)</th>
+                        <th>\\( \\overline{p} \\Rightarrow q \\)</th>
+                        <th>\\( (p \\Rightarrow q) \\wedge (\\overline{p} \\Rightarrow q) \\)</th>
+                        <th>\\( ((p \\Rightarrow q) \\wedge (\\overline{p} \\Rightarrow q)) \\Rightarrow p \\)</th>
+                    </tr>
+                    <tr>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                    </tr>
+                </table>
+            </li>
+            <li>\\( ((p \\Rightarrow q) \\wedge (q \\Rightarrow r)) \\Rightarrow (p \\Rightarrow r) \\)
+                <table border="1">
+                    <tr>
+                        <th>p</th>
+                        <th>q</th>
+                        <th>r</th>
+                        <th>\\( p \\Rightarrow q \\)</th>
+                        <th>\\( q \\Rightarrow r \\)</th>
+                        <th>\\( p \\Rightarrow r \\)</th>
+                        <th>\\( (p \\Rightarrow q) \\wedge (q \\Rightarrow r) \\)</th>
+                        <th>\\( ((p \\Rightarrow q) \\wedge (q \\Rightarrow r)) \\Rightarrow (p \\Rightarrow r) \\)</th>
+                    </tr>
+                    <tr>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>F</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                        <td>V</td>
+                    </tr>
+                </table>
+            </li>
+        </ol>`
+    },
+    // exercice 4: raisonnement directe
+    {
+        number: 4,
+        exercise: `Soit \\((x, y) \\in \\mathbb{R}^2\\). Montrer que :
+        <ol>
+            <li>\\(0 < x < 2 \\text{ et } 0 < y < 2 \\implies \\frac{1}{x} + \\frac{1}{y} > 1\\)</li>
+        </ol>
+        Soit \\( x \\in \\mathbb{R}^+ \\). Montrer que :
+        <ol start="2">
+            <li>\\( \\frac{1}{1 + \\sqrt{x}} = 1 - \\sqrt{x} \\implies x = 0 \\)</li>
+        </ol>
+        Montrer que :
+        <ol start="3">
+            <li>\\((\\forall (x, y) \\in \\mathbb{R}^2); x + y + 2 = 2 \\sqrt{x} + 2 \\sqrt{y} \\implies x = y = 1\\)</li>
+            <li>\\((\\forall (a, b) \\in \\mathbb{R}^2); a^2 + b^2 = 1 \\implies |a + b| \\leq \\sqrt{2}\\)</li>
+            <li>\\((\\forall n \\in \\mathbb{N}); \\frac{n + 1}{n + 2} \\notin \\mathbb{N}\\)</li>
+            <li>\\((\\forall k \\in \\mathbb{N}); x^k + \\frac{1}{x^k} \\geq 2\\)</li>
+            <li>En déduire que \\((\\forall n \\in \\mathbb{N}); 1 + x + x^2 + ... + x^n \\geq (2x + 1)x^n\\)</li>
+            <li>\\((|x| < \\frac{1}{2} \\text{ et } |y - 2| < \\frac{1}{2}) \\implies 1 < \\frac{2y}{y - x} < 5\\)</li>
+        </ol>`,
+        solution: `
+        <ol>
+            <li>
+                Soit \\(0 < x < 2\\) et \\(0 < y < 2\\), nous avons :
+                \\[
+                \\frac{1}{x} > \\frac{1}{2} \\text{ et } \\frac{1}{y} > \\frac{1}{2}
+                \\]
+                Donc:                \\[
+                \\frac{1}{x} + \\frac{1}{y} > \\frac{1}{2}+\\frac{1}{2}
+                \\]
+                Ce qui implique :
+                \\[
+                \\frac{1}{x} + \\frac{1}{y} > 1
+                \\]
+            </li>
+            <li> On: 
+                \\[
+                \\frac{1}{1 + \\sqrt{x}} = 1 - \\sqrt{x}
+                \\]
+                En résolvant pour \\(x\\), nous élevons les deux côtés au carré :
+                \\[
+                 (1 + \\sqrt{x}) \\times (1 - \\sqrt{x})  = 1
+                \\]
+                \\[
+                 (1^{2} - \\sqrt{x}^{2})   = 1
+                \\]
+                \\[
+                1-x=1
+                \\]
+                Cela implique que \\(x = 0\\).
+            </li>
+            <li>
+                Soit \\( x + y + 2 = 2 \\sqrt{x} + 2 \\sqrt{y}\\) :
+                \\[
+                x - 2 \\sqrt{x} + 1 + y - 2 \\sqrt{y} + 1 = 0
+                \\]
+                Ce qui se réécrit :
+                \\[
+                (\\sqrt{x} - 1)^2 + (\\sqrt{y} - 1)^2 = 0
+                \\]
+                Puisque la somme de deux termes positifs est nulle, chaque terme doit être nul :
+                \\[
+                \\sqrt{x} - 1 = 0 \\quad \\text{et} \\quad \\sqrt{y} - 1 = 0
+                \\]
+                Donc :
+                \\[
+                x = 1 \\quad \\text{et} \\quad y = 1
+                \\]
+                Ainsi, nous avons montré que :
+                \\[
+                \\forall (x, y) \\in \\mathbb{R}^2 ; x + y + 2 = 2 \\sqrt{x} + 2 \\sqrt{y} \\implies x = y = 1
+                \\]
+                        <li>
+                D'un côté, on a :
+                \\[
+                0 \\leq (a - b)^2 = a^2 + b^2 - 2ab
+                \\]
+                Donc :
+                \\[
+                a^2 + b^2 - 2ab \\geq 0
+                \\]
+                Puisque \\(a^2 + b^2 = 1\\), nous avons :
+                \\[
+                1 - 2ab \\geq 0
+                \\]
+                Ce qui implique :
+                \\[
+                2ab \\leq 1
+                \\]
+                Donc :
+                \\[
+                ab \\leq \\frac{1}{2}
+                \\]
+                Et d'un autre côté, on a :
+                \\[
+                0 \\leq (a + b)^2 = a^2 + b^2 + 2ab
+                \\]
+                Donc :
+                \\[
+                a^2 + b^2 + 2ab \\geq 0
+                \\]
+                Puisque \\(a^2 + b^2 = 1\\), nous avons :
+                \\[
+                1 + 2ab \\geq 0
+                \\]
+                Ce qui implique :
+                \\[
+                2ab \\geq -1
+                \\]
+                Donc :
+                \\[
+                ab \\geq -\\frac{1}{2}
+                \\]
+                Par conséquent, en combinant les deux résultats, nous avons :
+                \\[
+                -\\frac{1}{2} \\leq ab \\leq \\frac{1}{2}
+                \\]
+                Et donc :
+                \\[
+                |ab| \\leq \\frac{1}{2}
+                \\]
+            </li>
+
+            <li>
+                Pour montrer que \\( \\frac{n + 1}{n + 2} \\notin \\mathbb{N} \\) pour tout \\( n \\in \\mathbb{N} \\), on peut utiliser le fait que \\( \\frac{n + 1}{n + 2} \\) est toujours strictement inférieur à 1.
+                <br> En effet, \\( n + 1 \\) est toujours strictement inférieur à \\( n + 2 \\) pour tout \\( n \\in \\mathbb{N} \\), ce qui implique que \\( \\frac{n + 1}{n + 2} < 1 \\).
+            
+                <br> Puisque \\( \\frac{n + 1}{n + 2} \\) est toujours strictement inférieur à 1 pour tout \\( n \\in \\mathbb{N} \\), il ne peut être que 0 , mais \\( \\frac{n + 1}{n + 2} > 0 \\) car \\( n \\in \\mathbb{N} \\) et \\( n + 1 > 0 \\).
+                <br> Ainsi, nous avons démontré que pour tout \\( n \\in \\mathbb{N} \\), \\( \\frac{n + 1}{n + 2} \\) ne peut jamais être un nombre naturel, ce qui prouve que \\( \\frac{n + 1}{n + 2} \\notin \\mathbb{N} \\).
+            </li>
+            <li>
+            Soit \\( x \\in \\mathbb{R}^+ \\). Montrer que \\((\\forall k \\in \\mathbb{N}); x^k + \\frac{1}{x^k} \\geq 2\\) :
+            \\[
+            (\\sqrt{x^k} - \\frac{1}{\\sqrt{x^k}})^2 \\geq 0
+            \\]
+            Donc :
+            \\[
+            x^k + \\frac{1}{x^k} - 2 \\geq 0
+            \\]
+            Ce qui implique :
+            \\[
+            x^k + \\frac{1}{x^k} \\geq 2
+            \\]
+        </li>
+    <li>
+        Déduisons que \\((\\forall n \\in \\mathbb{N}); 1 + x + x^2 + ... + x^{2n} \\geq (2x + 1)x^n\\) :
+        <br>Soit \\(n \\in \\mathbb{N}\\) ; On a :
+        \\[
+        1 + x + x^2 + ... + x^{2n} = 1 + x + x^2 + ... + x^n + x^{n+1} + ... + x^{2n}
+        \\]
+        \\[
+        = x^n \\left( \\frac{1}{x^n} + \\frac{1}{x^{n-1}} + \\frac{1}{x^{n-2}} + ... + \\frac{1}{x} + 1 + x + x^2 + ... + x^n \\right)
+        \\]
+
+        <br>En utilisant \\( x^k + \\frac{1}{x^k} \\geq 2 \\) pour chaque terme, on obtient :
+        \\[
+        x + \\frac{1}{x} \\geq 2
+        \\]
+        \\[
+        x^2 + \\frac{1}{x^2} \\geq 2
+        \\]
+        \\[
+        \\vdots
+        \\]
+        \\[
+        x^n + \\frac{1}{x^n} \\geq 2
+        \\]
+        <br>En ajoutant membre à membre ces inégalités, on obtient :
+        \\[
+        x + \\frac{1}{x} + x^2 + \\frac{1}{x^2} + ... + x^n + \\frac{1}{x^n} \\geq 2n
+        \\]
+        <br>Donc :
+        \\[
+        x + \\frac{1}{x} + x^2 + \\frac{1}{x^2} + ... + x^n + \\frac{1}{x^n} + 1 \\geq 2n + 1
+        \\]
+        <br>D'où :
+        \\[
+        x \\left( \\frac{1}{x^n} + \\frac{1}{x^{n-1}} + \\frac{1}{x^{n-2}} + ... + \\frac{1}{x} + 1 + x + x^2 + ... + x^n \\right) \\geq (2n + 1)x^n
+        \\]
+        <br>Par suite :
+        \\[
+        (\\forall n \\in \\mathbb{N}) ; (1 + x + x^2 + ... + x^{2n}) \\geq (2n + 1)x^n
+        \\]
+    </li>
+        <li>
+            Montrer que pour tout \\((x, y) \\in \\mathbb{R}^2\\), on a \\(1 < \\frac{2y}{y - x} < 5\\) :
+            Soit \\( (x, y) \\in \\mathbb{R}^2 \\), on a :
+            \\[
+            |x| < \\frac{1}{2} \\text{ et } |y - 2| < \\frac{1}{2}
+            \\]
+            Donc :
+            \\[
+            -\\frac{1}{2} < x < \\frac{1}{2} \\text{ et } \\frac{3}{2} < y < \\frac{5}{2}
+            \\]
+            Ainsi :
+            \\[
+            1 < y - x < 3 \\text{ et } 3 < 2y < 5
+            \\]
+            Ce qui implique :
+            \\[
+            1 < \\frac{2y}{y - x} < 5
+            \\]
+        </li>
+        </ol>`
+    },
+
+    //exercice 5: Contre exemple
+    {
+    number: 5,
+    exercise: `Montrer par un contre-exemple que les propositions suivantes sont fausses :
+    <ol>
+        <li>\\( \\forall x \\in \\mathbb{R} ; x^2 - 5x + 6 > 0 \\)</li>
+        <li>\\( \\forall x \\in \\mathbb{R} ; 3 \\cos x \\neq 2 \\sin^2 x \\)</li>
+        <li>\\( \\forall x \\in \\mathbb{R} ; x + \\frac{1}{x} \\geq 2 \\)</li>
+        <li>\\( \\forall y \\in \\mathbb{R} (\\exists x \\in \\mathbb{R}) ; x^2 + xy + y^2 = 0 \\)</li>
+    </ol>`,
+    solution: `
+    <ol>
+        <li>
+            Montrons que la proposition \\( \\forall x \\in \\mathbb{R} ; x^2 - 5x + 6 > 0 \\) est une proposition fausse.
+            <br>Pour \\( x = \\frac{5}{2} \\), on a :
+            \\[
+            \\left( \\frac{5}{2} \\right)^2 - 5 \\left( \\frac{5}{2} \\right) + 6 = \\frac{25}{4} - \\frac{25}{2} + 6 = 6 - \\frac{25}{4} = -\\frac{1}{4}
+            \\]
+            Donc \\( \\frac{5}{2} \\) ne vérifie pas l'inéquation \\( x^2 - 5x + 6 > 0 \\).
+            <br>D'où la proposition \\( \\forall x \\in \\mathbb{R} ; x^2 - 5x + 6 > 0 \\) est une proposition fausse.
+        </li>
+        <li>
+            Montrons que la proposition \\( \\forall x \\in \\mathbb{R} ; 3 \\cos x \\neq 2 \\sin^2 x \\) est une proposition fausse.
+            <br>Pour cela, on va montrer que sa négation \\( \\exists x \\in \\mathbb{R} ; 3 \\cos x = 2 \\sin^2 x \\) est une proposition vraie.
+            <br>Soit \\( x \\in \\mathbb{R} \\), on a :
+<div align="left">        
+      <p> \\( 2 \\sin^2 x = 3 \\cos x \\implies 2(1 - \\cos^2 x) = 3 \\cos x \\ \\)
+      <p> \\( \\implies 2 - 2 \\cos^2 x = 3 \\cos x \\ \\)
+      <p> \\( \\implies 2 \\cos^2 x + 3 \\cos x - 2 = 0 \\ \\)
+            <p>\\( \\implies (2 \\cos x - 1)(\\cos x + 2) = 0 \\ \\)
+      <p> \\(\\implies \\cos x = \\frac{1}{2} \\text{ ou } \\cos x = -2\\)
+
+</div>
+
+            Puisque \\( \\forall x \\in \\mathbb{R} ; -1 \\leq \\cos x \\leq 1 \\) alors \\( \\cos x = -2 \\) est fausse.
+            <br>Puisque \\( \\exists x \\in \\mathbb{R} ; \\cos x = \\frac{1}{2} \\) est une proposition vraie car il suffit de prendre \\( x = \\frac{\\pi}{3} \\) alors la proposition \\( \\exists x \\in \\mathbb{R} ; 2 \\sin^2 x = 3 \\cos x \\) est une proposition vraie.
+            <br>La proposition \\( \\forall x \\in \\mathbb{R} ; 3 \\cos x \\neq 2 \\sin^2 x \\) est donc fausse.
+        </li>
+        <li>
+            Montrons que la proposition \\( \\forall x \\in \\mathbb{R} ; x + \\frac{1}{x} \\geq 2 \\) est une proposition fausse.
+            <br>Pour cela, prenons \\( x = -1 \\). Nous avons :
+            \\[
+            x + \\frac{1}{x} = -1 + \\frac{1}{-1} = -1 - 1 = -2
+            \\]
+            Donc la proposition \\( \\forall x \\in \\mathbb{R} ; x + \\frac{1}{x} \\geq 2 \\) est fausse.
+        </li>
+        <li>
+            Montrons que la proposition \\( \\forall y \\in \\mathbb{R} (\\exists x \\in \\mathbb{R}) ; x^2 + xy + y^2 = 0 \\) est une proposition fausse.
+            <br>Pour cela, prenons \\( y = 0 \\). Nous avons :
+            \\[
+            x^2 + x(0) + 0^2 = x^2 = 0 \\implies x = 0
+            \\]
+            Maintenant prenons \\( y = 1 \\), nous avons :
+            \\[
+            x^2 + x(1) + 1^2 = x^2 + x + 1 = 0
+            \\]
+            Ce qui donne une équation du second degré n'ayant pas de racine réelle. Donc, pour \\( y = 1 \\), il n'existe pas de \\( x \\in \\mathbb{R} \\) tel que \\( x^2 + xy + y^2 = 0 \\).
+            <br>D'où la proposition \\( \\forall y \\in \\mathbb{R} (\\exists x \\in \\mathbb{R}) ; x^2 + xy + y^2 = 0 \\) est une proposition fausse.
+        </li>
+    </ol>`
+    },
+    //exercice 6:Conraposee
+    {
+        number: 6,
+        exercise: `Utilisez le raisonnement par contraposée pour démontrer les propositions suivantes :
+        <ol>
+            <li>Soit \\( n \\in \\mathbb{N} \\), si \\( n^2 \\) est impair alors \\( n \\) est impair.</li>
+            <li>Si \\( \\forall \\epsilon > 0 \\), \\( a \\leq \\epsilon \\) alors \\( a \\leq 0 \\) (\\( a \\in \\mathbb{R} \\)).</li>
+            <li>Soit \\( a \\) un réel. Si \\( a^2 \\) n'est pas un multiple entier de 16, alors \\( a/2 \\) n'est pas un entier pair.</li>
+              <li>Montrer que : \\( \\forall x \\in \\mathbb{R} \\setminus \\{-1\\} , x \\neq \\frac{1}{2} \\Rightarrow \\frac{3x}{x+1} \\neq 1 \\)</li>
+        <li>Soit \\(a\\) et \\(b\\) deux nombres réels non nuls tels que : \\(b \\neq 2a\\). Montrer que : \\( b \\neq \\frac{1}{8}a \\Rightarrow \\frac{a+2b}{2a-b} \\neq \\frac{2}{3} \\)</li>
+        <li>Soit \\(x, y\\) et \\(z\\) des nombres réels. Montrer que : \\( (x + y \\leq z) \\Rightarrow (x \\leq \\frac{1}{2}z \\text{ ou } y \\leq \\frac{1}{2}z) \\)</li>
+    
+        </ol>`,
+        solution: `
+        <ol>
+            <li>
+                Pour démontrer par contraposée :<br>
+                \\[
+                \\text{Contraposée : Si } n \\text{ est pair, alors } n^2 \\text{ est pair.}
+                \\]
+                Soit \\( n = 2k \\) avec \\( k \\in \\mathbb{N} \\), alors \\( n^2 = (2k)^2 = 4k^2 \\) est pair.
+            </li>
+            <li>
+                Pour démontrer par contraposée :<br>
+                \\[
+                \\text{Contraposée : Si } a > 0, \\text{ alors } \\exists \\epsilon > 0 \\text{ tel que } a > \\epsilon.
+                \\]
+                Si \\( a > 0 \\), nous pouvons choisir \\( \\epsilon = \\frac{a}{2} \\) tel que \\( 0 < \\epsilon < a \\).
+            </li>
+            <li>
+                Pour démontrer par contraposée :<br>
+                \\[
+                \\text{Contraposée : Si } a/2 \\text{ est un entier pair, alors } a^2 \\text{ est un multiple entier de 16.}
+                \\]
+                Si \\( a/2 \\) est un entier pair, alors \\( a = 4k \\) pour un certain \\( k \\in \\mathbb{Z} \\), donc \\( a^2 = (4k)^2 = 16k^2 \\) est un multiple entier de 16.
+            </li>
+              <li>Pour montrer que : \\( \\forall x \\in \\mathbb{R} \\setminus \\{-1\\} , x \\neq \\frac{1}{2} \\Rightarrow \\frac{3x}{x+1} \\neq 1 \\) :
+            <br> Contraposée : \\( \\frac{3x}{x+1} = 1 \\Rightarrow x = \\frac{1}{2} \\)
+            <br> Si \\( \\frac{3x}{x+1} = 1 \\), alors \\(3x = x + 1 \\) d'où \\(2x = 1\\) et \\(x = \\frac{1}{2} \\).
+            <br> Donc la contraposée est vraie, ce qui prouve la proposition originale.
+        </li>
+        <li>Pour montrer que : \\( b \\neq \\frac{1}{8}a \\Rightarrow \\frac{a+2b}{2a-b} \\neq \\frac{2}{3} \\) :
+            <br> Contraposée : \\( \\frac{a+2b}{2a-b} = \\frac{2}{3} \\Rightarrow b = \\frac{1}{8}a \\)
+            <br> Si \\( \\frac{a+2b}{2a-b} = \\frac{2}{3} \\), alors \\(3(a+2b) = 2(2a-b) \\) d'où \\(3a + 6b = 4a - 2b\\) et \\(8b = a \\) donc \\(b = \\frac{1}{8}a \\).
+            <br> Donc la contraposée est vraie, ce qui prouve la proposition originale.
+        </li>
+        <li>Pour montrer que : \\( (x + y \\leq z) \\Rightarrow (x \\leq \\frac{1}{2}z \\text{ ou } y \\leq \\frac{1}{2}z) \\) :
+            <br> Contraposée : \\( x > \\frac{1}{2}z \\text{ et } y > \\frac{1}{2}z \\Rightarrow x + y > z \\)
+            <br> Si \\( x > \\frac{1}{2}z \\) et \\( y > \\frac{1}{2}z \\), alors \\(x + y > \\frac{1}{2}z + \\frac{1}{2}z \\) donc \\( x + y > z \\).
+            <br> Donc la contraposée est vraie, ce qui prouve la proposition originale.
+        </li>
+        </ol>`
+    },
+
+    //exercice 7: Equivalences successives
+    {
+        number: 7,
+        exercise: `Utilisez le raisonnement par équivalence pour démontrer les propositions suivantes :
+        <ol>
+            <li>Montrer que : \\( \\forall x \\in [1, +\\infty[ , \\frac{\\sqrt{x-1}}{x} \\leq \\frac{1}{2} \\)</li>
+            <li>Soit \\( a \\in \\mathbb{R}^* \\) et \\( b \\in \\mathbb{R}^+ \\). Montrer que : \\( a + b = 0 \\iff a = b = 0 \\)</li>
+            <li>Déterminer les réels \\( x \\) et \\( y \\) tel que : \\( \\sqrt{x - 1} + 2\\sqrt{y - 4} = \\frac{x + y}{2} \\)</li>
+            <li>Montrer que : \\( \\forall x \\in \\mathbb{R} , 1 - \\frac{1}{\\sqrt{1 + x^2}} > 0 \\)</li>
+            <li>Montrer que : \\( \\forall (x, y) \\in \\mathbb{R}^2, \\left( x + \\sqrt{x^2 + 1} \\right) \\left( y + \\sqrt{y^2 + 1} \\right) = 1 \\iff x + y = 0 \\)</li>
+            <li>Montrer que : \\( \\forall (a, b) \\in ([0, +\\infty[^2), \\sqrt{a} + \\sqrt{b} - 1 = \\frac{a + b}{2} \\iff a = b = 1 \\)</li>
+            <li>Montrer que : \\( \\forall x \\in ]0, +\\infty[, \\sqrt{2x + 2} - \\sqrt{x} = 1 \\iff x = 1 \\)</li>
+            <li>Montrer que : \\( \\forall (a, b) \\in ([0, +\\infty[^2), \\sqrt{a + 1} - \\sqrt{b + 1} < \\sqrt{a} - \\sqrt{b} \\iff b < a \\)</li>
+            <li>Montrer que : \\( \\forall (a, b) \\in (\\mathbb{R}^*)^2 , \\frac{a^2}{a + b} \\geq \\frac{3a - b}{4} \\)</li>
+            <li>Soit \\((x, y) \\in (\\mathbb{R}^*)^2 \\) tel que \\(x^2 + y^2 = 1\\). Montrer que : \\(1 < x + y \\leq \\sqrt{2}\\).</li>
+
+        </ol>`,
+        solution: `
+        <ol>
+            <li>Soit \\( x \\in [1, +\\infty[ \\). Nous avons :
+            <div align="left">
+                <p>\\( \\frac{\\sqrt{x-1}}{x} \\leq \\frac{1}{2} \\iff \\sqrt{x-1} \\leq \\frac{x}{2} \\)</p>
+                <p>\\( \\iff 4(x-1) \\leq x^2 \\)</p>
+                <p>\\( \\iff x^2 - 4x + 4 \\geq 0 \\)</p>
+                <p>\\( \\iff (x-2)^2 \\geq 0 \\)</p>
+            </div>
+            Comme \\((x-2)^2 \\geq 0\\) est une proposition vraie pour tout \\( x \\in \\mathbb{R} \\), la proposition initiale :
+            \\( \\forall x \\in [1, +\\infty[ , \\frac{\\sqrt{x-1}}{x} \\leq \\frac{1}{2} \\) est donc vraie.
+            </li>
+            <li>Soit \\( a \\in \\mathbb{R}^* \\) et \\( b \\in \\mathbb{R}^+ \\). Montrons que :
+            <br>\\( a + b = 0 \\iff a = b = 0 \\)
+            <br>Si \\( a = b = 0 \\), alors \\( a + b = 0 \\) est évident.
+            <br>Réciproquement, si \\( a + b = 0 \\), alors \\( b = -a \\) et comme \\( a \\geq 0 \\), alors \\( b \\leq 0 \\). Puisque \\( b \\geq 0 \\), nous avons \\( b = 0 \\) et donc \\( a = 0 \\). Ainsi :
+            \\( a + b = 0 \\iff a = b = 0 \\)
+            </li>
+            <li>Soit \\( x \\in \\mathbb{R} \\) et \\( y \\in \\mathbb{R} \\) tels que :
+            <br>\\( \\sqrt{x-1} + 2\\sqrt{y-4} = \\frac{x+y}{2} \\)
+            <br>L'équation existe si et seulement si \\( x - 1 \\geq 0 \\) et \\( y - 4 \\geq 0 \\). C'est-à-dire : \\( x \\geq 1 \\) et \\( y \\geq 4 \\).
+            <div align="left">
+                <p>\\( \\iff 2\\sqrt{x-1} + 4\\sqrt{y-4} = x + y \\)</p>
+                <p>\\( \\iff x - 2\\sqrt{x-1} + y - 4\\sqrt{y-4} = 0 \\)</p>
+                <p>\\( \\iff (x - 1 - 2\\sqrt{x-1} + 1) + (y - 4 - 4\\sqrt{y-4} + 4) = 0 \\)</p>
+                <p>\\( \\iff (\\sqrt{x-1} - 1)^2 + (\\sqrt{y-4} - 2)^2 = 0 \\)</p>
+            </div>
+            et comme \\((\\sqrt{x-1} - 1)^2 \\geq 0\\) et \\((\\sqrt{y-4} - 2)^2 \\geq 0\\), alors :
+            <div align="left">
+                <p>\\( \\iff \\begin{cases} \\sqrt{x-1} - 1 = 0 \\\\ \\text{et} \\\\ \\sqrt{y-4} - 2 = 0 \\end{cases} \\)</p>
+                <p>\\( \\iff \\begin{cases} \\sqrt{x-1} = 1 \\\\ \\text{et} \\\\ \\sqrt{y-4} = 2 \\end{cases} \\)</p>
+                <p>\\( \\iff \\begin{cases} x - 1 = 1^2 \\\\ \\text{et} \\\\ y - 4 = 2^2 \\end{cases} \\)</p>
+                <p>\\( \\iff \\begin{cases} x = 2 \\\\ \\text{et} \\\\ y = 8 \\end{cases} \\)</p>
+            </div>
+            Ainsi :
+            \\( \\sqrt{x-1} + 2\\sqrt{y-4} = \\frac{x+y}{2} \\iff x = 2 \\text{ et } y = 8 \\)
+            <br>D'où : \\( x = 2 \\) et \\( y = 8 \\)
+            </li>
+            <li>Montrons que :
+            \\( \\forall x \\in \\mathbb{R} , 1 - \\frac{1}{\\sqrt{1 + x^2}} > 0 \\)
+            <br>Soit \\( x \\in \\mathbb{R} \\). Nous avons :
+            <br>\\( 1 - \\frac{1}{\\sqrt{1 + x^2}} > 0 \\iff \\sqrt{1 + x^2} > 1 \\iff 1 + x^2 > 1 \\iff x^2 > 0 \\)
+            <br>Comme \\( x^2 > 0 \\) pour tout \\( x \\in \\mathbb{R} \\setminus \\{0\\} \\), la proposition est donc vraie.
+            </li>
+
+
+            <li>Montrons que : \\( \\forall (x, y) \\in \\mathbb{R}^2, \\left( x + \\sqrt{x^2 + 1} \\right) \\left( y + \\sqrt{y^2 + 1} \\right) = 1 \\iff x + y = 0 \\)
+            <div align="left">
+                <p>\\( \\text{Supposons } x + y = 0 \\). Montrons que : \\( \\left( x + \\sqrt{x^2 + 1} \\right) \\left( y + \\sqrt{y^2 + 1} \\right) = 1 \\)</p>
+                <p>\\( \\text{On a } y = -x \\)</p>
+                <p>\\( \\left( x + \\sqrt{x^2 + 1} \\right) \\left( -x + \\sqrt{(-x)^2 + 1} \\right) = \\left( x + \\sqrt{x^2 + 1} \\right) \\left( -x + \\sqrt{x^2 + 1} \\right) \\)</p>
+                <p>\\( = x(-x) + x\\sqrt{x^2 + 1} - x\\sqrt{x^2 + 1} + (\\sqrt{x^2 + 1})^2 \\)</p>
+                <p>\\( = -x^2 + x\\sqrt{x^2 + 1} - x\\sqrt{x^2 + 1} + (x^2 + 1) \\)</p>
+                <p>\\( = -x^2 + x^2 + 1 \\)</p>
+                <p>\\( = 1 \\)</p>
+            </div>
+            <p>\\( \\text{Supposons } \\left( x + \\sqrt{x^2 + 1} \\right) \\left( y + \\sqrt{y^2 + 1} \\right) = 1 \\). Montrons que : \\( x + y = 0 \\)</p>
+            <p>\\( \\left( x + \\sqrt{x^2 + 1} \\right) \\left( y + \\sqrt{y^2 + 1} \\right) = 1 \\iff x \\sqrt{y^2 + 1} + y \\sqrt{x^2 + 1} + \\sqrt{(x^2 + 1)(y^2 + 1)} = 0 \\)</p>
+            <p>\\( \\iff x \\sqrt{y^2 + 1} + y \\sqrt{x^2 + 1} = - \\sqrt{(x^2 + 1)(y^2 + 1)} \\)</p>
+            <p>\\( \\text{Si } x \\text{ et } y \\text{ ont des signes opposés, alors } x \\text{ et } y \\text{ se compensent, ce qui donne } x + y = 0 \\)</p>
+            </li>
+
+
+            <li>Montrons que : \\( \\forall (a, b) \\in ([0, +\\infty[^2), \\sqrt{a} + \\sqrt{b} - 1 = \\frac{a + b}{2} \\iff a = b = 1 \\)
+            <div align="left">
+                <p>Soit \\(  (a, b) \\in ([0, +\\infty[^2)  \\). Nous avons :</p>
+                <p>\\( \\sqrt{a} + \\sqrt{b} - 1 = \\frac{a + b}{2} \\iff 2\\sqrt{a} + 2\\sqrt{b} - 2 = a + b \\)</p>
+                <p>\\( \\iff a - 2\\sqrt{a} + b - 2\\sqrt{b} + 1 + 1 = 0 \\)</p>
+                <p>\\( \\iff (\\sqrt{a} - 1)^2 + (\\sqrt{b} - 1)^2 = 0 \\)</p>
+                <p>\\( \\iff \\sqrt{a} = 1 \\text{ et } \\sqrt{b} = 1 \\)</p>
+                <p>\\( \\iff a = 1 \\text{ et } b = 1 \\)</p>
+            </div>
+            </li>
+
+
+   <li>
+    Montrons que : \\( \\forall x \\in ]0, +\\infty[, \\, \\sqrt{2x + 2} - \\sqrt{x} = 1 \\iff x = 1 \\)
+    <br>Soit \\( x \\in ]0, +\\infty[, \\) on a
+    <div align="left">
+        \\( \\sqrt{2x + 2} - \\sqrt{x} = 1 \\)
+        <br>\\( \\iff \\sqrt{2x + 2} = 1 + \\sqrt{x} \\)
+        <br>\\( \\iff 2x + 2 = 1 + 2\\sqrt{x} + x \\)
+        <br>\\( \\iff x + 1 = 2\\sqrt{x} \\)
+        <br>\\( \\iff (x + 1)^2 = (2\\sqrt{x})^2 \\)
+        <br>\\( \\iff x^2 + 2x + 1 = 4x \\)
+        <br>\\( \\iff x^2 - 2x + 1 = 0 \\)
+        <br>\\( \\iff (x - 1)^2 = 0 \\)
+        <br>\\( \\iff x = 1 \\)
+    </div>
+    donc
+    <div align="left">
+        \\( \\forall x \\in ]0, +\\infty[, \\, \\sqrt{2x + 2} - \\sqrt{x} = 1 \\iff x = 1 \\)
+    </div>
+</li>
+
+            
+
+         <li>
+    Montrons que : \\( \\forall (a, b) \\in ([0, +\\infty[)^2, \\, \\sqrt{a + 1} - \\sqrt{b + 1} < \\sqrt{a} - \\sqrt{b} \\iff b < a \\)
+    <br>Soit \\( (a, b) \\in ([0, +\\infty[)^2, \\) on a
+    <div align="left">
+        \\( \\sqrt{a + 1} - \\sqrt{b + 1} < \\sqrt{a} - \\sqrt{b} \\)
+        <br>\\( \\iff \\sqrt{a + 1} + \\sqrt{b} < \\sqrt{a} + \\sqrt{b + 1} \\)
+        <br>\\( \\iff \\left( \\sqrt{a + 1} + \\sqrt{b} \\right)^2 < \\left( \\sqrt{a} + \\sqrt{b + 1} \\right)^2 \\)
+        <br>\\( \\iff (a + 1) + 2\\sqrt{(a + 1)b} + b < a + 2\\sqrt{(b + 1)a} + (b + 1) \\)
+        <br>\\( \\iff 2\\sqrt{(a + 1)b} < 2\\sqrt{(b + 1)a} \\)
+        <br>\\( \\iff \\sqrt{(a + 1)b} < \\sqrt{(b + 1)a} \\)
+        <br>\\( \\iff (a + 1)b < (b + 1)a \\)
+        <br>\\( \\iff ab + b < ab + a \\)
+        <br>\\( \\iff b < a \\)
+    </div>
+    Donc
+    <div align="left">
+        \\( \\forall (a, b) \\in ([0, +\\infty[)^2, \\, \\sqrt{a + 1} - \\sqrt{b + 1} < \\sqrt{a} - \\sqrt{b} \\iff b < a \\)
+    </div>
+</li>
+<li>
+    Montrons que pour tout \\( (a, b) \\in (\\mathbb{R}^*)^2 , \\frac{a^2}{a + b} \\geq \\frac{3a - b}{4} \\) :
+    Soit \\( a > 0 \\) et \\( b > 0 \\). Montrons que :
+    <div align="left">
+        \\( \\frac{a^2}{a + b} \\geq \\frac{3a - b}{4} \\)
+        <br>Comme \\( a + b > 0 \\) alors on a :
+        <br>\\( \\frac{a^2}{a + b} \\geq \\frac{3a - b}{4} \\iff 4a^2 \\geq (a + b)(3a - b) \\)
+        <br>\\( \\iff 4a^2 \\geq 3a^2 - ab + 3ab - b^2 \\)
+        <br>\\( \\iff 4a^2 \\geq 3a^2 + 2ab - b^2 \\)
+        <br>\\( \\iff a^2 - 2ab + b^2 \\geq 0 \\)
+        <br>\\( \\iff (a - b)^2 \\geq 0 \\)
+        <br>Et comme \\((a - b)^2 \\geq 0\\) est une proposition vraie, alors \\( \\frac{a^2}{a + b} \\geq \\frac{3a - b}{4} \\) est vraie.
+        <br>Donc :
+        <br>\\( \\forall (a, b) \\in (\\mathbb{R}^*)^2 , \\frac{a^2}{a + b} \\geq \\frac{3a - b}{4} \\)
+    </div>
+</li>
+<li>
+    Soit \\((x, y) \\in (\\mathbb{R}^*)^2 \\) tel que \\(x^2 + y^2 = 1\\). Montrons que : \\(1 < x + y \\leq \\sqrt{2}\\).
+    Montrons que :
+    <div align="left">
+        \\( 1 < x + y \\leq \\sqrt{2} \\)
+        <br>On a :
+        <br>\\( 1 < x + y \\iff 1 < (x + y)^2 \\text{ (car } x + y > 0) \\)
+        <br>\\( \\iff 1 < x^2 + 2xy + y^2 \\text{ (car } x^2 + y^2 = 1) \\)
+        <br>\\( \\iff 0 < 2xy \\)
+        <br>Or \\( x > 0 \\) et \\( y > 0 \\) d'où \\( 2xy > 0 \\).
+        <br>Ainsi, la proposition \\( 2xy > 0 \\) est vraie. Donc \\( 1 < x + y \\).
+        <br>D'autre part :
+        <br>\\( x + y \\leq \\sqrt{2} \\iff (x + y)^2 \\leq 2 \\text{ (car } x + y > 0) \\)
+        <br>\\( \\iff x^2 + 2xy + y^2 \\leq 2 \\text{ (car } x^2 + y^2 = 1) \\)
+        <br>\\( \\iff 1 + 2xy \\leq 2 \\)
+        <br>\\( \\iff 2xy \\leq 1 \\)
+        <br>Et comme \\( 2xy \\geq 0 \\) est vraie alors \\( x + y \\leq \\sqrt{2} \\) est vraie.
+        <br>Conclusion : \\( 1 < x + y \\leq \\sqrt{2} \\)
+    </div>
+</li>
+
+
+        </ol>`
+    },
+    // exercice 8: Disjonction des Cas
+   {
+    number: 8,
+    exercise: ` 
+    <ol>
+        <li>Montrer que pour tout \\( x \\in \\mathbb{R} \\), \\( |x - 2| \\leq x^2 - x + 2 \\)</li>
+          <li>  Montrer que \\( \\forall x \\in \\mathbb{R} \\) ; \\( x^4 - x^3 + 2 > 0 \\) (on distinguera les trois cas : \\( x \\leq 0 \\), \\( x \\geq 1 \\) et \\( 0 < x < 1 \\))</li>
+
+    <li>Montrer que \\( \\forall x \\in \\mathbb{R} \\) ; \\( \\sqrt{x^2 + x + 1} + x + \\frac{1}{2} > 0 \\)
+ </li>
+
+ <li>
+     Montrer que pour tout \\( n \\in \\mathbb{N} \\) ; \\( 4 \\mid n^2 \\) ou \\( 4 \\mid n^2 - 1 \\) 
+
+ </li>
+    <li>
+    Montrer que pour tout entier \\( n \\), \\( \\frac{n(n+1)}{2} \\) est un entier
+     </li>
+
+     <li>
+
+    Soit \\( n \\) un entier relatif montrer que \\( n(n^2 - 1) \\) est un multiple de 3.
+
+     </li>
+    </ol>`,
+    solution: `
+    <ol style="color:Green">
+        <li>
+            Soit \\( x \\in \\mathbb{R} \\). Nous distinguons deux cas :
+            <br>Premier cas : \\( x \\geq 2 \\). Alors \\( |x - 2| = x - 2 \\). Calculons alors \\( x^2 - x + 2 - |x - 2| \\).
+            \\[
+            x^2 - x + 2 - |x - 2| = x^2 - x + 2 - (x - 2)
+            \\]
+            \\[
+            = x^2 - x + 2 - x + 2
+            \\]
+            \\[
+            = x^2 - 2x + 4
+            \\]
+            \\[
+            = (x - 2)^2 + 3 \\geq 0
+            \\]
+            <br>Deuxième cas : \\( x < 2 \\). Alors \\( |x - 2| = -(x - 2) \\). Nous obtenons
+            \\[
+            x^2 - x + 2 - |x - 2| = x^2 - x + 2 - (-(x - 2))
+            \\]
+            \\[
+            = x^2 - x + 2 + x - 2
+            \\]
+            \\[
+            = x^2 \\geq 0
+            \\]
+            <br>Conclusion. Dans tous les cas \\( |x - 2| \\leq x^2 - x + 2 \\).
+        </li>
+
+    <li>
+    <div align="left">
+        <strong style="color:red;">1<sup>er</sup> cas : \\( x \\leq 0 \\)</strong>
+        alors \\( -x^3 \\geq 0 \\)
+        et \\( x^4 \\geq 0 \\).
+        <br>D'où : \\( x^4 - x^3 + 2 \\geq 2 \\)
+        <br>Ainsi :
+        \\( x^4 - x^3 + 2 > 0 \\)
+        
+        <br><strong style="color:red;">2<sup>ème</sup> cas : \\( x \\geq 1 \\)</strong>
+        Alors \\( x^4 \\geq x^3 \\)
+        <br>Donc \\( x^4 - x^3 \\geq 0 \\)
+        et par suite:
+    \\( x^4 - x^3 + 2 > 0 \\)
+
+        <br><strong style="color:red;">3<sup>ème</sup> cas : \\( 0 < x < 1 \\)</strong>
+        On a : \\( 0 < x^3 < 1 < 2 \\)
+        <br>Donc : \\( 2 - x^3 > 0 \\)
+        et \\( x^4 > 0 \\)
+        <br>D'où :
+        \\( x^4 - x^3 + 2 > 0 \\)
+    </div>
+    Conclusion : \\( \\forall x \\in \\mathbb{R} \\) ; \\( x^4 - x^3 + 2 > 0 \\)
+</li>
+
+<li>
+    <div align="left">
+        Soit \\( x \\in \\mathbb{R} \\)
+        <br>On a : \\( x^2 + x + 1 > 0 \\) (car \\( \\Delta = -3 \\) et \\( a > 0 \\) (\\( a = 1 \\)))
+        <br>Donc : \\( \\sqrt{x^2 + x + 1} > 0 \\)
+        <br>Montrons que\\( \\sqrt{x^2 + x + 1} + x + \\frac{1}{2} > 0 \\)
+        <br><strong style="color:red;">1<sup>er</sup> cas : \\( x + \\frac{1}{2} > 0 \\), c'est-à-dire \\( x > -\\frac{1}{2} \\)</strong>
+        <br>alors \\( \\sqrt{x^2 + x + 1} + x + \\frac{1}{2} > 0 \\)
+        <br><strong style="color:red;">2<sup>ème</sup> cas : si \\( x + \\frac{1}{2} \\leq 0 \\), c'est-à-dire \\( x \\leq -\\frac{1}{2} \\)</strong>
+        <br>On a :   \\[ \\sqrt{x^2 + x + 1} + x + \\frac{1}{2} = \\frac{x^2 + x + 1 - (x + \\frac{1}{2})^2}{\\sqrt{x^2 + x + 1} - (x + \\frac{1}{2})} \\]
+        <br>\\[ = \\frac{\\frac{3}{4}}{\\sqrt{x^2 + x + 1} - (x + \\frac{1}{2}))}  \\]
+        <br>Comme \\( -(x + \\frac{1}{2}) > 0 \\) et \\( \\sqrt{x^2 + x + 1} > 0 \\)
+        <br>alors \\( \\sqrt{x^2 + x + 1} - (x + \\frac{1}{2}) > 0 \\)
+    </div>
+    Conclusions : \\( \\forall x \\in \\mathbb{R} \\) ; \\( \\sqrt{x^2 + x + 1} + x + \\frac{1}{2} > 0 \\)
+</li>
+
+
+<li>
+    Montrons que pour tout \\( n \\in \\mathbb{N} \\) ; \\( 4 \\mid n^2 \\) ou \\( 4 \\mid n^2 - 1 \\) 
+    <br>en utilisant un raisonnement par disjonction des cas.
+    <div align="left">
+        Soit \\( n \\in \\mathbb{N} \\)
+        <br><strong style="color:red;">1<sup>er</sup> cas : supposons que \\( n \\) est pair</strong>
+        <br>On a : \\( n \\) est pair donc : \\( (\\exists k \\in \\mathbb{N}) \\ n = 2k \\)
+        <br>C'est-à-dire : \\( n^2 = 4k^2 \\) d'où \\( n^2 \\) est un multiple de 4 (car \\( k^2 \\in \\mathbb{N} \\)) et par suite : \\( 4 \\mid n^2 \\)
+        
+        <br><strong style="color:red;">2<sup>ème</sup> cas : supposons que \\( n \\) est impair</strong>
+        <br>On a : \\( n \\) est impair donc : \\( (\\exists k \\in \\mathbb{N}) \\ n = 2k + 1 \\)
+        <br>C'est-à-dire : \\( n^2 - 1 = 4k^2 + 4k = 4(k^2 + k) \\)
+        <br>d'où \\( n^2 - 1 \\) est un multiple de 4 (car \\( k^2 + k \\in \\mathbb{N} \\)) et par suite : \\( 4 \\mid n^2 - 1 \\)
+        
+        <br>Conclusion : \\( 4 \\mid n^2 \\) ou \\( 4 \\mid n^2 - 1 \\) pour tout \\( n \\in \\mathbb{N} \\)
+    </div>
+</li>
+
+<li>
+    <div align="left">
+    On sépare deux cas :
+        <br>&#x2022; <strong style="color:red;"> si \\( n \\) est pair </strong>, alors \\( n \\) s'écrit \\( n = 2k \\) et \\( n + 1 = (2k + 1) \\). On a alors
+        <br>\\[
+        \\frac{n(n+1)}{2} = \\frac{2k(2k + 1)}{2} = k(2k + 1)
+        \\]
+        qui est bien un entier.
+        <br>&#x2022; <strong style="color:red;"> si \\( n \\) est impair </strong>, alors \\( n \\) s'écrit \\( n = 2k + 1 \\) et \\( n + 1 = 2k + 2 \\). On a alors
+        <br>\\[
+        \\frac{n(n+1)}{2} = \\frac{(2k + 1)(2k + 2)}{2} = (2k + 1)(k + 1)
+        \\]
+        qui est lui aussi bien un entier.
+    </div>
+</li>
+
+
+<li>
+    Soit \\( n \\) un entier relatif montrer que \\( n(n^2 - 1) \\) est un multiple de 3.
+    <div align="left">
+        Puisque \\( n \\in \\mathbb{Z} \\) alors \\( n = 3k + r \\) avec \\( r \\in \\{0, 1, 2\\} \\)
+        <br><strong style="color:red;">Premier cas si \\( n = 3k \\)</strong>
+        <br>alors \\( n(n^2 - 1) = 3k((3k)^2 - 1) = 3[k(3k^2 - 1)] \\)
+        <br>\\( n(n^2 - 1) \\) est un multiple de 3
+        
+        <br><strong style="color:red;">Deuxième cas si \\( n = 3k + 1 \\)</strong>
+        <br>alors \\( n(n^2 - 1) = n(n - 1)(n + 1) \\)
+        <br>\\( = (3k + 1)(3k + 1 - 1)(3k + 1 + 1) \\)
+        <br>\\( = 3k(3k + 1)(3k + 2) \\)
+        <br>\\( = 3[k(3k + 1)(3k + 2)] \\)
+        <br>\\( n(n^2 - 1) \\) est un multiple de 3
+        
+        <br><strong style="color:red;">Troisième cas si \\( n = 3k + 2 \\)</strong>
+        <br>alors \\( n(n^2 - 1) = n(n - 1)(n + 1) \\)
+        <br>\\( = (3k + 2)(3k + 2 - 1)(3k + 2 + 1) \\)
+        <br>\\( = 3(k + 1)(3k + 1)(3k + 2) \\)
+        <br>\\( = 3[(k + 1)(3k + 1)(3k + 2)] \\)
+        <br>\\( n(n^2 - 1) \\) est un multiple de 3
+        
+        <br><strong style="color:Blue;">Conclusion</strong>
+        <br>Dans tous les cas il existe un entier relatif \\( k' \\) tel que \\( n(n^2 - 1) = 3k' \\)
+        <br>et par suite le nombre \\( n(n^2 - 1) \\) est un multiple de 3
+    </div>
+</li>
+
+
+    </ol>`
+    },
+    // exercice 9: Absurde
+    {
+    number: 9,
+    exercise: `Utilisez le raisonnement par l'absurde pour démontrer les propositions suivantes :
+    <ol>
+        <li>Montrer que \\( \\frac{1}{3} \\) n'est pas un nombre décimal.</li>
+
+        <li>Montrer que : \\( \\sqrt{3} \\notin \\mathbb{Q} \\)</li>
+        
+        <li>Soit \\( n \\in \\mathbb{N} \\). Montrer que : \\( \\sqrt{4n^2 + 5n + 3} \\notin \\mathbb{N} \\)</li>
+        
+        <li>Soit \\( a \\in \\mathbb{N}^* \\). Montrer que : \\( a^2 + 1 \\) n'est pas un carré parfait.</li>
+        
+        <li>Soit \\( a \\in \\mathbb{R} \\). Montrer que : \\( (\\forall \\epsilon > 0) ; |a| < \\epsilon \\Rightarrow a = 0 \\)</li>
+
+        <li>Soit \\( n \\in \\mathbb{N}^* \\). Montrer que si \\( n \\) est un carré parfait, alors \\( 2n \\) ne peut pas être un carré parfait.</li>
+        
+        <li>Montrer que l'équation \\( 9x^5 - 12x^4 + 6x - 5 = 0 \\) n'admet pas de solution entière.</li>
+
+        <li> Pour tout entier \\( n \\), si \\( n^3 + 5 \\) est impair, alors \\( n \\) est pair.</li>
+
+
+    </ol>`,
+    solution: `
+    <ol style="color:Green">
+        <li>Pour montrer que \\( \\frac{1}{3} \\) n'est pas un nombre décimal, raisonnons par l'absurde et supposons que \\( \\frac{1}{3} \\) est décimal.
+            <br>Il existe alors des entiers relatifs \\( a \\) et \\( b \\) tels que \\( \\frac{1}{3} = \\frac{a}{10^b} \\).
+            <br>Ainsi, \\( 3 \\times a = 10^b \\), ce qui signifie que \\( 10^b \\) est un multiple de 3 : la somme de ses chiffres doit donc être divisible par 3, ce qui est absurde. En effet, la somme des chiffres de \\( 10^b \\) est toujours égale à 1 et n'est donc pas divisible par 3.
+            <br>L'hypothèse \\( \\frac{1}{3} \\) est décimal est donc fausse et ainsi \\( \\frac{1}{3} \\) n'est pas décimal.
+        </li>
+
+        <li>
+            Prouvons que \\( \\sqrt{3} \\notin \\mathbb{Q} \\).<br>
+            Par L'absurde, supposons que \\( \\sqrt{3} \\in \\mathbb{Q} \\).<br>
+            Il existe donc \\( (p, q) \\in \\mathbb{Z} \\times \\mathbb{N}^* \\) tel que \\( \\sqrt{3} = \\frac{p}{q} \\) avec \\( PGCD(p, q) = 1 \\).<br>
+            En élevant au carré, nous avons : \\( 3q^2 = p^2 \\).<br>
+            Cela implique que \\( p^2 \\) est un multiple de 3, donc \\( p \\) est un multiple de 3, disons \\( p = 3k \\) avec \\( k \\in \\mathbb{Z} \\).<br>
+            Ainsi, \\( 3q^2 = (3k)^2 \\Rightarrow q^2 = 3k^2 \\), ce qui implique que \\( q^2 \\) est un multiple de 3, donc \\( q \\) est un multiple de 3.<br>
+            Cela contredit le fait que \\( PGCD(p, q) = 1 \\). Par conséquent, \\( \\sqrt{3} \\notin \\mathbb{Q} \\).
+        </li>
+        
+        <li>
+            Prouvons que \\( \\sqrt{4n^2 + 5n + 3} \\notin \\mathbb{N} \\).<br>
+            Par L'absurde, supposons qu'il existe \\( n \\in \\mathbb{N} \\) tel que \\( \\sqrt{4n^2 + 5n + 3} \\in \\mathbb{N} \\).<br>
+            Donc, il existe \\( m \\in \\mathbb{N} \\) tel que \\( \\sqrt{4n^2 + 5n + 3} = m \\).<br>
+            En élevant au carré, nous obtenons : \\( 4n^2 + 5n + 3 = m^2 \\).<br>
+            Puisque \\( 4n^2 + 5n + 3 \\) est compris entre \\( (2n+1)^2 \\) et \\( (2n+2)^2 \\), alors m est compris entre \\( 2n+1 \\) et \\( 2n+2 \\)   il y a donc une contradiction car il n'existe Aucun entier naturel compris entre deux entiers naturels consécutifs .<br>
+            Donc, \\( \\sqrt{4n^2 + 5n + 3} \\notin \\mathbb{N} \\).
+        </li>
+        
+        <li>
+            Soit \\( a \\in \\mathbb{N}^* \\). Prouvons que \\( a^2 + 1 \\) n'est pas un carré parfait.<br>
+            Par L'absurde, supposons que \\( a^2 + 1 \\) soit un carré parfait.<br>
+            Donc, il existe \\( n \\in \\mathbb{N}^* \\) tel que \\( a^2 + 1 = n^2 \\).<br>
+            Nous avons : \\( a^2 < a^2 + 1 < (a+1)^2 \\).<br>
+            Donc, \\( a < n < a+1 \\), ce qui est une contradiction.<br>
+            Ainsi, \\( a^2 + 1 \\) n'est pas un carré parfait.
+        </li>
+        
+        <li>
+            Soit \\( a \\in \\mathbb{R} \\). Prouvons que \\( (\\forall \\epsilon > 0) ; |a| < \\epsilon \\Rightarrow a = 0 \\).<br>
+            Par contradiction, supposons que \\( a \\neq 0 \\).<br>
+            Alors, \\( |a| > 0 \\).<br>
+            Étant donné que \\( (\\forall \\epsilon > 0) ; |a| < \\epsilon \\), choisissons \\( \\epsilon = \\frac{|a|}{2} \\).<br>
+            Nous obtenons : \\( |a| < \\frac{|a|}{2} \\), ce qui est une contradiction.<br>
+            Donc, \\( a = 0 \\).
+        </li>
+
+
+        <li>
+            Montrons que si \\( n \\) est un carré parfait, alors \\( 2n \\) ne peut pas être un carré parfait.<br>
+            Raisonnons par l'absurde. Supposons que \\( n \\) est le carré d'un entier, et que \\( 2n \\) est aussi le carré d'un entier.<br>
+            Alors \\( n \\) s'écrit \\( n = p^2 \\) et \\( 2n \\) s'écrit \\( 2n = q^2 \\). En faisant le quotient, on a \\( 2 = \\frac{q^2}{p^2} \\) et en prenant la racine carrée, \\( \\sqrt{2} = \\frac{q}{p} \\).<br>
+            Or \\( \\sqrt{2} \\) est irrationnel, ce qui est une contradiction.<br>
+            Donc, \\( 2n \\) ne peut pas être un carré parfait.
+        </li>
+
+
+        <li>Montrons que l'équation \\( 9x^5 - 12x^4 + 6x - 5 = 0 \\) n'admet pas de solution entière :
+                <br> Raisonnons par l'absurde et supposons qu'il existe \\( n \\in \\mathbb{Z} \\) tel que \\( 9n^5 - 12n^4 + 6n - 5 = 0 \\).
+                <br> Nous pouvons réécrire l'équation comme \\( n(9n^4 - 12n^3 + 6) = 5 \\).
+                <br> Donc, \\( n \\) est un diviseur de 5. Les seuls diviseurs de 5 sont \\( -5, -1, 1, 5 \\).
+                <br> En vérifiant chacun de ces diviseurs, nous constatons qu'aucun d'eux ne satisfait l'équation.
+                <br> Par conséquent, l'équation \\( 9x^5 - 12x^4 + 6x - 5 = 0 \\) n'admet pas de solution entière.
+            </li>
+
+         <li>    
+                Soit \\( n \\) un entier quelconque et supposons que \\( n^3 + 5 \\) et \\( n \\) sont tous deux impairs.
+                <br>Dans ce cas, il existe des entiers \\( j \\) et \\( k \\) tels que \\( n^3 + 5 = 2k + 1 \\) et \\( n = 2j + 1 \\). En substituant \\( n \\), nous avons :
+                <br>\\[ 2k + 1 = n^3 + 5 \\]
+                <br>\\[ 2k + 1 = (2j + 1)^3 + 5 \\]
+                <br>\\[ 2k + 1 = 8j^3 + 3(2j)^2(1) + 3(2j)(1)^2 + (1)^3 + 5 \\]
+                <br>\\[ 2k = 8j^3 + 12j^2 + 6j + 5 \\]
+                <br>En divisant par 2 et en réarrangeant, nous avons :
+                <br>\\[ k - 4j^3 - 6j^2 - 3j = \\frac{5}{2} \\]
+                <br>Cependant, cela est impossible : \\( \\frac{5}{2} \\) est un nombre rationnel non entier, tandis que \\( k - 4j^3 - 6j^2 - 3j \\) est un entier par les propriétés de clôture des entiers. Par conséquent, il doit être le cas que notre supposition que lorsque \\( n^3 + 5 \\) est impair, \\( n \\) est faux, donc \\( n \\) doit être pair.
+        </li>
+    </ol>`
+    },
+
+    // exercice 8: Reccurence
+    {
+        number: 10,
+        exercise: `Utilisez le raisonnement par récurrence pour démontrer les propositions suivantes :
+        <ol>
+            <li>Démontrer que pour tout entier naturel \\( n \\) on a :
+            \\[
+            S_n = \\sum_{k=0}^{n} k = 0 + 1 + 2 + \\ldots + n = \\frac{n(n+1)}{2}
+            \\]
+            </li>
+            <li>Démontrer par récurrence que pour tout entier \\( n \\geq 1 \\), on a :
+            \\[
+            S_n = \\sum_{k=1}^{n} k^2 = 1^2 + 2^2 + \\ldots + n^2 = \\frac{n(n+1)(2n+1)}{6}
+            \\]
+            </li>
+            <li>Démontrer par récurrence que pour tout entier \\( n \\geq 1 \\), on a :
+            \\[
+            S_n = \\sum_{k=1}^{n} \\frac{1}{k(k+1)} = \\frac{1}{1 \\cdot 2} + \\frac{1}{2 \\cdot 3} + \\frac{1}{3 \\cdot 4} + \\ldots + \\frac{1}{n(n+1)} = 1 - \\frac{1}{n+1}
+            \\]
+             <li> \\( (1 + a)^n \\geq 1 + na \\) pour tout \\( a \\in \\mathbb{R}^+ \\)</li>
+             <li> \\( 10^n - 1 \\) est un multiple de 9</li>
+            <li> \\( S_n = \\sum_{k=1}^n k^3 = 1^3 + 2^3 + \\ldots + n^3 = \\left( \\frac{n(n+1)}{2} \\right)^2 \\)</li>
+            </li>
+            <li>Pour tout \\( n \\in \\mathbb{N} \\), \\( 3^{2n} - 2^n \\) est divisible par 7.
+            </li>
+            <li>Pour tout \\( n \\in \\mathbb{N} \\), \\( \\sum_{k=0}^{n} x^k = \\frac{1-x^{n+1}}{1-x} \\) pour tout \\( x \\in \\mathbb{R} \\setminus \\{1\\} \\).
+    </li>
+    <li>
+        Démontrer par récurrence que pour tout \\( n \\in \\mathbb{N}\\), 3 divise \\( 2^{2n} - 1 \\).
+    </li>
+
+    <li>
+        Montrer que : \\( \\forall n \\in \\mathbb{N} \\), \\( 7 \\) divise \\(3^{2n+1} + 2^{n+2}\\).    </li>
+        </ol>`,
+        solution: `
+        <ol>
+            <li>
+                Initialisation : Pour \\( n = 0 \\), \\( S_n = 0 \\) et \\( \\frac{0(0+1)}{2} = 0 \\).
+                <br>La propriété est vraie au rang 0.
+                <br>Hérédité : Supposons la propriété vraie au rang \\( n \\). On a donc \\( S_n = \\frac{n(n+1)}{2} \\).
+                <br>
+                \\[
+                S_{n+1} = 0 + 1 + 2 + \\ldots + n + (n+1)
+                \\]
+                <br>\\( S_{n+1} = S_n + (n+1) \\)
+                <br>\\( S_{n+1} = \\frac{n(n+1)}{2} + (n+1) \\)
+                <br>\\( S_{n+1} = \\frac{n(n+1)}{2} + \\frac{2(n+1)}{2} \\)
+                <br>\\( S_{n+1} = \\frac{n(n+1) + 2(n+1)}{2} \\)
+                <br>\\( S_{n+1} = \\frac{(n+1)(n+2)}{2} \\)
+                <br>La propriété est donc vraie au rang \\( n+1 \\).
+                <br>Conclusion : La propriété est vraie au rang 0. En la supposant vraie au rang \\( n \\), elle est encore vraie au rang suivant.
+                <br>Par conséquent, pour tout \\( n \\in \\mathbb{N} \\) on a \\( S_n = \\frac{n(n+1)}{2} \\).
+            </li>
+            <li>
+                Initialisation : Si \\( n = 1 \\) alors \\( S_1 = 1^2 = 1 \\) et \\( \\frac{1(1+1)(2 \\cdot 1 + 1)}{6} = 1 \\).
+                <br>La propriété est vraie au rang 1.
+                <br>Hérédité : Supposons la propriété vraie au rang \\( n \\). On a \\( S_n = \\frac{n(n+1)(2n+1)}{6} \\).
+                <br>
+                \\[
+                S_{n+1} = 1^2 + 2^2 + \\ldots + n^2 + (n+1)^2
+                \\]
+                <br>\\( S_{n+1} = S_n + (n+1)^2 \\)
+                <br>\\( S_{n+1} = \\frac{n(n+1)(2n+1)}{6} + (n+1)^2 \\)
+                <br>\\( S_{n+1} = \\frac{n(n+1)(2n+1) + 6(n+1)^2}{6} \\)
+                <br>\\( S_{n+1} = \\frac{(n+1)[n(2n+1) + 6(n+1)]}{6} \\)
+                <br>\\( S_{n+1} = \\frac{(n+1)[2n^2 + n + 6n + 6]}{6} \\)
+                <br>\\( S_{n+1} = \\frac{(n+1)(2n^2 + 7n + 6)}{6} \\)
+                <br>\\( S_{n+1} = \\frac{(n+1)(n+2)(2n+3)}{6} \\)
+                <br>La propriété est donc vraie au rang \\( n+1 \\).
+                <br>Conclusion : La propriété est vraie au rang 1. En la supposant vraie au rang \\( n \\), elle est encore vraie au rang suivant.
+                <br>Par conséquent, pour tout entier \\( n \\geq 1 \\) on a \\( S_n = \\frac{n(n+1)(2n+1)}{6} \\).
+            </li>
+            <li>
+                Initialisation : Si \\( n = 1 \\) alors \\( S_1 = \\frac{1}{1 \\cdot 2} = \\frac{1}{2} \\).
+                <br>La propriété est donc vraie au rang 1.
+                <br>Hérédité : Supposons la propriété vraie au rang \\( n \\). On a :
+                <br>
+                \\[
+                S_n = \\sum_{k=1}^{n} \\frac{1}{k(k+1)} = 1 - \\frac{1}{n+1}
+                \\]
+                <br>Au rang \\( n+1 \\) on a donc :
+                <br>
+                \\[
+                S_{n+1} = \\sum_{k=1}^{n+1} \\frac{1}{k(k+1)} = 1 - \\frac{1}{n+1} + \\frac{1}{(n+1)(n+2)}
+                \\]
+                <br>\\( S_{n+1} = 1 - \\frac{1}{n+1} + \\frac{1}{(n+1)(n+2)} \\)
+                <br>\\( S_{n+1} = 1 - \\frac{1}{n+1} + \\frac{1}{(n+1)(n+2)} \\)
+                <br>\\( S_{n+1} = 1 - \\frac{n+2 - 1}{(n+1)(n+2)} \\)
+                <br>\\( S_{n+1} = 1 - \\frac{n+1}{(n+1)(n+2)} \\)
+                <br>\\( S_{n+1} = 1 - \\frac{1}{n+2} \\)
+                <br>La propriété est donc vraie au rang \\( n+1 \\).
+                <br>Conclusion : La propriété est vraie au rang 1. En la supposant vraie au rang \\( n \\), elle est encore vraie au rang suivant.
+                <br>Par conséquent, pour tout entier naturel \\( n \\geq 1 \\) on a \\( S_n = 1 - \\frac{1}{n+1} \\).
+            </li>
+
+         <li>
+            <b>Initialisation :</b> Pour \\( n = 0 \\), \\( (1 + a)^0 = 1 \\) et \\( 1 + 0 \\times a = 1 \\). Donc, \\( (1 + a)^0 \\geq 1 + 0a \\), la propriété est vraie au rang 0.
+            <br><b>Hérédité :</b> Supposons la propriété vraie au rang \\( n \\), c'est-à-dire \\( (1 + a)^n \\geq 1 + na \\). Montrons qu'elle est vraie au rang \\( n+1 \\):
+            <br>\\[ (1 + a)^{n+1} = (1 + a) \\times (1 + a)^n \\geq (1 + a) \\times (1 + na) \\]
+            <br>\\[ = 1 + a + na + a^2 \\]
+            <br>\\[ = 1 + (n+1)a + a^2 \\geq 1 + (n+1)a \\]
+            <br>Donc, \\( (1 + a)^{n+1} \\geq 1 + (n+1)a \\). La propriété est donc vraie au rang \\( n+1 \\).
+            <br><b>Conclusion :</b> La propriété est vraie pour \\( n = 0 \\). En la supposant vraie au rang \\( n \\), elle est encore vraie au rang \\( n+1 \\). Par conséquent, pour tout \\( n \\in \\mathbb{N} \\), \\( (1 + a)^n \\geq 1 + na \\).
+
+        </li>
+        <li>
+            <b>Initialisation :</b> Pour \\( n = 0 \\), \\( 10^0 - 1 = 1 - 1 = 0 \\) est bien un multiple de 9.
+            <br><b>Hérédité :</b> Supposons la propriété vraie au rang \\( n \\), c'est-à-dire \\( 10^n - 1 \\) est un multiple de 9. Montrons qu'elle est vraie au rang \\( n+1 \\):
+            <br>\\[ 10^{n+1} - 1 = 10 \\times 10^n - 1 = 10 \\times 10^n - 10 + 9 = 10 (10^n - 1) + 9 \\]
+            <br>Par conséquent, \\( 10^{n+1} - 1 \\) est bien un multiple de 9. La propriété est donc vraie au rang \\( n+1 \\).
+            <br><b>Conclusion :</b> La propriété est vraie au rang \\( 0 \\). En la supposant vraie au rang \\( n \\), elle est encore vraie au rang \\( n+1 \\). Par conséquent, pour tout entier naturel \\( n \\), \\( 10^n - 1 \\) est un multiple de 9.
+
+        </li>
+        <li>
+            <b>Initialisation :</b> Pour \\( n = 1 \\), \\( S_1 = 1^3 = 1 \\) et \\( \\left( \\frac{1(1+1)}{2} \\right)^2 = 1 \\). Donc la propriété est vraie au rang 1.
+            <br><b>Hérédité :</b> Supposons la propriété vraie au rang \\( n \\), c'est-à-dire \\( S_n = \\sum_{k=1}^n k^3 = \\left( \\frac{n(n+1)}{2} \\right)^2 \\). Montrons qu'elle est vraie au rang \\( n+1 \\):
+            <br>\\[ S_{n+1} = \\sum_{k=1}^{n+1} k^3 = S_n + (n+1)^3 \\]
+            <br>\\[ = \\left( \\frac{n(n+1)}{2} \\right)^2 + (n+1)^3 \\]
+            <br>\\[ = (n+1)^2 \\left( \\frac{n^2}{4} + n + 1 \\right) \\]
+            <br>\\[ = (n+1)^2 \\left( \\frac{n^2 + 4n + 4}{4} \\right) \\]
+            <br>\\[ = (n+1)^2 \\left( \\frac{(n+2)^2}{4} \\right) \\]
+            <br>\\[ = \\left( \\frac{(n+1)(n+2)}{2} \\right)^2 \\]
+            <br>Donc, \\( S_{n+1} = \\left( \\frac{(n+1)(n+2)}{2} \\right)^2 \\), la propriété est donc vraie au rang \\( n+1 \\).
+            <br><b>Conclusion :</b> La propriété est vraie au rang \\( 1 \\). En la supposant vraie au rang \\( n \\), elle est encore vraie au rang \\( n+1 \\). Par conséquent, pour tout entier naturel \\( n \\geq 1 \\), \\( S_n = \\sum_{k=1}^n k^3 = \\left( \\frac{n(n+1)}{2} \\right)^2 \\).
+        </li>
+
+          <li>
+    Initialisation : Pour \\( n = 0 \\), \\( 3^2 \\times 0 - 2^0 = 1 - 1 = 0 \\) est divisible par 7 donc \\( P_0 \\) est vraie.
+    La propriété est vraie au rang 0.
+    <br>Hérédité : Supposons qu'il existe un entier \\( n \\geq 0 \\) tel que \\( P_n \\) est vraie, c'est-à-dire tel que \\( 3^{2n} - 2^n \\) est divisible par 7.
+    <br>Ainsi il existe un entier \\( k \\) tel que \\( 3^{2n} - 2^n = 7k \\).
+    <br>Montrons qu'alors \\( P_{n+1} \\) est vraie, c'est-à-dire que \\( 3^{2(n+1)} - 2^{n+1} \\) est divisible par 7.
+    <br>\\[
+    3^{2(n+1)} - 2^{n+1} = 3^2 \\times 3^{2n} - 2 \\times 2^n
+    \\]
+    <br>\\[
+    = 9 \\times 3^{2n} - 2 \\times 2^n
+    \\]
+    <br>\\[
+    = 9 \\times 7k + 9 \\times 2^n - 2 \\times 2^n
+    \\]
+    <br>\\[
+    = 7 \\times (9k + 2^n)
+    \\]
+    <br>Or \\( 9k + 2^n \\in \\mathbb{Z} \\) donc \\( 3^{2(n+1)} - 2^{n+1} \\) est divisible par 7 et \\( P_{n+1} \\) est vraie.
+    <br>Conclusion : \\( \\forall n \\in \\mathbb{N} \\), \\( 3^{2n} - 2^n \\) est divisible par 7.
+    </li>
+    <li>
+    Initialisation : Montrons que \\( P(0) \\) est vraie.
+    <br>Soit \\( x \\in \\mathbb{R} \\setminus \\{1\\} \\). On a
+    <br>\\[
+    \\sum_{k=0}^{0} x^k = x^0 = 1 = \\frac{1 - x^{0+1}}{1 - x} = \\frac{1 - x}{1 - x} = 1
+    \\]
+    <br>Donc \\( P(0) \\) est vraie.
+    <br>Itération : Soit \\( n \\in \\mathbb{N} \\). 
+    Supposons \\( P(n) \\) vraie et montrons alors que \\( P(n+1) \\) est vraie.
+    <br>Pour que \\( P(n+1) \\) soit vraie il faut démontrer que
+    <br>\\[
+    \\forall x \\in \\mathbb{R} \\setminus \\{1\\}, \\sum_{k=0}^{n+1} x^k = \\frac{1 - x^{n+2}}{1 - x}
+    \\]
+    <br>On a, pour tout \\( x \\in \\mathbb{R} \\setminus \\{1\\}, \\)
+    
+    <br>\\[
+    \\sum_{k=0}^{n+1} x^k = \\left( \\sum_{k=0}^{n} x^k \\right) + x^{n+1}
+    \\]
+
+    <br>\\[
+    = \\frac{1 - x^{n+1}}{1 - x} + x^{n+1}, \\text{car  }  P(n)  \\text{ est vraie}
+    \\]
+
+    <br>\\[
+    = \\frac{1 - x^{n+1}}{1 - x} + x^{n+1} \\times \\frac{1 - x}{1 - x}
+    \\]
+    <br>\\[
+    = \\frac{1 - x^{n+1} + x^{n+1} - x^{n+2}}{1 - x}
+    \\]
+    <br>\\[
+    = \\frac{1 - x^{n+2}}{1 - x}
+    \\]
+    <br>\\( P(n+1) \\) est donc vraie.
+    <br>Conclusion : On a donc démontré par récurrence que \\( P(n) \\) est vraie pour tout \\( n \\in \\mathbb{N} \\).
+    </li>
+
+    <li>
+On établit le résultat par récurrence sur n. On note :
+
+    \\[
+    P_n : 3 \\text{  divise  } 2^{2n} - 1.
+    \\]
+<br>
+     \\(P_0  \\text{  est vraie car  }  2^{2 \\times 0} - 1 = 1 - 1 = 0  \\text{ est divisible par } 3 \\).
+<br>
+     On suppose que \\(P_n\\) est vraie
+
+    \\[
+    2^{2n+2} - 1 = 4 \\times 2^{2n} - 1 = 2^{2n+2} - 1 = 4 (2^{2n} - 1) + 3
+    \\]
+
+    <br>En utilisant \\(P_n\\) il existe \\(p \\in \\mathbb{N}\\) tel que \\( 2^{2n} - 1 = 3p\\), on a donc prouvé que
+
+    \\[
+    2^{2n+2} - 1 = 3(p + 1) \\text{est divisible par} 3.
+    \\]
+
+    \\[
+    P_{n+1} \\text{est vraie}.
+    \\]
+
+    <br> Donc La propriété est établie par récurrence.
+
+    </li>
+
+
+    <li>
+Montrons que : \\(  \\forall n \\in \\mathbb{N} \\), \\(7\\) divise \\(3^{2n+1} + 2^{n+2}\\).<br>
+
+    Pour \\(n = 0\\) on a \\(7\\) divise \\((3^{1} + 2^{2})\\), la proposition est vraie pour \\(n = 0\\).<br>
+    Soit \\(n \\in \\mathbb{N}\\). Supposons que \\(7\\) divise \\(3^{2n+1} + 2^{n+2}\\), et montrons que \\(7\\) divise \\(3^{2n+3} + 2^{n+3}\\).<br>
+    On a \\(7\\) divise \\(3^{2n+1} + 2^{n+2}\\) c-à-d il existe \\(  k \\in \\mathbb{N}\\) tel que \\( 3^{2n+1} + 2^{n+2} = 7k\\)
+    on a :
+
+    \\[
+    3^{2n+3} + 2^{n+3} = 3^{2n+3} + 2^{n+3} \\times 2 \\]
+    \\[
+    = 3^{2n+1} \\times 3^{2} + 2^{n+3} \\times 2
+    \\]
+
+    \\[
+    = (3^{2n+1} + 2^{n+2}) \\times 9 + 2^{n+2} \\times 2
+    \\]
+
+    \\[
+    = 9 \\times (3^{2n+1} + 2^{n+2}) + 2^{n+2} \\times 2 
+    \\]
+
+    \\[
+    = 9 \\times 7k + 2 \\times 2^{n+2}
+    \\]
+
+    \\[
+    = 7(9k + 2^{n+2})
+    \\]
+
+    et comme \\( (3^{2n+1} + 2^{n+2}) \\in \\mathbb{N} \\),on pose \\(k' = 3^{2n+1} + 2^{n+2}\\), donc
+
+    \\[
+    3^{2n+3} + 2^{n+3} = 7k'
+    \\]
+
+    d'où \\( 7 \\text{  divise  }  3^{2n+3} + 2^{n+3}.\\)
+
+    Conclusion : D'après le principe de récurrence
+
+    \\( \\forall n \\in \\mathbb{N})\\), 7 divise \\(3^{2n+1} + 2^{n+2}\\).
+    </li>
+
+        </ol>`
+    }
+
+];
+
+
+
+
+            let currentPage = 1;
+            const itemsPerPage = 3;
+    function addExercise(number, exercise, solution) {
+        const exerciseTemplate = document.getElementById('exercise-template').innerHTML;
+        const solutionTemplate = document.getElementById('solution-template').innerHTML;
+
+        const exerciseHTML = exerciseTemplate
+            .replace(/{{number}}/g, number)
+            .replace('{{exercise}}', exercise);
+        const solutionHTML = solutionTemplate
+            .replace(/{{number}}/g, number)
+            .replace('{{solution}}', solution);
+
+        document.querySelector('#exercises-list').insertAdjacentHTML('beforeend', exerciseHTML);
+        document.querySelector('#solutions-list').insertAdjacentHTML('beforeend', solutionHTML);
+
+        const links = document.querySelectorAll('.solution-link');
+        links.forEach(link => {
+            link.removeEventListener('click', toggleSolution);
+            link.addEventListener('click', toggleSolution);
+        });
+
+        const backLinks = document.querySelectorAll('.back-to-exercise-link');
+        backLinks.forEach(link => {
+            link.removeEventListener('click', toggleSolution);
+            link.addEventListener('click', toggleSolution);
+        });
+
+        MathJax.typesetPromise();
+    }
+
+    function toggleSolution(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        const isSolutionVisible = target.style.display === 'block';
+
+        if (this.classList.contains('solution-link')) {
+            target.style.display = isSolutionVisible ? 'none' : 'block';
+            this.textContent = isSolutionVisible ? 'Solution' : 'Solution';
+        } else {
+            document.querySelectorAll('.solution-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            target.style.display = 'block';
+            document.querySelector(`a[href="#${targetId}"]`).textContent = 'Solution';
+        }
+
+        MathJax.typesetPromise();
+        target.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function displayPage(page) {
+        const startIndex = (page - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+
+        document.querySelector('#exercises-list').innerHTML = '';
+        document.querySelector('#solutions-list').innerHTML = '';
+
+        for (let i = startIndex; i < endIndex && i < exercises.length; i++) {
+            const { number, exercise, solution } = exercises[i];
+            addExercise(number, exercise, solution);
+        }
+
+        document.getElementById('prev-button').disabled = page === 1;
+        document.getElementById('next-button').disabled = endIndex >= exercises.length;
+    }
+
+    document.getElementById('prev-button').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayPage(currentPage);
+        }
+    });
+
+    document.getElementById('next-button').addEventListener('click', () => {
+        if ((currentPage * itemsPerPage) < exercises.length) {
+            currentPage++;
+            displayPage(currentPage);
+        }
+    });
+
+    displayPage(currentPage);
+});
+
+    </script>
+</body>
+</html>

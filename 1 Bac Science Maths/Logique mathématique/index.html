@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logique Mathématique - 1 Bac Sciences Maths</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../exercise-style.css">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            "HTML-CSS": { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="exercises-page">
+    <header>
+        <h1>Logique Mathématique - 1 Bac Sciences Maths</h1>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../index.html">Back to Lessons</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="lesson-intro">
+            <h2>Welcome to Logique Mathématique</h2>
+            <p>Here you will find various exercises to enhance your understanding of mathematical logic. Let's get started!</p>
+        </section>
+        <section class="lesson-exercises">
+            <h2>Exercises</h2>
+            <ul>
+                <!-- Exercises will be added here dynamically -->
+            </ul>
+        </section>
+        <section class="lesson-solutions">
+            <h2>Solutions</h2>
+            <ul>
+                <!-- Solutions will be added here dynamically -->
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>Contact us at info@mathexercises.com</p>
+    </footer>
+
+    <!-- Exercise Template -->
+    <script type="text/template" id="exercise-template">
+        <li>
+            <div class="exercise">
+                <h3>Exercise {{number}}</h3>
+                <div class="exercise-content">
+                    <p>{{exercise}}</p> <!-- LaTeX code for the exercise -->
+                    <a href="#solution{{number}}" class="solution-link">Show Solution</a>
+                </div>
+            </div>
+        </li>
+    </script>
+
+    <!-- Solution Template -->
+    <script type="text/template" id="solution-template">
+        <li id="solution{{number}}" class="solution-content" style="display:none;">
+            <h3>Solution for Exercise {{number}}</h3>
+            <p>{{solution}}</p> <!-- LaTeX code for the solution -->
+        </li>
+    </script>
+
+    <!-- JavaScript to Add Exercises and Solutions Dynamically -->
+    <script>
+        function addExercise(number, exercise, solution) {
+            // Get the exercise and solution templates
+            const exerciseTemplate = document.getElementById('exercise-template').innerHTML;
+            const solutionTemplate = document.getElementById('solution-template').innerHTML;
+
+            // Replace placeholders with actual exercise data
+            const exerciseHTML = exerciseTemplate
+                .replace(/{{number}}/g, number)
+                .replace('{{exercise}}', exercise);
+            const solutionHTML = solutionTemplate
+                .replace(/{{number}}/g, number)
+                .replace('{{solution}}', solution);
+
+            // Append the exercise to the exercise list
+            document.querySelector('.lesson-exercises ul').insertAdjacentHTML('beforeend', exerciseHTML);
+            // Append the solution to the solution list
+            document.querySelector('.lesson-solutions ul').insertAdjacentHTML('beforeend', solutionHTML);
+
+            // Re-initialize solution link event listeners
+            const links = document.querySelectorAll('.solution-link');
+            links.forEach(link => {
+                link.removeEventListener('click', toggleSolution); // Remove any previous event listeners
+                link.addEventListener('click', toggleSolution); // Add new event listener
+            });
+
+            // Render MathJax content
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+
+        function toggleSolution(e) {
+            e.preventDefault();
+            const solutionId = this.getAttribute('href').substring(1);
+            const solution = document.getElementById(solutionId);
+            solution.style.display = solution.style.display === 'block' ? 'none' : 'block';
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+
+        // Example: Add exercises dynamically
+        addExercise(1, 
+            `Nier les propositions suivantes : <br>
+            <span class="proposition"><span class="circle">1</span> \\(P_1 : ( \\exists x \\in \\mathbb{R}^+ ) \\; x^3 = -7\\)</span> <br>
+            <span class="proposition"><span class="circle">2</span> \\(P_2 : ( \\forall x < 0 ), \\; x^2 + x + 1 > 0\\)</span> <br>
+            <span class="proposition"><span class="circle">3</span> \\(P_3 : ( \\exists a \\in \\mathbb{Q} ), \\; \\sqrt{2} < a < \\sqrt{3}\\)</span> <br>
+            <span class="proposition"><span class="circle">4</span> \\(P_4 : \\; 0 = 5 \\Rightarrow \\sqrt{3} \\neq -1\\)</span> <br>
+            <span class="proposition"><span class="circle">5</span> \\(P_5 : ( \\forall x \\in \\mathbb{R} ) ( \\exists a \\in \\mathbb{R} ), \\; x^2 - ax + 1 = 0\\)</span> <br>
+            <span class="proposition"><span class="circle">6</span> \\(P_6 : ( \\exists m \\in \\mathbb{R} ) ( \\forall x \\in \\mathbb{R} ), \\; \\frac{1 - x^2}{1 + x^2} \\geq m\\)</span> <br>
+            <span class="proposition"><span class="circle">7</span> \\(P_7 : \\left[ ( \\exists a \\in \\mathbb{R} ) ( \\forall x > 0 ), \\; x \\geq |a| \\right] \\Rightarrow a = 0\\)</span> <br>
+            <span class="proposition"><span class="circle">8</span> \\(P_8 : ( \\forall x \\in \\mathbb{R} ) \\; x^2 = 0 \\iff x = 0\\)</span>`
+        , 
+            `1. \\(\\textbf{Solution:}\\) The negation is: \\( ( \\forall x \\in \\mathbb{R}^+ ) \\; x^3 \\neq -7\\) <br>
+            2. \\(\\textbf{Solution:}\\) The negation is: \\( ( \\exists x < 0 ) \\; x^2 + x + 1 \\leq 0\\) <br>
+            3. \\(\\textbf{Solution:}\\) The negation is: \\( ( \\forall a \\in \\mathbb{Q} ) \\; a \\leq \\sqrt{2} \\text{ or } a \\geq \\sqrt{3}\\) <br>
+            4. \\(\\textbf{Solution:}\\) The negation is: \\( 0 = 5 \\text{ and } \\sqrt{3} = -1\\) <br>
+            5. \\(\\textbf{Solution:}\\) The negation is: \\( ( \\exists x \\in \\mathbb{R} ) ( \\forall a \\in \\mathbb{R} ), \\; x^2 - ax + 1 \\neq 0\\) <br>
+            6. \\(\\textbf{Solution:}\\) The negation is: \\( ( \\forall m \\in \\mathbb{R} ) ( \\exists x \\in \\mathbb{R} ), \\; \\frac{1 - x^2}{1 + x^2} < m\\) <br>
+            7. \\(\\textbf{Solution:}\\) The negation is: \\( \\left[ ( \\exists a \\in \\mathbb{R} ) ( \\forall x > 0 ), \\; x \\geq |a| \\right] \\text{ and } a \\neq 0\\) <br>
+           
+            8. \\(\\textbf{Solution:}\\) The negation is: \\( ( \\exists x \\in \\mathbb{R} ) \\; x^2 = 0 \\text{ and } x \\neq 0 \\text{ or } x^2 \\neq 0 \\text{ and } x = 0\\)`
+        );
+
+        addExercise(2, 
+            'Solve the equation: \\( ax^2 + bx + c = 0 \\)', 
+            'The solution to the quadratic equation is given by the quadratic formula: \\( x = \\frac{{-b \\pm \\sqrt{{b^2 - 4ac}}}}{2a} \\).'
+        );
+    </script>
+</body>
+</html>
